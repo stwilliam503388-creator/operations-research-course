@@ -157,6 +157,10 @@
 | `06-case-queue.md` | 案例4：服务系统排队优化（仿真）★★★☆☆ | ~2,500 |
 | `07-case-scheduling.md` | 案例5：人员排班与约束规划★★★★☆ [进阶] | ~3,000 |
 | `08-capstone.md` | 🏆 综合毕业项目 | ~2,000 |
+| `SB1-Pyomo建模框架.md` | 🧰 从手写到框架：Pyomo 快速建模 | ~3,000 |
+| `SB2-SimPy仿真.md` | 🧰 当数学不够用：SimPy 排队仿真 | ~3,000 |
+| `SB3-元启发式.md` | 🧰 精确解不可行：SA + GA 解 TSP | ~3,000 |
+| `SB4-建模实战.md` | 🧰 建模实战：产品组合 + 影子价格 | ~3,000 |
 | `appendix-a-when-not-or.md` | 附录A：什么时候不需要运筹学 | ~800 |
 | `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
 | `appendix-c-ml-intersection.md` | 附录C：运筹学 × ML 的交叉点 | ~800 |
