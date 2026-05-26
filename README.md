@@ -43,15 +43,15 @@
 
 | 目录 | 课程 | 难度 | 核心内容 | 文件数 |
 |------|------|------|---------|--------|
-| `probability/` | 📈 概率论与数理统计 | ★★~★★★★ | 6大分布、CLT、贝叶斯、假设检验、蒙特卡洛 | 20 |
-| `low-complexity-algorithm/` | 🧮 低复杂度算法设计 | ★★~★★★★ | DP、贪心、分治、二分、滑动窗口、单调栈 | 20 |
-| `pde-simulation/` | 📐 物理方程求解 | ★★~★★★★ | FDM、热传导、波动、Burgers、Laplace、梁 | 20 |
-| `mip-solver/` | 🔧 MIP求解器技术 | ★★~★★★★ | 分支定界、割平面、VRP、排程、投资组合 | 27 |
-| `operations-research/` | 📊 运筹学基础与实战 | ★★~★★★★ | LP、MIP、排队论、仿真、元启发式、Pyomo | 28 |
-| `game-theory/` | ♟️ 博弈论基础与实战 | ★★~★★★★ | 纳什均衡、拍卖、谈判、合作博弈、信号传递 | 20 |
-| `supply-chain/` | 📦 库存与供应链管理 | ★★~★★★★ | EOQ、报童、牛鞭效应、契约设计、网络设计 | 20 |
-| `stochastic-optimization/` | 🎲 随机规划与鲁棒优化 | ★★★~★★★★ | 两阶段、场景生成、不确定性集合、分布鲁棒 | 28 |
-| `multiobjective-optimization/` | 🎯 多目标优化 | ★★~★★★★ | ε-约束、NSGA-II、Pareto前沿、目标规划 | 24 |
+| `01-概率论与数理统计/` | 📈 概率论与数理统计 | ★★~★★★★ | 6大分布、CLT、贝叶斯、假设检验、蒙特卡洛 | 20 |
+| `02-低复杂度算法设计/` | 🧮 低复杂度算法设计 | ★★~★★★★ | DP、贪心、分治、二分、滑动窗口、单调栈 | 20 |
+| `03-PDE物理方程求解/` | 📐 物理方程求解 | ★★~★★★★ | FDM、热传导、波动、Burgers、Laplace、梁 | 20 |
+| `04-MIP求解器技术/` | 🔧 MIP求解器技术 | ★★~★★★★ | 分支定界、割平面、VRP、排程、投资组合 | 27 |
+| `05-运筹学基础与实战/` | 📊 运筹学基础与实战 | ★★~★★★★ | LP、MIP、排队论、仿真、元启发式、Pyomo | 28 |
+| `06-博弈论基础与实战/` | ♟️ 博弈论基础与实战 | ★★~★★★★ | 纳什均衡、拍卖、谈判、合作博弈、信号传递 | 20 |
+| `07-库存与供应链管理/` | 📦 库存与供应链管理 | ★★~★★★★ | EOQ、报童、牛鞭效应、契约设计、网络设计 | 20 |
+| `08-随机规划与鲁棒优化/` | 🎲 随机规划与鲁棒优化 | ★★★~★★★★ | 两阶段、场景生成、不确定性集合、分布鲁棒 | 28 |
+| `09-多目标优化/` | 🎯 多目标优化 | ★★~★★★★ | ε-约束、NSGA-II、Pareto前沿、目标规划 | 24 |
 
 ---
 
@@ -75,27 +75,27 @@
 
 ### 从零开始（推荐）
 ```
-probability → low-complexity-algorithm → operations-research → game-theory → supply-chain → multiobjective-optimization
+01-概率论与数理统计 → 02-低复杂度算法设计 → 05-运筹学基础与实战 → 06-博弈论基础与实战 → 07-库存与供应链管理 → 09-多目标优化
 ```
 
 ### 面试/竞赛
 ```
-low-complexity-algorithm → operations-research（LP/网络流/DP）→ game-theory
+02-低复杂度算法设计 → 05-运筹学基础与实战（LP/网络流/DP）→ 06-博弈论基础与实战
 ```
 
 ### 工业应用
 ```
-probability → operations-research → supply-chain → stochastic-optimization → multiobjective-optimization
+01-概率论与数理统计 → 05-运筹学基础与实战 → 07-库存与供应链管理 → 08-随机规划与鲁棒优化 → 09-多目标优化
 ```
 
 ### 研究方向
 ```
-probability → pde-simulation → operations-research → stochastic-optimization → multiobjective-optimization
+01-概率论与数理统计 → 03-PDE物理方程求解 → 05-运筹学基础与实战 → 08-随机规划与鲁棒优化 → 09-多目标优化
 ```
 
 ### 求解器深度
 ```
-probability → operations-research → mip-solver
+01-概率论与数理统计 → 05-运筹学基础与实战 → 04-MIP求解器技术
 ```
 
 ---
@@ -104,31 +104,31 @@ probability → operations-research → mip-solver
 
 ```bash
 # 概率论与数理统计
-cd probability/ && cat README.md
+cd 01-概率论与数理统计/ && cat README.md
 
 # 低复杂度算法设计
-cd low-complexity-algorithm/ && cat README.md
+cd 02-低复杂度算法设计/ && cat README.md
 
 # 物理方程求解
-cd pde-simulation/ && cat README.md
+cd 03-PDE物理方程求解/ && cat README.md
 
 # MIP 求解器技术
-cd mip-solver/ && cat README.md
+cd 04-MIP求解器技术/ && cat README.md
 
 # 运筹学基础与实战
-cd operations-research/ && cat README.md
+cd 05-运筹学基础与实战/ && cat README.md
 
 # 博弈论
-cd game-theory/ && cat README.md
+cd 06-博弈论基础与实战/ && cat README.md
 
 # 供应链管理
-cd supply-chain/ && cat README.md
+cd 07-库存与供应链管理/ && cat README.md
 
 # 随机规划与鲁棒优化
-cd stochastic-optimization/ && cat README.md
+cd 08-随机规划与鲁棒优化/ && cat README.md
 
 # 多目标优化
-cd multiobjective-optimization/ && cat README.md
+cd 09-多目标优化/ && cat README.md
 ```
 
 ---
@@ -161,4 +161,4 @@ cd multiobjective-optimization/ && cat README.md
 能。每门课都配有 Python 代码示例（主要在 `code/` 子目录），依赖在各自 README 里说明。
 
 **Q: 这个 monorepo 和原来的独立 repo 有什么关系？**  
-这是所有课程的统一入口。原来的独立 repo（`probability-course`、`game-theory-course` 等）已合并到此 monorepo，后续更新都在这里进行。
+原来的独立 repo（`probability-course`、`game-theory-course`、`low-complexity-algorithm-course` 等 9 个）已全部合并到此 monorepo，后续更新都在这里进行。`course-series` 仓库是早期的索引项目，本 monorepo 已完全替代其功能，可以归档。
