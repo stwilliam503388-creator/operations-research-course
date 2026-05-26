@@ -161,4 +161,4 @@ cd 09-多目标优化/ && cat README.md
 能。每门课都配有 Python 代码示例（主要在 `code/` 子目录），依赖在各自 README 里说明。
 
 **Q: 这个 monorepo 和原来的独立 repo 有什么关系？**  
-这是所有课程的统一入口。原来的独立 repo（`probability-course`、`game-theory-course` 等）已合并到此 monorepo，后续更新都在这里进行。
+原来的独立 repo（`probability-course`、`game-theory-course`、`low-complexity-algorithm-course` 等 9 个）已全部合并到此 monorepo，后续更新都在这里进行。`course-series` 仓库是早期的索引项目，本 monorepo 已完全替代其功能，可以归档。
