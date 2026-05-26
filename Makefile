@@ -3,14 +3,16 @@
 #   make          → 列出所有代码
 #   make python   → 运行所有 Python 代码验证
 #   make list     → 列出所有可运行代码
-#   make clean    → 清理缓存文件
+#   make clean    → 清理编译产物
 
 .PHONY: all python list clean
 
 PYTHON := python3
 
+# 查找所有 Python 代码（排除 venv、cache 和 prompts 目录）
 PY_FILES := $(shell find . -name '*.py' -not -path '*/venv/*' -not -path '*/.venv/*' -not -path '*/__pycache__/*' -not -path '*/prompts/*' | sort)
 
+# 默认: 列出所有代码
 all: list
 
 list:
