@@ -1,0 +1,20 @@
+# 运筹学与优化方法课程系列 — Python 依赖
+# Operations Research & Optimization Course Series — Python Dependencies
+# 安装 / Install: pip install -r requirements.txt
+#
+# 各课程依赖情况 / Per-course dependencies:
+#   01-概率论与数理统计       : numpy, matplotlib, scipy
+#   02-低复杂度算法设计       : 仅标准库 / stdlib only
+#   03-PDE物理方程求解        : numpy, matplotlib, scipy
+#   04-MIP求解器技术          : numpy, pyomo (或/or gurobipy/coptpy)
+#   05-运筹学基础与实战       : numpy, matplotlib, pyomo, simpy
+#   06-博弈论基础与实战       : numpy, matplotlib, scipy
+#   07-库存与供应链管理       : numpy, matplotlib
+#   08-随机规划与鲁棒优化     : numpy, matplotlib, scipy
+#   09-多目标优化             : numpy, matplotlib, scipy
+
+numpy>=1.20.0
+matplotlib>=3.3.0
+scipy>=1.7.0
+pyomo>=6.0
+simpy>=4.0
