@@ -47,9 +47,9 @@
 
 **热传导方程（1D 形式）**：
 
-\[
+$$
 \frac{\partial u}{\partial t} = \alpha \frac{\partial^2 u}{\partial x^2}
-\]
+$$
 
 其中：
 
@@ -87,15 +87,15 @@
 
 代入热传导方程，得到显式更新公式：
 
-\[
+$$
 u^{n+1}_i = u^n_i + r \cdot (u^n_{i-1} - 2u^n_i + u^n_{i+1})
-\]
+$$
 
 其中：
 
-\[
+$$
 r = \frac{\alpha \Delta t}{\Delta x^2}
-\]
+$$
 
 ### 生活类比
 
@@ -111,9 +111,9 @@ r 越大，扩散越快。但如果 r 太大，预测就会「过头」——数
 
 对于 FTCS 显式格式，稳定性条件是：
 
-\[
+$$
 r = \frac{\alpha \Delta t}{\Delta x^2} \leq 0.5
-\]
+$$
 
 ### 为什么？
 
@@ -253,9 +253,9 @@ CFL 限制: dt ≤ 104.2 μs (α·dt/dx² ≤ 0.5)
 
 真实材料的热扩散率 α 通常随温度变化：α = α(u)。方程变为非线性：
 
-\[
+$$
 \frac{\partial u}{\partial t} = \frac{\partial}{\partial x} \left( \alpha(u) \frac{\partial u}{\partial x} \right)
-\]
+$$
 
 处理方法：在 FTCS 中，r 在空间上不再均匀——每个网格点有不同的 α 值。
 
