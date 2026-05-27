@@ -107,10 +107,26 @@ $$
 因为目标函数是二次的、约束是线性的，且 $\Sigma$ 正定，这个 QP 有**解析解**。
 
 步骤：
+
 1. 计算 $\Sigma^{-1}$
-2. 构造 $M = \begin{bmatrix} \mu^\top \Sigma^{-1} \mu & \mu^\top \Sigma^{-1} \mathbf{1} \\ \mathbf{1}^\top \Sigma^{-1} \mu & \mathbf{1}^\top \Sigma^{-1} \mathbf{1} \end{bmatrix}$
-3. 解 $M \begin{bmatrix} \lambda_1 \\ \lambda_2 \end{bmatrix} = \begin{bmatrix} 2\mu_p \\ 2 \end{bmatrix}$
-4. 代回 $w^* = \frac{1}{2} \Sigma^{-1}(\lambda_1 \mu + \lambda_2 \mathbf{1})$
+
+2. 构造矩阵 $M$：
+
+$$
+M = \begin{bmatrix} \mu^\top \Sigma^{-1} \mu & \mu^\top \Sigma^{-1} \mathbf{1} \\ \mathbf{1}^\top \Sigma^{-1} \mu & \mathbf{1}^\top \Sigma^{-1} \mathbf{1} \end{bmatrix}
+$$
+
+3. 解方程：
+
+$$
+M \begin{bmatrix} \lambda_1 \\ \lambda_2 \end{bmatrix} = \begin{bmatrix} 2\mu_p \\ 2 \end{bmatrix}
+$$
+
+4. 代回得最优权重：
+
+$$
+w^* = \frac{1}{2} \Sigma^{-1}(\lambda_1 \mu + \lambda_2 \mathbf{1})
+$$
 
 ### 方法 2：蒙特卡洛模拟（数值验证）
 
