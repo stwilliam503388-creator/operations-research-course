@@ -38,9 +38,9 @@
 
 **1D 波动方程**描述了位移 u(x,t) 在介质中的传播：
 
-\[
+$$
 \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2}
-\]
+$$
 
 | 符号 | 含义 | 典型值 |
 |------|------|--------|
@@ -81,9 +81,9 @@
 
 对于无限域上的 1D 波动方程，达朗贝尔给出了通解：
 
-\[
+$$
 u(x,t) = \frac{1}{2}[f(x-ct) + f(x+ct)] + \frac{1}{2c}\int_{x-ct}^{x+ct} g(\xi) d\xi
-\]
+$$
 
 其中 f(x) = u(x,0) 是初始位移，g(x) = ∂u/∂t(x,0) 是初始速度。
 
@@ -91,9 +91,9 @@ u(x,t) = \frac{1}{2}[f(x-ct) + f(x+ct)] + \frac{1}{2c}\int_{x-ct}^{x+ct} g(\xi) 
 
 对于我们的案例（g=0）：
 
-\[
+$$
 u(x,t) = \frac{1}{2}f(x-ct) + \frac{1}{2}f(x+ct)
-\]
+$$
 
 ---
 
@@ -103,29 +103,29 @@ u(x,t) = \frac{1}{2}f(x-ct) + \frac{1}{2}f(x+ct)
 
 时间二阶导数用中心差分，空间二阶导数也用中心差分：
 
-\[
+$$
 \frac{u^{n+1}_i - 2u^n_i + u^{n-1}_i}{\Delta t^2} = c^2 \frac{u^n_{i-1} - 2u^n_i + u^n_{i+1}}{\Delta x^2}
-\]
+$$
 
 整理得到**显式三时间层格式**：
 
-\[
+$$
 u^{n+1}_i = 2u^n_i - u^{n-1}_i + \sigma^2 \cdot (u^n_{i-1} - 2u^n_i + u^n_{i+1})
-\]
+$$
 
 其中：
 
-\[
+$$
 \sigma = \frac{c \Delta t}{\Delta x} \quad \text{(Courant 数)}
-\]
+$$
 
 ### 第一步特殊处理
 
 三步格式中，n=0 时 u^{-1}_i 未知。利用初始速度 ∂u/∂t(x,0) = v₀(x)：
 
-\[
+$$
 u^1_i \approx u^0_i + v_0(x_i)\Delta t + \frac{\sigma^2}{2}(u^0_{i-1} - 2u^0_i + u^0_{i+1})
-\]
+$$
 
 ---
 
@@ -133,9 +133,9 @@ u^1_i \approx u^0_i + v_0(x_i)\Delta t + \frac{\sigma^2}{2}(u^0_{i-1} - 2u^0_i +
 
 ### 稳定性条件
 
-\[
+$$
 \sigma = \frac{c \Delta t}{\Delta x} \leq 1
-\]
+$$
 
 ### 物理直觉
 
@@ -183,15 +183,15 @@ u[n+1, -1] = 0.0
 
 左边界 (x=0)，波向左传播：
 
-\[
+$$
 \frac{\partial u}{\partial t} - c \frac{\partial u}{\partial x} = 0
-\]
+$$
 
 离散形式：
 
-\[
+$$
 u^{n+1}_0 = u^n_1 + \frac{\sigma - 1}{\sigma + 1} (u^{n+1}_1 - u^n_0)
-\]
+$$
 
 当 σ = 1 时这个边界是完美匹配的（波完全无反射）。σ 偏离 1 越远，残留反射越大。
 
@@ -317,9 +317,9 @@ CFL 条件不是数值分析家的发明——它是**物理因果律**在数值
 
 ### 2. 2D/3D 波动方程
 
-\[
+$$
 \frac{\partial^2 u}{\partial t^2} = c^2 \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} + \frac{\partial^2 u}{\partial z^2} \right)
-\]
+$$
 
 CFL 条件变为：c·Δt · √(1/Δx² + 1/Δy² + 1/Δz²) ≤ 1
 

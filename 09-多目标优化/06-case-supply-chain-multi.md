@@ -49,7 +49,7 @@
 
 ### 三目标供应链模型
 
-\[
+$$
 \begin{aligned}
 \min \quad & f_1 = \sum_{i,j} c_{ij} x_{ij} + \sum_j h_j I_j + \sum_k t_k y_k \quad \text{(总成本)} \\
 \max \quad & f_2 = \frac{\sum_j \min(I_j, D_j)}{\sum_j D_j} \quad \text{(服务水平)} \\
@@ -58,7 +58,7 @@
 & I_j \ge 0 \quad \text{(库存非负)} \\
 & y_k \ge 0 \quad \text{(运输量非负)}
 \end{aligned}
-\]
+$$
 
 ### 难点
 
@@ -81,9 +81,9 @@
 ### 2. ε-约束法
 将服务水平作为约束，变化 ε 值，目标为最小化成本和碳排放的加权和：
 
-\[
+$$
 \min (w \cdot \text{cost} + (1-w) \cdot \text{emission}) \quad \text{s.t.} \quad \text{service} \ge \varepsilon
-\]
+$$
 
 通过变化 ε，可以得到不同服务水平下的最优成本-排放组合。
 

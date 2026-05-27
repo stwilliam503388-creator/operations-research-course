@@ -21,9 +21,9 @@
 
 ### 物理场 1：热传导（抛物型 PDE）
 
-\[
+$$
 \rho c_p \frac{\partial T}{\partial t} = \nabla \cdot (k \nabla T) + Q
-\]
+$$
 
 - T(x,y,t) — 温度场 [°C]
 - k — 导热系数 [W/(m·K)]（硅: 130, FR4: 0.3）
@@ -38,15 +38,15 @@
 
 热膨胀产生的应变：
 
-\[
+$$
 \boldsymbol{\varepsilon} = \frac{1}{2}(\nabla \mathbf{u} + \nabla \mathbf{u}^T)
-\]
+$$
 
 本构关系（平面应力近似）：
 
-\[
+$$
 \boldsymbol{\sigma} = \frac{E}{1-\nu^2} \left[ \boldsymbol{\varepsilon} - \alpha \Delta T \cdot \mathbf{I} \right]
-\]
+$$
 
 - u = (u, v) — 位移场
 - σ — 应力张量
@@ -55,9 +55,9 @@
 
 平衡方程（忽略惯性力）：
 
-\[
+$$
 \nabla \cdot \boldsymbol{\sigma} + \mathbf{f} = 0
-\]
+$$
 
 ### 耦合方式
 
