@@ -1,4 +1,3 @@
-<!-- 文件: game-theory-course/README.md -->
 # 博弈论基础与实战课程
 
 > 一个周末，从零到能看懂博弈论的核心概念、把竞争/合作场景建模成博弈、以及用 Python 求解纳什均衡。
@@ -26,7 +25,9 @@
 |------|---------|-----------|
 | 博弈 | Game | 你的收益不仅取决于你怎么选，还取决于别人怎么选 |
 | 参与者 | Player | 做决策的人——你、你的竞争对手、拍卖中的出价人 |
-| 策略 | Strategy | 你在所有可能情况下打算怎么做 |纯策略 | Pure Strategy | 确定的选择——我选 A 就是 A |混合策略 | Mixed Strategy | 随机化选择——我 60% 概率选 A，40% 概率选 B |
+| 策略 | Strategy | 你在所有可能情况下打算怎么做 |
+| 纯策略 | Pure Strategy | 确定的选择——我选 A 就是 A |
+| 混合策略 | Mixed Strategy | 随机化选择——我 60% 概率选 A，40% 概率选 B |
 | 收益 | Payoff | 每种策略组合下的结果——利润、得分、效用 |
 | 纳什均衡 | Nash Equilibrium | 给定别人的选择，没有人想单方面改变自己的选择 |
 | 占优策略 | Dominant Strategy | 不管别人怎么选，我选这个总是最好的 |
@@ -128,6 +129,18 @@
 
 ---
 
+## 学习验收标准
+
+学完本课程后，建议用下面 5 条自检：
+
+- 能用“给定别人不变，我是否愿意单方面改变”解释纳什均衡。
+- 能区分占优策略、纳什均衡、帕累托最优，不把它们混成“最好的结果”。
+- 能指出完全理性、共同知识、收益已知这些教学假设在真实商业中什么时候不成立。
+- 能运行 Python 博弈案例和 C++ 2x2 均衡枚举案例，并解释每个均衡为什么成立。
+- 能判断一个商业竞争场景更像定价博弈、拍卖、谈判还是信号传递。
+
+---
+
 ## 目录
 
 | 文件 | 内容 | 字数 |
@@ -144,6 +157,18 @@
 | `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
 | `appendix-c-ml-intersection.md` | 附录C：博弈论 × ML 的交叉点 | ~800 |
 | `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
+| `code/cpp/case03_prisoner_equilibrium.cpp` | C++17 对照案例：2x2 博弈纯策略纳什均衡枚举 | — |
 
 ---
+
+## C++ 对照案例
+
+C++ 案例用于展示收益矩阵、策略枚举和均衡判断的最小实现：
+
+```bash
+g++ -std=c++17 -O2 code/cpp/case03_prisoner_equilibrium.cpp -o /tmp/case03_prisoner_equilibrium
+/tmp/case03_prisoner_equilibrium
+```
+
+它对应 `03-case-prisoner.md`，适合用来理解“给定别人策略后没有单方面改动动机”的程序化判定。
 

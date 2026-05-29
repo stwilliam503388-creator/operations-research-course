@@ -120,7 +120,7 @@ python3 -m venv algo-env
 source algo-env/bin/activate
 
 # 2. 进入课程目录
-cd low-complexity-algo-course
+cd "02-低复杂度算法设计"
 
 # 3. 确认 Python 版本
 python --version  # >= 3.9

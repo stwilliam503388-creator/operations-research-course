@@ -41,9 +41,9 @@
 |------|---------|-----------|
 | 多目标优化 | Multi-Objective Optimization | 同时优化多个冲突的目标函数 |
 | 帕累托最优 | Pareto Optimality | 不可能让任何一个目标更好而不让至少另一个目标更差 |
-| 帕累托前沿 | Pareto Front / Pareto Frontier | 所有帕累托最优解在目标空间中的集合——你的候选方案集 |
-| 非支配解 | Non-dominated Solution | 没有任何其他解在所有目标上都比它好——它是「不被支配」的 |
-| 支配关系 | Domination | 解 A 支配解 B ⇔ A 在所有目标上不差于 B 且至少一个目标严格更好 |
+| 帕累托前沿 | Pareto Front / Pareto Frontier | 所有帕累托最优解在目标空间中的集合——候选方案集，不是自动推荐答案 |
+| 非支配解 | Non-dominated Solution | 没有其他解能在所有目标上不差且至少一个目标更好 |
+| 支配关系 | Domination | 解 A 支配解 B ⇔ A 在所有目标上不差于 B，且至少一个目标严格更好 |
 | 加权求和法 | Weighted Sum Method | 给每个目标一个权重，合并成单目标——简单但可能漏掉非凸前沿 |
 | ε-约束法 | ε-Constraint Method | 选一个目标做目标函数，其余转成约束——能找凸和非凸前沿 |
 | 目标规划 | Goal Programming | 给每个目标设一个理想值，最小化偏离的加权和 |
@@ -69,6 +69,16 @@
 | 多属性决策 | MCDM | 从已有的有限个方案中选一个（和 MOO 不同，MOO 还负责生成方案）|
 | 帕累托最优性必要条件 | Necessary Conditions for Pareto Optimality | 多目标版本的 KKT 条件 |
 | 正则化 | Normalization | 不同目标量纲不同，需要归一化后再比较 |
+
+---
+
+### 概念边界：前沿不是答案
+
+多目标优化最容易误解的一点是：**帕累托前沿只告诉你“哪些方案值得考虑”，不告诉你“最终必须选哪个”。**
+
+- 如果决策者已经知道偏好权重，可以用加权求和或目标规划选一个折衷解。
+- 如果偏好还不清楚，应先生成前沿，再让决策者在成本、风险、服务水平等目标之间权衡。
+- 如果前沿是非凸的，单纯改变权重可能找不到某些 Pareto 解，此时 ε-约束法或进化多目标算法更稳妥。
 
 ---
 
@@ -148,6 +158,18 @@
 
 ---
 
+## 学习验收标准
+
+学完本课程后，建议用下面 5 条自检：
+
+- 能区分帕累托最优、帕累托前沿、非支配解和最终推荐方案。
+- 能说明加权求和法为什么简单，以及为什么可能漏掉非凸前沿。
+- 能判断何时用加权求和、ε-约束、目标规划、NSGA-II 或交互式方法。
+- 能运行 Python NSGA-II 案例和 C++ 非支配排序对照案例，并解释第一层前沿如何产生。
+- 能指出多目标模型最终仍需要偏好、约束或决策者参与，不能只把前沿图交给业务方。
+
+---
+
 ## 目录
 
 | 文件 | 内容 | 字数 |
@@ -164,12 +186,26 @@
 | `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
 | `appendix-c-ml-intersection.md` | 附录C：多目标优化 × ML 的交叉点 | ~800 |
 | `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
-| `code/case3_portfolio.py` | 案例1代码：投资组合双目标优化 | — |
-| `code/case4_product_design.py` | 案例2代码：产品设计权衡 | — |
-| `code/case5_scheduling.py` | 案例3代码：生产调度多目标 | — |
-| `code/case6_supplychain.py` | 案例4代码：供应链多目标 | — |
-| `code/case7_nsga2.py` | 案例5代码：从零实现 NSGA-II | — |
-| `code/capstone_logistics.py` | 毕业项目：城市物流多目标优化 | — |
+| `code/case03_portfolio_multi.py` | 案例1代码：投资组合双目标优化 | — |
+| `code/case04_product_design.py` | 案例2代码：产品设计权衡 | — |
+| `code/case05_scheduling_multi.py` | 案例3代码：生产调度多目标 | — |
+| `code/case06_supply_chain_multi.py` | 案例4代码：供应链多目标 | — |
+| `code/case07_nsga2.py` | 案例5代码：从零实现 NSGA-II | — |
+| `code/capstone.py` | 毕业项目：城市物流多目标优化 | — |
+| `code/cpp/case07_pareto_sort.cpp` | C++17 对照案例：非支配排序与拥挤距离 | — |
+
+---
+
+## C++ 对照案例
+
+多目标优化的 C++ 案例聚焦 NSGA-II 的核心数据结构，而不是完整复刻 Python 可视化：
+
+```bash
+g++ -std=c++17 -O2 code/cpp/case07_pareto_sort.cpp -o /tmp/case07_pareto_sort
+/tmp/case07_pareto_sort
+```
+
+学习目标：理解支配关系、第一层 Pareto 前沿和拥挤距离如何用数组与排序实现。
 
 ---
 

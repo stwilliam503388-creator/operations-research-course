@@ -228,7 +228,7 @@ mip-course/
 ```bash
 python3 -m venv mip-env
 source mip-env/bin/activate
-cd mip-course
+cd "04-MIP求解器技术"
 pip install -r code/requirements.txt
 ```
 
