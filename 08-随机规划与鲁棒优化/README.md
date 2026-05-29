@@ -12,7 +12,7 @@
 
 这时候，**不确定性优化**就出场了。
 
-这份教程用 **12 个文档 + 6 个可运行 Python 代码**，从最基础的「为什么确定性优化不够」讲起，带你走过随机规划、鲁棒优化、分布鲁棒优化三大范式，用 5 个行业案例 + 1 个毕业项目，让你真正上手。
+这份教程以 README 文件清单中的 **12 个正本文档 + 6 个主线 Python 代码** 为学习入口，从最基础的「为什么确定性优化不够」讲起，带你走过随机规划、鲁棒优化、分布鲁棒优化三大范式，用 5 个行业案例 + 1 个毕业项目，让你真正上手。仓库中保留的同主题早期草稿仅用于历史参考，学习时以本 README 清单为准。
 
 **读完你能：**
 - 跟同事解释「随机规划 vs 鲁棒优化到底在解决什么问题、各在什么场景下好用」
@@ -27,33 +27,33 @@
 
 | 中文 | English | 一句话人话 |
 |------|---------|-----------|
-| 随机规划 | Stochastic Programming | 已知概率分布下的多场景决策——先做决策，等不确定性揭晓后再补救 |
-| 场景 | Scenario | 未来可能发生的某种具体情形——需求 1000 是一个场景，需求 1200 是另一个 |
-| 两阶段 | Two-Stage | 先做「这里决策」（备料），再看结果做「那里决策」（生产）——观察→行动 |
-| 对等模型 | Deterministic Equivalent | 把随机问题变成一个确定性的、可解的数学规划模型 |
-| 期望值 | Expected Value | 所有场景的加权平均——用平均代替不确定，不一定最优但简单 |
-| CVaR | Conditional Value-at-Risk | 尾部损失的期望——「最差的那 5% 情况平均亏多少钱」 |
-| 鲁棒优化 | Robust Optimization | 不知道完整概率分布但知道范围——让方案在坏情况下仍满足约束或损失可控 |
-| 不确定性集合 | Uncertainty Set | 不确定性参数的取值范围——需求在 [800, 1200] 之间 |
-| 椭球集 | Ellipsoidal Set | 形状像椭球的不确定性集合——比箱式更紧，能排除极端组合 |
-| 预算不确定性 | Budget Uncertainty | 最多 K 个参数同时达到最坏值——「不可能所有供应商同时出事」 |
-| 分布鲁棒 | Distributionally Robust Optimization (DRO) | 数据有限、分布估计不准时，在一组可能分布里防最坏分布 |
-| 机会约束 | Chance Constraint | 要求约束以一定概率成立——「90% 的情况下不会缺货」 |
-| 蒙特卡洛场景生成 | Monte Carlo Scenario Generation | 用随机抽样从分布中生成代表性场景集 |
-| Benders 分解 | Benders Decomposition | 把复杂问题拆成主问题（整数/战略）和子问题（连续/运营）迭代求解 |
-| 样本均值近似 | Sample Average Approximation (SAA) | 用随机抽样的平均来近似真实期望值 |
+| 随机规划 | Stochastic Programming | 像出门前看天气概率：先做现在必须做的决定，等真实天气来了再补救 |
+| 场景 | Scenario | 未来的一种具体剧本：需求 1000 是一版剧本，需求 1200 是另一版 |
+| 两阶段 | Two-Stage | 先下今天的赌注，再根据明天揭晓的结果调整后续动作 |
+| 对等模型 | Deterministic Equivalent | 把一堆未来剧本摊开，合成一个普通求解器能读懂的大模型 |
+| 期望值 | Expected Value | 按概率加权的平均结果，像“长期平均表现”，但不代表每次都这样 |
+| CVaR | Conditional Value-at-Risk | 专门盯最惨那一小撮情况：比如最差 5% 时平均会亏多少 |
+| 鲁棒优化 | Robust Optimization | 不确定概率没关系，先画出坏情况范围，保证方案别在坏天气里翻车 |
+| 不确定性集合 | Uncertainty Set | 给未来画一个可能范围，比如需求大概在 `[800, 1200]` 之间 |
+| 椭球集 | Ellipsoidal Set | 像给不确定性套一个椭圆壳，比方盒子更柔和，不把所有极端都同时算进去 |
+| 预算不确定性 | Budget Uncertainty | 承认会出事，但不假设所有坏事一起发生；最多 K 个参数同时变坏 |
+| 分布鲁棒 | Distributionally Robust Optimization (DRO) | 样本太少不敢信一个分布，就准备一组可能分布，防里面最麻烦的那个 |
+| 机会约束 | Chance Constraint | 允许小概率违规，但要求大多数时候过关，比如 90% 情况不缺货 |
+| 蒙特卡洛场景生成 | Monte Carlo Scenario Generation | 像用电脑抽很多张未来天气卡，拿这些样本代表不确定未来 |
+| Benders 分解 | Benders Decomposition | 像总经理和运营部门来回沟通：主问题定大方向，子问题反馈哪里不行 |
+| 样本均值近似 | Sample Average Approximation (SAA) | 用抽样出来的平均值代替真正期望，样本越多通常越靠谱 |
 
 ### 🔧 进阶术语（用到时回来查）
 
 | 中文 | English | 一句话人话 |
 |------|---------|-----------|
-| 非预期约束 | Non-anticipativity | 信息未揭晓前不能区别对待——你看到天气预报之前不能根据天气做决策 |
-| 风险中性 | Risk-neutral | 只优化期望值，不显式惩罚波动或尾部损失 |
-| 风险规避 | Risk-averse | 宁愿少赚也不想亏——愿意牺牲部分期望收益来降低尾部风险 |
-| 鲁棒对等模型 | Robust Counterpart | 一个鲁棒优化问题等价的可解确定性模型 |
-| 割平面法 | Cutting Plane Method | 逐步添加有效约束逼近最优解——像雕琢石头，每次去掉一小块废料 |
-| 情境树 | Scenario Tree | 多层决策的树状场景结构——每一步的决策依赖于之前的信息 |
-| Wasserstein 距离 | Wasserstein Distance | 衡量两个概率分布有多像——分布鲁棒中用这个定义模糊集合 |
+| 非预期约束 | Non-anticipativity | 信息没揭晓前不能开天眼：今天的决策不能偷偷根据明天结果来定 |
+| 风险中性 | Risk-neutral | 只看平均赚多少，不额外害怕波动和极端亏损 |
+| 风险规避 | Risk-averse | 宁愿少赚一点，也想睡得安稳，特别怕尾部大亏 |
+| 鲁棒对等模型 | Robust Counterpart | 把“坏情况也要扛住”翻译成求解器能处理的确定模型 |
+| 割平面法 | Cutting Plane Method | 像雕石头，一次削掉一块不可能有最优解的废料 |
+| 情境树 | Scenario Tree | 像未来分叉剧情树：每一步看到新信息，再走下一条分支 |
+| Wasserstein 距离 | Wasserstein Distance | 像衡量两个沙堆要搬多少沙才能变一样，用来比较两个分布有多远 |
 
 ---
 
@@ -176,7 +176,7 @@ g++ -std=c++17 -O2 code/cpp/case03_saa_newsvendor.cpp -o /tmp/case03_saa_newsven
 | `02-methods.md` | 方法理论 | ★★★☆☆ | 两阶段随机规划、场景生成、对等模型、鲁棒优化、机会约束 |
 | `03-case-newsvendor.md` | 案例 | ★★☆☆☆ | 新闻摊贩的随机版——解析解 vs 仿真 |
 | `04-case-two-stage.md` | 案例 | ★★★☆☆ | 两阶段生产计划——对等模型 |
-| `05-case-portfolio.md` | 案例 | ★★★☆☆ | 鲁棒投资组合——不确定性集合 |
+| `05-case-robust-portfolio.md` | 案例 | ★★★☆☆ | 鲁棒投资组合——不确定性集合 |
 | `06-case-supply-chain.md` | 案例 | ★★★★☆ | 随机供应链网络设计——大规模 MIP |
 | `07-case-distributionally-robust.md` | 案例 | ★★★★☆ | 分布鲁棒优化——Wasserstein 模糊集 |
 | `08-capstone.md` | 毕业项目 | ★★★★☆ | 三种方法对比：订货问题 |
@@ -184,9 +184,15 @@ g++ -std=c++17 -O2 code/cpp/case03_saa_newsvendor.cpp -o /tmp/case03_saa_newsven
 | `appendix-b-common-pitfalls.md` | 附录 | ★★☆☆☆ | TOP 5 必踩坑 |
 | `appendix-c-ml-intersection.md` | 附录 | ★★★☆☆ | 随机规划 × ML 的交叉点 |
 | `appendix-d-reading-list.md` | 附录 | ★☆☆☆☆ | 推荐阅读 |
+| `code/case01_newsvendor.py` | Python | ★★☆☆☆ | 报童问题 |
+| `code/case02_two_stage.py` | Python | ★★★☆☆ | 两阶段生产计划 |
+| `code/case03_robust_portfolio.py` | Python | ★★★☆☆ | 鲁棒投资组合 |
+| `code/case04_supply_chain.py` | Python | ★★★★☆ | 随机供应链网络设计 |
+| `code/case05_distributionally_robust.py` | Python | ★★★★☆ | 分布鲁棒优化 |
+| `code/capstone.py` | Python | ★★★★☆ | 三种方法对比 |
 | `code/cpp/case03_saa_newsvendor.cpp` | C++ 对照 | ★★★☆☆ | SAA 求解报童订货量 |
 
-> 说明：课程中保留了少量早期同主题草稿文件。优先阅读本清单中的文件；若同主题存在 `*-stochastic.md` 或 `*-robust-*.md` 版本，应以 README 文件清单和案例内代码路径为准。
+> 说明：课程中保留了少量早期同主题草稿文件，例如 `03-case-newsvendor-stochastic.md`、`05-case-portfolio.md`、`06-case-supply-chain-stochastic.md`。优先阅读本清单中的文件和案例内代码路径。
 
 ## C++ 对照案例定位
 

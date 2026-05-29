@@ -11,6 +11,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 from scipy.sparse import lil_matrix, csr_matrix
 from scipy.sparse.linalg import spsolve
 
@@ -250,7 +251,7 @@ class HeatSolver2D:
         ax.set_title(f'芯片封装稳态温度场 (T_max = {np.max(self.T):.1f}°C)')
         ax.set_aspect('equal')
         plt.tight_layout()
-        plt.savefig('/Users/liuwei/pde-course/code/capstone_temperature.png', dpi=150)
+        plt.savefig(Path(__file__).with_name('capstone_temperature.png'), dpi=150)
         print("温度场图形已保存: capstone_temperature.png")
 
 
@@ -335,7 +336,7 @@ class StressSolver2D:
 
         plt.suptitle('芯片封装热应力分布', fontsize=14)
         plt.tight_layout()
-        plt.savefig('/Users/liuwei/pde-course/code/capstone_stress.png', dpi=150)
+        plt.savefig(Path(__file__).with_name('capstone_stress.png'), dpi=150)
         print("热应力图形已保存: capstone_stress.png")
 
 

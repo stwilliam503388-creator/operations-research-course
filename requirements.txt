@@ -5,15 +5,17 @@
 #   01-概率论          : numpy, matplotlib, scipy
 #   02-低复杂度算法    : 仅标准库
 #   03-PDE物理方程     : numpy, matplotlib, scipy
-#   04-MIP求解器       : numpy, pyomo (或 gurobipy/coptpy)
-#   05-运筹学基础      : numpy, matplotlib, pyomo, simpy
+#   04-MIP求解器       : numpy, pyomo, highspy (或 gurobipy/coptpy)
+#   05-运筹学基础      : numpy, matplotlib, pyomo, highspy, simpy
 #   06-博弈论          : numpy, matplotlib, scipy
 #   07-库存与供应链    : numpy, matplotlib
 #   08-随机规划        : numpy, matplotlib, scipy
 #   09-多目标优化      : numpy, matplotlib, scipy
+#   10-凸优化          : numpy, scipy
 
 numpy>=1.20.0
 matplotlib>=3.3.0
 scipy>=1.7.0
 pyomo>=6.0
+highspy
 simpy>=4.0

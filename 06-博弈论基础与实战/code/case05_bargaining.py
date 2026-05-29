@@ -18,6 +18,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 # ──────────────────────────────────────────────────────
 # 1. 有限轮逆向归纳（数值求解）
@@ -145,7 +146,7 @@ ax2.legend()
 ax2.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('/Users/liuwei/game-theory-course/code/case05_bargaining.png', dpi=150)
+plt.savefig(Path(__file__).with_name('case05_bargaining.png'), dpi=150)
 print("📊 可视化已保存: code/case05_bargaining.png")
 plt.close()
 

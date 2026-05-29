@@ -39,36 +39,36 @@
 
 | 中文 | English | 一句话人话 |
 |------|---------|-----------|
-| 多目标优化 | Multi-Objective Optimization | 同时优化多个冲突的目标函数 |
-| 帕累托最优 | Pareto Optimality | 不可能让任何一个目标更好而不让至少另一个目标更差 |
-| 帕累托前沿 | Pareto Front / Pareto Frontier | 所有帕累托最优解在目标空间中的集合——候选方案集，不是自动推荐答案 |
-| 非支配解 | Non-dominated Solution | 没有其他解能在所有目标上不差且至少一个目标更好 |
-| 支配关系 | Domination | 解 A 支配解 B ⇔ A 在所有目标上不差于 B，且至少一个目标严格更好 |
-| 加权求和法 | Weighted Sum Method | 给每个目标一个权重，合并成单目标——简单但可能漏掉非凸前沿 |
-| ε-约束法 | ε-Constraint Method | 选一个目标做目标函数，其余转成约束——能找凸和非凸前沿 |
-| 目标规划 | Goal Programming | 给每个目标设一个理想值，最小化偏离的加权和 |
-| NSGA-II | Non-dominated Sorting Genetic Algorithm II | 最经典的多目标进化算法：非支配排序 + 拥挤距离 |
-| 适应度共享 | Fitness Sharing | 让相近的解互相惩罚，保持种群多样性，防止扎堆 |
-| 拥挤距离 | Crowding Distance | 解在帕累托前沿上的「密度」——距离越大越稀疏，越值得保留 |
-| 超体积指标 | Hypervolume (HV) | 帕累托前沿和参考点围成的体积——越大说明前沿越好 |
-| 理想点 | Ideal Point | 每个目标单独最优时的目标向量——实际中不可能同时达到 |
-| 折衷解 | Compromise Solution | 离理想点最近的可行解——一种选最终方案的方式 |
-| 字典序法 | Lexicographic Method | 按重要性排序——先优化最重要的，再在子空间优化次重要的 |
+| 多目标优化 | Multi-Objective Optimization | 像又想便宜、又想快、又想质量高：几个目标一起拉扯，不能只看一个 |
+| 帕累托最优 | Pareto Optimality | 已经没有白捡的好处了：想让一个目标更好，就得让至少另一个目标变差 |
+| 帕累托前沿 | Pareto Front / Pareto Frontier | 像一排值得认真比较的候选方案，不是系统自动替你拍板 |
+| 非支配解 | Non-dominated Solution | 没有别的方案能“全面不输还至少一项更强”，所以它值得留下 |
+| 支配关系 | Domination | A 比 B 各方面都不差，还至少一项更好，那 B 基本就可以淘汰 |
+| 加权求和法 | Weighted Sum Method | 给每个目标打权重，揉成一个总分；简单好用，但可能漏掉一些折中方案 |
+| ε-约束法 | ε-Constraint Method | 先主攻一个目标，其他目标设底线，像“成本最低，但服务水平至少 95%” |
+| 目标规划 | Goal Programming | 先写理想目标，再尽量少偏离；像给每门课设目标分，再算总差距 |
+| NSGA-II | Non-dominated Sorting Genetic Algorithm II | 像养一群候选方案，让它们一代代进化，同时保留强者和多样性 |
+| 适应度共享 | Fitness Sharing | 人太挤的地方扣点分，鼓励解分散开，别全扎堆在前沿一小段 |
+| 拥挤距离 | Crowding Distance | 看一个解周围挤不挤；越孤单越稀缺，越应该保留 |
+| 超体积指标 | Hypervolume (HV) | 像看前沿“圈住了多大好区域”，面积/体积越大通常越好 |
+| 理想点 | Ideal Point | 每个目标都单独拿满分的梦幻点，通常只是用来当参照 |
+| 折衷解 | Compromise Solution | 像在几个目标之间找一个不偏科的方案，不一定单项第一，但总体顺眼 |
+| 字典序法 | Lexicographic Method | 像排优先级：先满足最重要目标，再在不破坏它的前提下优化下一个 |
 
 ### 🔧 进阶术语（用到时回来查）
 
 | 中文 | English | 一句话人话 |
 |------|---------|-----------|
-| 生成性方法 | Generative Method | 先生成整个帕累托前沿，再让决策者选——后验偏好 |
-| 交互式方法 | Interactive Method | 边求解边问决策者偏好，逐步缩小搜索范围 |
-| MOEA/D | MOEA/D | 把多目标问题分解成多个单目标子问题，同时求解 |
-| SPEA2 | Strength Pareto Evolutionary Algorithm 2 | 另一种经典多目标进化算法 |
-| GD | Generational Distance | 生成的距离——找到的前沿离真实前沿有多近（越小越好）|
-| IGD | Inverted Generational Distance | 反向生成距离——从真实前沿到找到的前沿的平均距离 |
-| 参考点法 | Reference Point Method | 决策者给出偏好点，算法在附近搜索 |
-| 多属性决策 | MCDM | 从已有的有限个方案中选一个（和 MOO 不同，MOO 还负责生成方案）|
-| 帕累托最优性必要条件 | Necessary Conditions for Pareto Optimality | 多目标版本的 KKT 条件 |
-| 正则化 | Normalization | 不同目标量纲不同，需要归一化后再比较 |
+| 生成性方法 | Generative Method | 先把一整排好候选方案画出来，再让人挑最终想要哪个 |
+| 交互式方法 | Interactive Method | 算法边算边问你偏好，像导购一步步缩小推荐范围 |
+| MOEA/D | MOEA/D | 把一个大多目标问题拆成很多带权重的小问题，大家并排求 |
+| SPEA2 | Strength Pareto Evolutionary Algorithm 2 | 另一种多目标进化算法，也是在候选解之间做淘汰和保留 |
+| GD | Generational Distance | 看你找到的前沿离真实前沿有多远，越小越贴近 |
+| IGD | Inverted Generational Distance | 反过来看真实前沿有没有被你覆盖到，用来检查漏没漏区域 |
+| 参考点法 | Reference Point Method | 你先说“我大概想要这种方案”，算法就在附近帮你找 |
+| 多属性决策 | MCDM | 已经有一桌候选菜了，从里面选一道；多目标优化还负责把菜做出来 |
+| 帕累托最优性必要条件 | Necessary Conditions for Pareto Optimality | 像多目标版的“最优体检表”，用来检查前沿上的点是否说得通 |
+| 正则化 | Normalization | 不同目标单位不一样，先拉到同一把尺子上，不然金额会压过百分比 |
 
 ---
 
@@ -155,6 +155,7 @@
 | 运筹学基础与实战 | 单目标优化是基础，多目标优化是自然扩展；加权求和法和ε-约束法在 OR 中也有应用 |
 | 博弈论基础与实战 | 帕累托最优概念共用；多目标优化中的「折衷」与博弈中的「均衡」有深层联系 |
 | MIP求解器技术基础 | ε-约束法需要反复求解单目标 MIP，是两者最直接的结合点 |
+| 凸优化与非线性优化 | 本课程关心“多个目标怎么权衡”，凸优化课程关心“单个连续优化子问题怎么可靠求解”；投资组合可先读 `../10-凸优化与非线性优化/04-case-portfolio-qp.md` 再读本课案例 1 |
 
 ---
 

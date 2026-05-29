@@ -8,14 +8,13 @@
 简述：3 个快递员（载重不同）、20 个包裹，用 MIP 最小化总配送距离。
 对比随机分配基线 + 贪心最近邻，支持时间窗扩展和路线可视化。
 
-=== 你的任务 ===
-本文件提供了代码骨架。你需要填充标记为 TODO 的部分。
-参考案例 1 (VRP) 的 MTZ 子环消除实现。
+本教学版默认提供一个可运行的构造式求解器，用于和随机分配、贪心最近邻对比。
+完整 MIP 版本可作为课后扩展：参考案例 1 (VRP) 的 MTZ 子环消除实现。
 """
 
-import highspy
 import numpy as np
 import time
+from pathlib import Path
 
 # matplotlib 可选
 try:
@@ -57,7 +56,13 @@ def generate_packages(n_packages=20, seed=42):
 # ============================================================
 
 def solve_mip(riders, weights, coords, deadlines=None, use_time_windows=False):
-    """用 HiGHS 求解快递员调度 MIP。
+    """构造一个满足容量约束的调度方案。
+
+    说明：
+        早期版本这里是 MIP 骨架，会返回占位结果。为了保证课程代码开箱可跑，
+        本函数改为确定性的「先按重量降序分配，再对每条路线做最近邻排序」。
+        它不是数学最优解，但会输出真实可执行方案，便于读者先理解目标、
+        约束和基线对比。完整 MIP 可以作为进阶练习继续实现。
     
     Args:
         riders:    快递员列表 [{"id": 0, "name": "小张", "capacity": 100, "max_pkgs": 8}, ...]
@@ -69,48 +74,52 @@ def solve_mip(riders, weights, coords, deadlines=None, use_time_windows=False):
     Returns:
         dict: 含 routes（每个快递员的包裹顺序）、total_distance、solve_time
     """
-    n_riders = len(riders)
+    start = time.time()
     n_pkg = len(weights)
-    
-    # 构建扩展坐标：索引 0 = 快递站（原点），1..n_pkg = 包裹
-    all_coords = np.vstack([[[0, 0]], coords])  # (n_pkg+1, 2)
-    
-    # 距离矩阵（曼哈顿）
-    dist = np.zeros((n_pkg + 1, n_pkg + 1))
-    for i in range(n_pkg + 1):
-        for j in range(n_pkg + 1):
-            dist[i, j] = np.abs(all_coords[i, 0] - all_coords[j, 0]) + \
-                         np.abs(all_coords[i, 1] - all_coords[j, 1])
-    
-    # Big-M: 快递员容量上限 × 最大点间距离 × 包裹数
-    max_dist = np.max(dist)
-    capacity_sum = sum(r["capacity"] for r in riders)
-    BIG_M = capacity_sum * max_dist * n_pkg
-    
-    h = highspy.Highs()
-    h.setOptionValue("time_limit", 300.0)
-    h.setOptionValue("mip_rel_gap", 0.02)
-    h.setOptionValue("output_flag", False)
-    
-    # 变量：x[a,i,j] — 快递员 a 从点 i 到点 j（i=0 为站点）
-    # 变量：y[a,i] — 包裹 i 分配给快递员 a
-    # 变量：u[a,i] — MTZ 序位变量（消除子环）
-    
-    # TODO: 添加变量定义和约束
-    # 提示：参考 case01_vrp.py 中的 addVar 方式
-    # 约束包括：
-    #   1. 每个包裹只分配给一个快递员
-    #   2. 快递员容量限制
-    #   3. 流量守恒（进来的包裹必须出去）
-    #   4. MTZ 子环消除
-    #   5. 时间窗约束（如启用）
-    
-    # 占位：返回模拟结果
+    routes = {r["id"]: [] for r in riders}
+    loads = {r["id"]: 0.0 for r in riders}
+
+    # 重包先放，减少后面容量装不下的风险。
+    for pkg in sorted(range(n_pkg), key=lambda idx: -weights[idx]):
+        feasible = [
+            r for r in riders
+            if loads[r["id"]] + weights[pkg] <= r["capacity"]
+            and len(routes[r["id"]]) < r.get("max_pkgs", n_pkg)
+        ]
+        if not feasible:
+            raise RuntimeError(f"包裹 {pkg} 无法分配：容量或件数约束过紧")
+
+        chosen = min(feasible, key=lambda r: loads[r["id"]] / r["capacity"])
+        rid = chosen["id"]
+        routes[rid].append(pkg)
+        loads[rid] += weights[pkg]
+
+    ordered_routes = {}
+    for rid, pkg_list in routes.items():
+        remaining = set(pkg_list)
+        pos = np.array([0.0, 0.0])
+        ordered = []
+        while remaining:
+            nxt = min(remaining, key=lambda p: np.abs(coords[p, 0] - pos[0]) + np.abs(coords[p, 1] - pos[1]))
+            ordered.append(nxt)
+            remaining.remove(nxt)
+            pos = coords[nxt]
+        ordered_routes[rid] = ordered
+
+    total_distance = 0.0
+    for pkg_list in ordered_routes.values():
+        prev = np.array([0.0, 0.0])
+        for pkg in pkg_list:
+            total_distance += np.abs(coords[pkg, 0] - prev[0]) + np.abs(coords[pkg, 1] - prev[1])
+            prev = coords[pkg]
+        if pkg_list:
+            total_distance += np.abs(prev[0]) + np.abs(prev[1])
+
     return {
-        "routes": {},
-        "total_distance": 185.0,
-        "solve_time": 2.3,
-        "status": "skeleton_placeholder"
+        "routes": ordered_routes,
+        "total_distance": total_distance,
+        "solve_time": time.time() - start,
+        "status": "heuristic_feasible"
     }
 
 
@@ -258,8 +267,9 @@ def visualize(routes, coords, title="配送路线图"):
     ax.set_aspect("equal")
     
     plt.tight_layout()
-    plt.savefig("capstone_routes.png", dpi=150)
-    print("[INFO] 路线图已保存到 capstone_routes.png")
+    output_path = Path(__file__).with_name("capstone_routes.png")
+    plt.savefig(output_path, dpi=150)
+    print(f"[INFO] 路线图已保存到 {output_path.name}")
     plt.close()
 
 
@@ -298,9 +308,9 @@ if __name__ == "__main__":
     print(f"贪心最近邻:       {greedy_dist:.1f} km  (耗时 {greedy_time:.1f}s)")
     
     # MIP 求解
-    print("\n--- MIP 求解 ---")
+    print("\n--- 构造式求解 ---")
     result = solve_mip(riders, weights, coords)
-    print(f"MIP 优化:          {result['total_distance']:.1f} km  "
+    print(f"构造式方案:        {result['total_distance']:.1f} km  "
           f"(耗时 {result['solve_time']:.1f}s, 状态: {result['status']})")
     
     # 对比汇总
@@ -309,12 +319,11 @@ if __name__ == "__main__":
     print(f"{'-'*50}")
     print(f"{'随机分配':<15} {rand_dist:>12.1f}  {'--':>8}  {rand_time:>8.1f}")
     print(f"{'贪心最近邻':<15} {greedy_dist:>12.1f}  {'--':>8}  {greedy_time:>8.1f}")
-    print(f"{'MIP 优化':<15} {result['total_distance']:>12.1f}  {'基线':>8}  {result['solve_time']:>8.1f}")
+    print(f"{'构造式方案':<15} {result['total_distance']:>12.1f}  {'基线':>8}  {result['solve_time']:>8.1f}")
     print(f"{'='*70}")
     
     # 可视化
-    visualize(rand_routes, coords, title="随机分配路线")
+    visualize(result["routes"], coords, title="构造式可行路线")
     
-    print("\n💡 提示: 以上 MIP 结果为骨架占位值。")
-    print("请填充 solve_mip() 函数中的 TODO 部分以获取真实优化结果。")
-    print("完成后对比应显示 MIP 距离 < 贪心最近邻 < 随机分配。")
+    print("\n💡 提示: 这是可运行的教学版构造式方案，不是严格 MIP 最优解。")
+    print("如果要做完整 MIP，可把本函数作为初始可行解，再实现 x/y/u 变量和 MTZ 约束。")
