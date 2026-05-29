@@ -38,33 +38,33 @@
 
 | 中文 | English | 一句话人话 |
 |------|---------|-----------|
-| 线性规划 | LP | 目标函数和约束都是直线——最简单、求解最快 |
-| 整数规划 | IP | 决策变量必须是整数——建不建厂、去不去人 |
-| 混合整数规划 | MIP | 一部分整数 + 一部分连续——真实世界的大多数问题 |
-| 对偶 | Duality | 同一问题从两个角度看——买方视角和卖方视角 |
-| 影子价格 | Shadow Price | 多一个单位资源，你能多赚多少钱 |
-| 灵敏度分析 | Sensitivity Analysis | 数据变一点，最优解变不变 |
-| 分支定界 | Branch & Bound | 猜谜游戏——每次二分，走不通就回头 |
-| 割平面 | Cutting Plane | 切掉迷惑人的分数解区域，不碰整数解 |
-| 启发式 | Heuristic | 不求最优但求快 |
-| 元启发式 | Metaheuristic | 启发式的通用框架——模拟退火、遗传算法 |
-| 网络流 | Network Flow | 节点和弧上的流动优化 |
-| 动态规划 | DP | 拆成子问题，记下答案，不重算 |
-| 排队论 | Queueing Theory | 排队问题数学化 |
-| 仿真 | Simulation | 建一个数字沙盘，跑 10000 次看结果 |
-| 鲁棒优化 | Robust Optimization | 考虑最坏情况下的最优解 |
+| 线性规划 | LP | 像用直尺画出来的问题：目标和限制都是直线，所以通常又快又稳 |
+| 整数规划 | IP | 有些选择不能切半：建不建厂、派不派人、买几辆车，都必须是整数 |
+| 混合整数规划 | MIP | 既有“选不选”的开关，也有“多少”的连续数量，最像真实业务 |
+| 对偶 | Duality | 换个角度看同一件事：不直接排方案，而是给资源和限制算价格 |
+| 影子价格 | Shadow Price | 像资源的隐形标价：多一小时工时、多一吨材料，能多带来多少价值 |
+| 灵敏度分析 | Sensitivity Analysis | 像轻轻拧一下数据旋钮，看最优方案会不会跟着变脸 |
+| 分支定界 | Branch & Bound | 像解谜时分叉搜索，发现一大片不可能赢就直接整片划掉 |
+| 割平面 | Cutting Plane | 像切蛋糕时切掉假象区域，把小数解这种“看着好但不能用”的答案剔掉 |
+| 启发式 | Heuristic | 先找个能用的好方案救急，不保证冠军，但通常来得快 |
+| 元启发式 | Metaheuristic | 一套通用的“聪明试错套路”，比如模拟退火、遗传算法 |
+| 网络流 | Network Flow | 像水在管网里流：从源头到终点，研究怎么流最省、最多或最快 |
+| 动态规划 | DP | 把大问题拆成小问题，答案记下来，下次别重复算 |
+| 排队论 | Queueing Theory | 把排队这件日常小事数学化：等多久、开几个窗口、会不会堵住 |
+| 仿真 | Simulation | 搭一个数字沙盘，反复跑很多次，看系统大概率会怎样 |
+| 鲁棒优化 | Robust Optimization | 不是只看天气晴朗时好不好，而是坏天气来了也别翻车 |
 
 🔧 **进阶术语**（用到时回来查）
 
 | 中文 | English | 一句话人话 |
 |------|---------|-----------|
-| 非线性规划 | NLP | 目标或约束不是直线——更贴近物理但更难解 |
-| 马尔可夫决策过程 | MDP | 带随机性的序贯决策 |
-| 库存理论 | Inventory Theory | 存多少货不亏钱也不缺货 |
-| 博弈论 | Game Theory | 我选什么取决于你选什么 |
-| 帕累托最优 | Pareto Optimality | 不可能让所有人都更好的状态 |
-| 约束规划 | CP | 不关心最优，只要可行解——排班、排课 |
-| 随机规划 | Stochastic Programming | 考虑多种可能场景的决策 |
+| 非线性规划 | NLP | 目标或限制不再是直线，像弯路和坡路，贴近现实但更难走 |
+| 马尔可夫决策过程 | MDP | 像打游戏闯关：每一步有随机结果，下一步再根据当前状态继续选 |
+| 库存理论 | Inventory Theory | 研究“存多少刚刚好”：少了缺货，多了压钱和占仓库 |
+| 博弈论 | Game Theory | 我怎么选，要看你可能怎么选；对手和伙伴都会改变最优策略 |
+| 帕累托最优 | Pareto Optimality | 已经没有“所有人都更舒服”的改法了；想让一边更好，至少要牺牲另一边 |
+| 约束规划 | CP | 像解超复杂数独：先满足一堆规则，很多时候有解就已经很重要 |
+| 随机规划 | Stochastic Programming | 未来有多种可能天气，今天先做决定，明天再按实际情况补救 |
 
 ---
 
@@ -176,6 +176,15 @@
 | `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
 | `appendix-c-ml-intersection.md` | 附录C：运筹学 × ML 的交叉点 | ~800 |
 | `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
+| `code/case03_logistics.py` | Python 案例：物流网络优化 | — |
+| `code/case04_inventory.py` | Python 案例：库存策略优化 | — |
+| `code/case05_finance.py` | Python 案例：投资组合与风险管理 | — |
+| `code/case06_queue.py` | Python 案例：服务系统排队优化 | — |
+| `code/case07_scheduling.py` | Python 案例：人员排班与约束规划 | — |
+| `code/case01b_pyomo_transport.py` | Sidebar 代码：Pyomo 运输模型 | — |
+| `code/case04b_simpy_queue.py` | Sidebar 代码：SimPy 排队仿真 | — |
+| `code/case_metaheuristic_tsp.py` | Sidebar 代码：SA/GA 解 TSP | — |
+| `code/case05_product_mix.py` | Sidebar 代码：产品组合建模 | — |
 | `code/cpp/case03_min_cost_flow.cpp` | C++17 对照案例：最小费用流求物流分配 | — |
 
 ---

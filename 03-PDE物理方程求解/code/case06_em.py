@@ -23,6 +23,7 @@ case06_em.py — 2D Laplace 方程 Gauss-Seidel 迭代求解
 """
 
 import numpy as np
+from pathlib import Path
 
 
 def laplace_gauss_seidel(nx=40, ny=40, Lx=1.0, Ly=1.0, V0=1.0,
@@ -267,7 +268,7 @@ def plot_results(x, y, phi, history, X, Y, Ex, Ey, E_mag):
         ax4.grid(True, alpha=0.3)
 
         plt.tight_layout()
-        plt.savefig('/Users/liuwei/pde-course/code/fig_laplace_results.png', dpi=150)
+        plt.savefig(Path(__file__).with_name('fig_laplace_results.png'), dpi=150)
         print("Result figure saved: fig_laplace_results.png")
         plt.show()
 

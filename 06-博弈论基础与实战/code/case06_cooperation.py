@@ -21,6 +21,7 @@
 import itertools
 import math
 from collections import defaultdict
+from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -238,7 +239,7 @@ ax2.legend()
 ax2.grid(True, alpha=0.3, axis='y')
 
 plt.tight_layout()
-plt.savefig('/Users/liuwei/game-theory-course/code/case06_cooperation.png', dpi=150)
+plt.savefig(Path(__file__).with_name('case06_cooperation.png'), dpi=150)
 print("\n📊 可视化已保存: code/case06_cooperation.png")
 plt.close()
 

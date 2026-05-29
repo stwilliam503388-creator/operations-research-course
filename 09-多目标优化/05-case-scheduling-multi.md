@@ -152,7 +152,7 @@ J3     12     16     8      55
 最少延迟调度:    Makespan=101, 总延迟=45
 ```
 
-生成的图表（`code/case05_scheduling_multi_results.png`）：
+如果你想进一步做可视化，可以在 `code/case05_scheduling_multi.py` 的输出基础上扩展下面几类图：
 
 1. **左上——帕累托前沿**：散点图展示了 Makespan vs 总延迟的权衡关系，颜色编码表示空闲时间。前沿从左下到右上——想要更短的 Makespan，就得承受更多的延迟。
 2. **右上——最小 Makespan 调度甘特图**：显示了 3 台机器上作业的时间分布，Makespan=84。

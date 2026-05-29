@@ -1,6 +1,6 @@
 # 案例 4：随机供应链网络设计
 
-> 难度 ★★★★☆ · 随机规划 / 两阶段（混合整数） · 核心概念：设施选址、场景下的网络流、随机解 vs 确定性解 · 代码：`code/case04_supply_chain_stochastic.py`
+> 难度 ★★★★☆ · 随机规划 / 两阶段（混合整数） · 核心概念：设施选址、场景下的网络流、随机解 vs 确定性解 · 代码：`code/case06_supply_chain_stochastic.py`
 
 ---
 
@@ -108,7 +108,7 @@ min   Σ_i f_i · cap_i       ← 第一阶段建造成本
 ## 4 代码实现概览
 
 ```python
-# 关键代码（完整版见 code/case04_supply_chain_stochastic.py）
+# 关键代码（完整版见 code/case06_supply_chain_stochastic.py）
 
 import pulp
 import numpy as np
@@ -151,7 +151,7 @@ for s in scenarios:
 prob.solve()
 ```
 
-> 完整代码 `code/case04_supply_chain_stochastic.py` 还包含确定性方案的对比和可视化。
+> 完整代码 `code/case06_supply_chain_stochastic.py` 还包含确定性方案的对比和可视化。
 
 ---
 

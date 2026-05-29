@@ -2,7 +2,8 @@
 """Trace the greedy construction step by step"""
 import numpy as np
 import sys
-sys.path.insert(0, '/Users/liuwei/or-course/code')
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from case07_scheduling import NurseScheduler, N_NURSES, N_DAYS, N_SHIFTS, DEMAND, PREFERENCES
 
 # Small test: 10 nurses, 3 days, lower demand

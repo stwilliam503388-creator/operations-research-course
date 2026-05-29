@@ -11,6 +11,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 from scipy.linalg import solve
 
 
@@ -257,7 +258,7 @@ def main():
     ax2.grid(True, alpha=0.3)
 
     plt.tight_layout()
-    plt.savefig('/Users/liuwei/pde-course/code/case07_beam_deflection.png', dpi=150)
+    plt.savefig(Path(__file__).with_name('case07_beam_deflection.png'), dpi=150)
     print(f"\n图形已保存: case07_beam_deflection.png")
 
     # ============================================================

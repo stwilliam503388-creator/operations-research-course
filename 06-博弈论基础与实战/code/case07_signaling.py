@@ -22,6 +22,7 @@
 
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 # ──────────────────────────────────────────────────────
 # 1. 模型参数（可调）
@@ -356,7 +357,7 @@ ax4.legend()
 ax4.grid(True, alpha=0.3)
 
 plt.tight_layout()
-plt.savefig('/Users/liuwei/game-theory-course/code/case07_signaling.png', dpi=150)
+plt.savefig(Path(__file__).with_name('case07_signaling.png'), dpi=150)
 print("📊 可视化已保存: code/case07_signaling.png")
 plt.close()
 

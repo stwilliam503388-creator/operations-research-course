@@ -20,6 +20,7 @@ case05_fluid.py — 1D Burgers 方程 FDM 求解
 
 import numpy as np
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 
 def burgers_fdm(nx=200, nt=600, L=2.0, T=1.0, nu=0.01, ic='sin'):
@@ -131,7 +132,7 @@ def compare_reynolds():
 
     plt.suptitle('Burgers Eqn: Comparison of Different Viscosity (nu)', fontsize=14)
     plt.tight_layout()
-    plt.savefig('/Users/liuwei/pde-course/code/fig_burgers_comparison.png', dpi=150)
+    plt.savefig(Path(__file__).with_name('fig_burgers_comparison.png'), dpi=150)
     print("\nComparison figure saved: fig_burgers_comparison.png")
     plt.show()
 
@@ -158,7 +159,7 @@ def time_evolution():
     plt.ylabel('u')
     plt.legend()
     plt.grid(True, alpha=0.3)
-    plt.savefig('/Users/liuwei/pde-course/code/fig_burgers_evolution.png', dpi=150)
+    plt.savefig(Path(__file__).with_name('fig_burgers_evolution.png'), dpi=150)
     print("Evolution figure saved: fig_burgers_evolution.png")
     plt.show()
 
@@ -184,7 +185,7 @@ def shock_evolution():
     plt.ylabel('u')
     plt.legend()
     plt.grid(True, alpha=0.3)
-    plt.savefig('/Users/liuwei/pde-course/code/fig_burgers_shock.png', dpi=150)
+    plt.savefig(Path(__file__).with_name('fig_burgers_shock.png'), dpi=150)
     print("Shock figure saved: fig_burgers_shock.png")
     plt.show()
 
