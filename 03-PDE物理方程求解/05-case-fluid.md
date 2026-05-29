@@ -131,7 +131,7 @@ def burgers_fdm(nx=200, nt=600, L=2.0, T=1.0, nu=0.01, ic='sin'):
 运行方法：
 
 ```bash
-cd pde-course
+cd "03-PDE物理方程求解"
 python code/case05_fluid.py
 ```
 

@@ -1,4 +1,3 @@
-<!-- 文件: pde-course/README.md -->
 # 物理方程求解基础课程
 
 > 一个周末，从零到能理解偏微分方程是什么、物理问题怎么建模、以及用数值方法求解真实世界的物理现象。
@@ -113,6 +112,13 @@ source pde-env/bin/activate
 pip install numpy scipy matplotlib
 ```
 
+C++ 对照案例默认使用 C++17 标准库：
+
+```bash
+g++ -std=c++17 -O2 code/cpp/case03_heat_equation.cpp -o /tmp/case03_heat_equation
+/tmp/case03_heat_equation
+```
+
 ---
 
 ## 预备知识
@@ -121,6 +127,18 @@ pip install numpy scipy matplotlib
 - **Python 基础**：能写循环和函数，会用 NumPy 数组操作
 - **基础物理**：知道热量从高温区流向低温区、力能让物体变形、波以有限速度传播
 - **不需要任何 PDE 或数值分析基础**——本教程从零定义每一个概念
+
+---
+
+## 学习验收标准
+
+学完本课程后，建议用下面 5 条自检：
+
+- 能说明椭圆型、抛物型、双曲型 PDE 分别对应什么物理现象。
+- 能解释边界条件、初始条件和网格步长如何影响数值解。
+- 能说清 CFL 条件为什么是稳定性约束，而不是随便调的小参数。
+- 能运行 Python 热传导案例和 C++ 显式差分案例，并解释中心温度为什么会扩散下降。
+- 能指出教学案例中的规则网格、简单边界在真实工程几何中什么时候不够用。
 
 ---
 
@@ -140,7 +158,10 @@ pip install numpy scipy matplotlib
 | `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 | - |
 | `appendix-c-ml-intersection.md` | 附录C：PDE 与 ML（PINN, 算子学习）的交叉点 | ~800 | - |
 | `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 | - |
+| `code/cpp/case03_heat_equation.cpp` | C++17 对照案例：一维热传导显式差分 | — | 新增 |
 
 ---
 
-> [文件完，下一个: 01-physics.md]
+## C++ 对照案例定位
+
+PDE 主线仍推荐 Python，因为可视化和矩阵库更适合入门。C++ 案例只补充最核心的网格循环和稳定性检查，帮助读者理解数值方法落到工程代码时是什么样子。

@@ -142,7 +142,7 @@ min  Σ 软约束惩罚项
 ### 代码与运行
 
 ```bash
-cd /Users/liuwei/or-course/code
+cd "05-运筹学基础与实战/code"
 python case07_scheduling.py
 ```
 

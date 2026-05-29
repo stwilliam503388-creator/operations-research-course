@@ -184,7 +184,7 @@ Step 4: 对比
 ### 主文件：`code/capstone.py`
 
 ```bash
-cd /Users/liuwei/or-course/code
+cd "05-运筹学基础与实战/code"
 python capstone.py
 ```
 

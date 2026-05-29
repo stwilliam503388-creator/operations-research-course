@@ -1,4 +1,3 @@
-<!-- 文件: low-complexity-algo-course/README.md -->
 # 低复杂度算法设计与优化技术基础课程
 
 > 一个周末，从零到能识别问题复杂度、设计低复杂度算法解决实际问题。
@@ -120,8 +119,8 @@
 python3 -m venv algo-env
 source algo-env/bin/activate
 
-# 2. 进入课程目录
-cd low-complexity-algo-course
+# 2. 进入课程目录（从仓库根目录）
+cd "02-低复杂度算法设计"
 
 # 3. 确认 Python 版本
 python --version  # >= 3.9
@@ -144,6 +143,18 @@ python --version  # >= 3.9
 
 ---
 
+## 学习验收标准
+
+学完本课程后，建议用下面 5 条自检：
+
+- 能从暴力解开始，说明复杂度瓶颈在哪里，以及为什么某个优化能降复杂度。
+- 能区分分治、动态规划、贪心、二分答案、滑动窗口分别适合什么问题形状。
+- 能给出一个“贪心会失败”的反例，而不是只背贪心模板。
+- 能运行 Python 案例和 C++ 排序对照案例，并解释 `std::sort` 和手写归并排序的差异。
+- 能修改输入规模并预测运行时间大致如何增长。
+
+---
+
 ## 目录
 
 | 文件 | 内容 | 字数 | 状态 |
@@ -160,11 +171,23 @@ python --version  # >= 3.9
 | `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 | - |
 | `appendix-c-ml-intersection.md` | 附录C：算法优化与 ML 的交叉点 | ~800 | - |
 | `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 | - |
+| `code/cpp/case03_merge_sort.cpp` | C++17 对照案例：归并排序与 `std::sort` 性能对比 | — | 新增 |
+
+---
+
+## C++ 对照案例
+
+算法课程最适合先补 C++：它能直接展示复杂度、常数因子、内存布局和 STL 的影响。
+
+```bash
+g++ -std=c++17 -O2 code/cpp/case03_merge_sort.cpp -o /tmp/case03_merge_sort
+/tmp/case03_merge_sort
+```
+
+这个案例对应 `03-case-multi.md` / `code/case03_merge.py`，用于比较手写归并排序与标准库排序，并观察 `O(n log n)` 在不同输入规模下的表现。
 
 ---
 
 ## 致谢
 
-本教程的写作风格和结构参考了 MIP 求解器技术基础课程（mip-course/）。好的教学值得被模仿。
-
-> [文件完，下一个: 01-complex.md]
+本教程的写作风格和结构参考了 MIP 求解器技术基础课程。好的教学值得被模仿。

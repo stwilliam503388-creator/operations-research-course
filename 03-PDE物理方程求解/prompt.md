@@ -115,7 +115,7 @@ python3 -m venv pde-env
 source pde-env/bin/activate
 
 # 2. 进入课程目录
-cd pde-course
+cd "03-PDE物理方程求解"
 
 # 3. 安装依赖
 pip install -r code/requirements.txt

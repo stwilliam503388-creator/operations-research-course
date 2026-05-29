@@ -163,7 +163,7 @@ def laplace_gauss_seidel(nx=40, ny=40, Lx=1.0, Ly=1.0, V0=1.0,
 运行方法：
 
 ```bash
-cd pde-course
+cd "03-PDE物理方程求解"
 python code/case06_em.py
 ```
 
