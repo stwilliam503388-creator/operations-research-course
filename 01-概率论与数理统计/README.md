@@ -4,6 +4,10 @@
 
 ---
 
+## 内容质量标准
+
+本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+
 ## 这份教程是什么
 
 这是一份给**有高中数学基础、正在学习OR/博弈论/随机规划、但概率知识停留在"背公式"阶段**的技术人写的自学教程。它不讲学院派的测度论——每一章都围绕「这个概率概念在优化/决策中有什么用」展开。
@@ -162,7 +166,7 @@ g++ -std=c++17 -O2 code/cpp/case07_monte_carlo.cpp -o /tmp/case07_monte_carlo
 
 ## 附录导航
 
-- [附录A：什么时候不需要概率论](appendix-a.md)
-- [附录B：TOP 5 必踩坑](appendix-b.md)
-- [附录C：概率论与机器学习的交叉点](appendix-c.md)
-- [附录D：推荐阅读](appendix-d.md)
+- [附录A：什么时候不需要概率论](appendix-a-when-not-probability.md)
+- [附录B：TOP 5 必踩坑](appendix-b-common-pitfalls.md)
+- [附录C：概率论与机器学习的交叉点](appendix-c-ml-intersection.md)
+- [附录D：推荐阅读](appendix-d-reading-list.md)

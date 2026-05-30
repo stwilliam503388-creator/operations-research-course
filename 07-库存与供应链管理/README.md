@@ -4,6 +4,10 @@
 
 ---
 
+## 内容质量标准
+
+本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+
 ## 这份教程是什么
 
 这是一份给**有基础数学和 Python 能力、但对库存与供应链管理完全陌生**的技术人/供应链分析师/运营管理者写的自学教程。它不讲学院派的定理证明——每一章都围绕「这个库存模型解决什么业务问题」和「这个供应链协调机制为什么在这里好使」展开。
@@ -176,8 +180,8 @@
 | `06-case-contract.md` | 案例4：供应链契约设计 ★★★★☆ | ~3,000 |
 | `07-case-network.md` | 案例5：供应链网络设计 ★★★★☆ [进阶] | ~3,000 |
 | `08-capstone.md` | 综合毕业项目 | ~2,000 |
-| `appendix-a-when-not.md` | 附录A：什么时候不需要库存模型 | ~800 |
-| `appendix-b-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
+| `appendix-a-when-not-inventory.md` | 附录A：什么时候不需要库存模型 | ~800 |
+| `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
 | `appendix-c-ml-intersection.md` | 附录C：库存与供应链 × ML | ~800 |
 | `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
 | `code/cpp/case04_newsvendor.cpp` | C++17 对照案例：报童模型分位数搜索与利润仿真 | — |
