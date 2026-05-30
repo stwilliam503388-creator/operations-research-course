@@ -18,6 +18,12 @@
   · 效率、个体理性、联盟理性
 """
 
+
+# 教学注释：从参与者、策略和收益矩阵出发理解交互决策结构。
+# 计算结果用于验证均衡、分配规则或机制设计是否符合预期。
+
+
+
 import itertools
 import math
 from collections import defaultdict
