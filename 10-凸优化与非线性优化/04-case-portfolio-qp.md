@@ -1,6 +1,6 @@
 # 案例 2：投资组合 QP
 
-> 难度 ★★★☆☆ · 方法：二次规划 / SLSQP · 代码：`code/case04_portfolio_qp.py`
+> 难度 ★★★☆☆ · 方法：二次规划 / SLSQP · 代码：`code/python/case04_portfolio_qp.py`
 
 ## 1. 故事开场
 
@@ -54,6 +54,6 @@ subject to  Σ_i w_i = 1
 ## 8. 学习验收
 
 - 能解释为什么协方差会影响组合风险。
-- 能运行 `code/case04_portfolio_qp.py` 并检查权重和是否为 1。
+- 能运行 `code/python/case04_portfolio_qp.py` 并检查权重和是否为 1。
 - 能说明 `γ` 变大时，组合为什么通常更偏向高收益资产。
 - 能区分本案例的单目标 QP 与 `../09-多目标优化/03-case-portfolio-multi.md` 的 Pareto 前沿分析。

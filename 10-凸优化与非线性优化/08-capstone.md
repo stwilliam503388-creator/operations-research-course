@@ -36,14 +36,14 @@ subject to Σ_i x_i ≤ budget
 
 ## 代码骨架
 
-完整代码在 `code/capstone.py`，包含：
+完整代码在 `code/python/capstone.py`，包含：
 
 - `generate_channels()`
 - `objective()`
 - `solve_with_slsqp()`
 - `solve_with_projected_gradient()`
 - `sensitivity_analysis()`
-- `main()` 中的断言式检查；整门课统一检查入口见 `code/run_checks.py`
+- `main()` 中的断言式检查；整门课统一检查入口见 `code/python/run_checks.py`
 
 ## 验收标准
 

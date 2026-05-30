@@ -1,4 +1,3 @@
-<!-- 文件: mip-course/appendix-a-when-not-mip.md -->
 # 附录A：什么时候不需要 MIP
 
 MIP 很强，但不是银弹。以下场景你应该考虑其他方法。

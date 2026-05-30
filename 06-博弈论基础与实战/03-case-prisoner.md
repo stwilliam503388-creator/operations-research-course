@@ -138,7 +138,7 @@ S_B = {高价 (15元), 低价 (12元)}
 ## ✅ 代码验证
 
 ```bash
-python3 code/case03_pricing.py
+python3 code/python/case03_pricing.py
 ```
 
 ### 运行结果（期望）

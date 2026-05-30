@@ -1,7 +1,6 @@
-<!-- 文件: mip-course/05-case-portfolio.md -->
 # 案例3：投资组合优化
 
-> 难度 ★★☆☆☆ · 前置：读完 01-background.md (1.4) + 02-solver-tech.md (2.4) · 求解器：Gurobi (需要 MIQP) · 代码：code/case03_portfolio.py · 预计阅读：25min · 预计运行：< 3min
+> 难度 ★★☆☆☆ · 前置：读完 01-background.md (1.4) + 02-solver-tech.md (2.4) · 求解器：Gurobi (需要 MIQP) · 代码：code/python/case03_portfolio.py · 预计阅读：25min · 预计运行：< 3min
 
 ---
 
@@ -264,7 +263,7 @@ w[i] ≥ 0    ∀ i ∈ N
 
 ## 6 代码实现概述
 
-完整代码见 `code/case03_portfolio.py`（约 350 行，可在 3 分钟内跑通）。
+完整代码见 `code/python/case03_portfolio.py`（约 350 行，可在 3 分钟内跑通）。
 
 **代码结构：**
 
@@ -294,7 +293,7 @@ Gurobi (首选) → 如果未安装或无许可，自动降级到 HiGHS
 
 ## 7 运行结果
 
-运行 `python code/case03_portfolio.py`，输出如下（以 500 只选 20 为例，具体数值因随机种子不同略有波动）：
+运行 `python code/python/case03_portfolio.py`，输出如下（以 500 只选 20 为例，具体数值因随机种子不同略有波动）：
 
 ```
 === 小规模 (100 只, 选 10) ===

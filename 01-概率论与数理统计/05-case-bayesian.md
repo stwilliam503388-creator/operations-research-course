@@ -70,7 +70,7 @@ P(D | T+) = 0.99 × 0.001 / 0.01098 ≈ 0.0902
 
 ## 代码
 
-见 `code/case05_bayesian.py`
+见 `code/python/case05_bayesian.py`
 
 关键输出：
 - 一次阳性后的后验概率 ≈ 9%

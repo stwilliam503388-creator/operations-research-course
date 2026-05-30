@@ -172,12 +172,12 @@
 | `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
 | `appendix-c-ml-intersection.md` | 附录C：博弈论 × ML 的交叉点 | ~800 |
 | `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
-| `code/case03_pricing.py` | Python 案例：定价博弈与囚徒困境 | — |
-| `code/case04_auction.py` | Python 案例：拍卖出价策略 | — |
-| `code/case05_bargaining.py` | Python 案例：谈判与讨价还价 | — |
-| `code/case06_cooperation.py` | Python 案例：合作博弈与公平分配 | — |
-| `code/case07_signaling.py` | Python 案例：信号传递与市场 | — |
-| `code/capstone.py` | Python 综合项目：平台补贴与竞争策略 | — |
+| `code/python/case03_pricing.py` | Python 案例：定价博弈与囚徒困境 | — |
+| `code/python/case04_auction.py` | Python 案例：拍卖出价策略 | — |
+| `code/python/case05_bargaining.py` | Python 案例：谈判与讨价还价 | — |
+| `code/python/case06_cooperation.py` | Python 案例：合作博弈与公平分配 | — |
+| `code/python/case07_signaling.py` | Python 案例：信号传递与市场 | — |
+| `code/python/capstone.py` | Python 综合项目：平台补贴与竞争策略 | — |
 | `code/cpp/case03_prisoner_equilibrium.cpp` | C++17 对照案例：2x2 博弈纯策略纳什均衡枚举 | — |
 
 ---

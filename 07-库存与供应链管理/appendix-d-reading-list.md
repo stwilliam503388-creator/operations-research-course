@@ -27,4 +27,4 @@
 - **MIT Supply Chain 公开课**（edX）：全球最好的免费供应链课程之一，由知名教授 David Simchi-Levi 主讲
 - **INFORMS 期刊**（Management Science, Manufacturing & Service Operations Management）：学术前沿——但论文偏数学，适合有运筹学基础的读者
 - **Towards Data Science 供应链 Python 教程**：搜索 "supply chain python" 能找到大量实操文章
-- **本课程的 code/ 目录**：所有案例的 Jupyter Notebook，可以直接运行和修改
+- **本课程的 `code/python/` 目录**：所有案例的 Python 脚本，可以直接运行和修改

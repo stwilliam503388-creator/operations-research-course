@@ -1,4 +1,3 @@
-<!-- 文件: stochastic-optimization-course/appendix-a-when-not-stochastic.md -->
 # 附录A：什么时候不需要不确定性优化
 
 > 不是所有问题都需要随机规划或鲁棒优化。事实上，**大部分问题不需要**。

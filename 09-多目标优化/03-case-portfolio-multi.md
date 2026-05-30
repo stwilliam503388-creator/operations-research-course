@@ -104,7 +104,7 @@ $$
 
 ## 代码概览
 
-完整代码在 `code/case03_portfolio_multi.py`，核心逻辑如下：
+完整代码在 `code/python/case03_portfolio_multi.py`，核心逻辑如下：
 
 ### 业务-公式-代码映射
 
@@ -149,7 +149,7 @@ for lam in np.linspace(0, 1, n_points):
 
 ## 运行结果
 
-运行 `python code/case03_portfolio_multi.py`，你会看到以下输出：
+运行 `python code/python/case03_portfolio_multi.py`，你会看到以下输出：
 
 ```
 ============================================================
@@ -180,7 +180,7 @@ for lam in np.linspace(0, 1, n_points):
     公用H: 42.5%
 ```
 
-如果你想进一步做可视化，可以在 `code/case03_portfolio_multi.py` 的输出基础上扩展一张 2×2 的四合一图表：
+如果你想进一步做可视化，可以在 `code/python/case03_portfolio_multi.py` 的输出基础上扩展一张 2×2 的四合一图表：
 
 1. **左上**：有效前沿曲线——横轴是风险，纵轴是收益，蓝色散点连成的曲线从左上往右下单调递减。标出了最小方差组合（红星）和最大夏普组合（金星），灰色点是各单个资产的位置——全部落在前沿下方，说明分散化确实有效。
 2. **右上**：资产权重变化路径——横轴是 λ，纵轴是各资产权重。λ 从 0 到 1，稳健资产（公用 H）的权重逐渐让位给高风险资产（科技 A）。

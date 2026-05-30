@@ -1,4 +1,3 @@
-<!-- 文件: pde-course/06-case-em.md -->
 
 # 案例 4：电磁场分布（Laplace 方程）★★★☆☆
 
@@ -133,7 +132,7 @@ residual = max(|φ^{k+1} - φ^{k}|) / (max(φ) - min(φ))
 
 ## 代码概览
 
-**文件**: `code/case06_em.py`
+**文件**: `code/python/case06_em.py`
 
 ### 核心函数
 
@@ -164,7 +163,7 @@ def laplace_gauss_seidel(nx=40, ny=40, Lx=1.0, Ly=1.0, V0=1.0,
 
 ```bash
 cd "03-PDE物理方程求解"
-python code/case06_em.py
+python code/python/case06_em.py
 ```
 
 ---

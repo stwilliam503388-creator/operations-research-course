@@ -1,4 +1,3 @@
-<!-- 文件: pde-course/02-pde-basics.md -->
 
 # 第二部分：PDE 求解基础知识
 

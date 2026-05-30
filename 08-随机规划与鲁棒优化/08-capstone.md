@@ -1,6 +1,6 @@
 # 🏆 毕业项目：同订货问题，四种方法大对比
 
-> 难度 ★★★★☆ · 综合 · 核心概念：确定性 vs 随机 vs 鲁棒 vs 分布鲁棒 · 代码：`code/capstone.py`
+> 难度 ★★★★☆ · 综合 · 核心概念：确定性 vs 随机 vs 鲁棒 vs 分布鲁棒 · 代码：`code/python/capstone.py`
 
 ---
 
@@ -123,7 +123,7 @@ DRO 说：备 208 件——比 SP 少 22 件，比 RO 多 93 件。
 ## 4 代码实现概览
 
 ```python
-# 关键代码（完整版见 code/capstone.py）
+# 关键代码（完整版见 code/python/capstone.py）
 
 import numpy as np
 from scipy.stats import norm, t, lognorm, uniform
@@ -161,7 +161,7 @@ def evaluate(q, dist_type, n_sim=100000):
     return profit.mean(), np.percentile(profit, 5), profit.min()
 ```
 
-> 完整代码 `code/capstone.py` 运行一次输出四种方法在四种真实分布下的完整对比表。
+> 完整代码 `code/python/capstone.py` 运行一次输出四种方法在四种真实分布下的完整对比表。
 
 ---
 
