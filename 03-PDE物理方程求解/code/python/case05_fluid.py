@@ -27,6 +27,15 @@ case05_fluid.py — 1D Burgers 方程 FDM 求解
 import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
+import os
+
+
+def maybe_show():
+    """Only open an interactive window when explicitly requested."""
+    if os.environ.get("SHOW_PLOTS") == "1":
+        plt.show()
+    else:
+        plt.close()
 
 
 def burgers_fdm(nx=200, nt=600, L=2.0, T=1.0, nu=0.01, ic='sin'):
@@ -140,7 +149,7 @@ def compare_reynolds():
     plt.tight_layout()
     plt.savefig(Path(__file__).with_name('fig_burgers_comparison.png'), dpi=150)
     print("\nComparison figure saved: fig_burgers_comparison.png")
-    plt.show()
+    maybe_show()
 
 
 def time_evolution():
@@ -167,7 +176,7 @@ def time_evolution():
     plt.grid(True, alpha=0.3)
     plt.savefig(Path(__file__).with_name('fig_burgers_evolution.png'), dpi=150)
     print("Evolution figure saved: fig_burgers_evolution.png")
-    plt.show()
+    maybe_show()
 
 
 def shock_evolution():
@@ -193,7 +202,7 @@ def shock_evolution():
     plt.grid(True, alpha=0.3)
     plt.savefig(Path(__file__).with_name('fig_burgers_shock.png'), dpi=150)
     print("Shock figure saved: fig_burgers_shock.png")
-    plt.show()
+    maybe_show()
 
 
 if __name__ == '__main__':

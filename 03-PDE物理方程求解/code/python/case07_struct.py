@@ -18,7 +18,16 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path
+import os
 from scipy.linalg import solve
+
+
+def maybe_show():
+    """Only open an interactive window when explicitly requested."""
+    if os.environ.get("SHOW_PLOTS") == "1":
+        plt.show()
+    else:
+        plt.close()
 
 
 # ============================================================
@@ -295,7 +304,7 @@ def main():
             order_str = f"{order:.2f}"
         print(f"{N_test:>6}  {dx_test:>10.4f}  {errors[i]*1000:>18.4e}  {order_str:>8}")
 
-    plt.show()
+    maybe_show()
 
 
 if __name__ == "__main__":

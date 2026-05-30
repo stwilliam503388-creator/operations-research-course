@@ -3,7 +3,7 @@
 难度：★★☆☆☆
 方法：随机规划 / 单阶段
 依赖：pip install numpy scipy
-运行：python code/case01_newsvendor.py
+运行：python code/python/case01_newsvendor.py
 
 简述：求解新闻摊贩问题的最优订货量——对比解析解与蒙特卡洛仿真解。
 """

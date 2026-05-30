@@ -3,7 +3,7 @@
 难度：★★★☆☆
 方法：随机规划 / 两阶段
 依赖：pip install numpy scipy
-运行：python code/case02_two_stage.py
+运行：python code/python/case02_two_stage.py
 
 简述：两阶段生产计划——先采购原材料，观察需求后决定产量。
 """
