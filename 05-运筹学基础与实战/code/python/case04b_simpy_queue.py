@@ -4,7 +4,7 @@
 对比 case06_queue.py 的手写 DES 和 SimPy 框架的差异。
 展示 SimPy 的 process + resource 模型。
 
-运行: python3 code/case04b_simpy_queue.py
+运行: python3 code/python/case04b_simpy_queue.py
 """
 
 import simpy
@@ -131,42 +131,48 @@ def run_emergency(num_doctors=3, sim_hours=168):
 # ============================================================
 # 3. 运行与结果
 # ============================================================
-print("=" * 65)
-print("  案例4b：SimPy 排队仿真")
-print("=" * 65)
 
-print("\n" + "─" * 65)
-print("  第一部分：M/M/1 验证（与解析解对比）")
-print("─" * 65)
-mm1 = run_mm1()
-print(f"  λ={mm1['lambda']}, μ={mm1['mu']}, ρ={mm1['rho']:.3f}")
-print(f"  仿真:   L={mm1['sim_L']:.2f}, W={mm1['sim_W']:.1f}")
-print(f"  解析解: L={mm1['analytic_L']:.2f}, W={mm1['analytic_W']:.1f}")
-print(f"  L 偏差: {mm1['L_error']:.2f}%  {'✅' if mm1['L_error']<10 else '❌'}")
-print(f"  W 偏差: {mm1['W_error']:.2f}%  {'✅' if mm1['W_error']<10 else '❌'}")
+def main():
+    print("=" * 65)
+    print("  案例4b：SimPy 排队仿真")
+    print("=" * 65)
 
-print("\n" + "─" * 65)
-print("  第二部分：多优先级急诊科仿真（λ随时间变化）")
-print("─" * 65)
+    print("\n" + "─" * 65)
+    print("  第一部分：M/M/1 验证（与解析解对比）")
+    print("─" * 65)
+    mm1 = run_mm1()
+    print(f"  λ={mm1['lambda']}, μ={mm1['mu']}, ρ={mm1['rho']:.3f}")
+    print(f"  仿真:   L={mm1['sim_L']:.2f}, W={mm1['sim_W']:.1f}")
+    print(f"  解析解: L={mm1['analytic_L']:.2f}, W={mm1['analytic_W']:.1f}")
+    print(f"  L 偏差: {mm1['L_error']:.2f}%  {'✅' if mm1['L_error']<10 else '❌'}")
+    print(f"  W 偏差: {mm1['W_error']:.2f}%  {'✅' if mm1['W_error']<10 else '❌'}")
 
-for nd in [2, 3, 4]:
-    stats = run_emergency(num_doctors=nd, sim_hours=336)
-    avg_wait = {cat: np.mean(stats['waits'][cat]) if stats['waits'][cat] else 0
-                for cat in [EDCategory.EMERGENCY, EDCategory.URGENT, EDCategory.ROUTINE]}
-    print(f"\n  医生数: {nd}")
-    print(f"    危重:  平均等待 {avg_wait[EDCategory.EMERGENCY]:.1f} 分钟  ({stats['counts'][EDCategory.EMERGENCY]}人)")
-    print(f"    紧急:  平均等待 {avg_wait[EDCategory.URGENT]:.1f} 分钟    ({stats['counts'][EDCategory.URGENT]}人)")
-    print(f"    常规:  平均等待 {avg_wait[EDCategory.ROUTINE]:.1f} 分钟    ({stats['counts'][EDCategory.ROUTINE]}人)")
+    print("\n" + "─" * 65)
+    print("  第二部分：多优先级急诊科仿真（λ随时间变化）")
+    print("─" * 65)
 
-# 验证标准
-print("\n  ── ✅ 验证标准 ──")
-print("  1. M/M/1 仿真 vs 解析解偏差 < 10% ✅" if mm1['L_error'] < 10 else "  1. ❌")
-print("  2. Little 定律 L=λW 成立 ✅" if abs(mm1['sim_L'] - mm1['lambda']*mm1['sim_W']) < 0.5 else "  2. ❌")
-print("  3. 增加医生后危重病人等待时间下降 (与非线性的排队效应一致)")
-print()
-print("  ── 建模心法 ──")
-print("  • SimPy 代码 ~80行 vs 手写DES ~200行")
-print("  • process + resource 模型贴近自然语言")
-print("  • PriorityResource 内置支持多优先级排队")
-print("  • 可以轻松加入非平稳到达率、多级分诊")
-print("  • 缺点是大型仿真比手写C/Python慢")
+    for nd in [2, 3, 4]:
+        stats = run_emergency(num_doctors=nd, sim_hours=336)
+        avg_wait = {cat: np.mean(stats['waits'][cat]) if stats['waits'][cat] else 0
+                    for cat in [EDCategory.EMERGENCY, EDCategory.URGENT, EDCategory.ROUTINE]}
+        print(f"\n  医生数: {nd}")
+        print(f"    危重:  平均等待 {avg_wait[EDCategory.EMERGENCY]:.1f} 分钟  ({stats['counts'][EDCategory.EMERGENCY]}人)")
+        print(f"    紧急:  平均等待 {avg_wait[EDCategory.URGENT]:.1f} 分钟    ({stats['counts'][EDCategory.URGENT]}人)")
+        print(f"    常规:  平均等待 {avg_wait[EDCategory.ROUTINE]:.1f} 分钟    ({stats['counts'][EDCategory.ROUTINE]}人)")
+
+    # 验证标准
+    print("\n  ── ✅ 验证标准 ──")
+    print("  1. M/M/1 仿真 vs 解析解偏差 < 10% ✅" if mm1['L_error'] < 10 else "  1. ❌")
+    print("  2. Little 定律 L=λW 成立 ✅" if abs(mm1['sim_L'] - mm1['lambda']*mm1['sim_W']) < 0.5 else "  2. ❌")
+    print("  3. 增加医生后危重病人等待时间下降 (与非线性的排队效应一致)")
+    print()
+    print("  ── 建模心法 ──")
+    print("  • SimPy 代码 ~80行 vs 手写DES ~200行")
+    print("  • process + resource 模型贴近自然语言")
+    print("  • PriorityResource 内置支持多优先级排队")
+    print("  • 可以轻松加入非平稳到达率、多级分诊")
+    print("  • 缺点是大型仿真比手写C/Python慢")
+
+
+if __name__ == "__main__":
+    main()

@@ -171,9 +171,9 @@ def generate_demand_curve(n_hours=24, seed=123):
     """
     rng = np.random.default_rng(seed)
 
-    # 基础负荷曲线模板
+    # 基础负荷曲线模板。小规模教学测试会用 12 小时，因此需要按 n_hours 重采样。
     hours = np.arange(n_hours)
-    base_shape = np.array([
+    daily_shape = np.array([
         500, 480, 470, 460,  # 0-3: 凌晨低谷
         480, 520,            # 4-5: 开始爬升
         650, 750, 850,       # 6-8: 上午快速上升
@@ -184,6 +184,7 @@ def generate_demand_curve(n_hours=24, seed=123):
         950, 850,            # 20-21: 回落
         750, 650,            # 22-23: 深夜
     ])
+    base_shape = np.interp(hours, np.linspace(0, n_hours - 1, len(daily_shape)), daily_shape)
 
     # 加少量随机噪声 (模拟实际负荷的随机波动)
     noise = rng.normal(0, 15, size=n_hours)
