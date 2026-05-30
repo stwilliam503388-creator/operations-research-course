@@ -108,7 +108,7 @@ $$
 
 ## 代码概览
 
-完整代码在 `code/case06_supply_chain_multi.py`，核心逻辑：
+完整代码在 `code/python/case06_supply_chain_multi.py`，核心逻辑：
 
 ```python
 # 1. 参数定义
@@ -149,7 +149,7 @@ best_idx = argmax(closeness)
 
 ## 运行结果
 
-运行 `python code/case06_supply_chain_multi.py`：
+运行 `python code/python/case06_supply_chain_multi.py`：
 
 ```
 ============================================================
@@ -180,7 +180,7 @@ best_idx = argmax(closeness)
   贴近度=0.723
 ```
 
-如果你想进一步做可视化，可以在 `code/case06_supply_chain_multi.py` 的输出基础上扩展下面几类图：
+如果你想进一步做可视化，可以在 `code/python/case06_supply_chain_multi.py` 的输出基础上扩展下面几类图：
 
 1. **左上——三维帕累托前沿**：3D 散点图展示成本、服务水平、碳排放三个目标构成的曲面。标记了三个极端方案（最低成本、最高服务、最低排放）。
 2. **右上——成本 vs 服务水平**：二维投影，呈"L"形——低服务区成本低但陡增，服务水平超过 90% 后成本急剧上升。

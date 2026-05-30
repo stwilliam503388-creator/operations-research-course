@@ -148,7 +148,7 @@ $$
 
 ## 代码概览
 
-**文件**: `code/case05_finance.py`
+**文件**: `code/python/case05_finance.py`
 
 ```
 generate_data()          → 生成 N 种资产的 μ 和 Σ

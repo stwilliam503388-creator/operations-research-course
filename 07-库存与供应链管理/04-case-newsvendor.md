@@ -1,6 +1,6 @@
 # 案例 2：报童与服务水平 ★★★☆☆
 
-> 难度：★★★☆☆ · 模型类型：随机库存模型 / 单周期 / 概率决策 · 求解方法：分位数求解 + 蒙特卡洛仿真验证 · 代码路径：`code/case04_newsvendor.py`
+> 难度：★★★☆☆ · 模型类型：随机库存模型 / 单周期 / 概率决策 · 求解方法：分位数求解 + 蒙特卡洛仿真验证 · 代码路径：`code/python/case04_newsvendor.py`
 
 ---
 
@@ -129,7 +129,7 @@ def enumerate_optimal(mu, sigma, Cu, Co, p, c, s, Q_range):
     return best_Q, best_profit
 ```
 
-完整代码见 `code/case04_newsvendor.py`，包含：
+完整代码见 `code/python/case04_newsvendor.py`，包含：
 - 临界分位数法计算最优订货量
 - 蒙特卡洛仿真（100,000 次）验证期望利润
 - 枚举法对比（确认分位数最优 = 枚举最优）

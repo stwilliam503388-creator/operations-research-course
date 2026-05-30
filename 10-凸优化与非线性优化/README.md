@@ -4,6 +4,10 @@
 
 ---
 
+## 内容质量标准
+
+本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+
 ## 这份教程是什么
 
 这是一份给**有基础微积分、线性代数和 Python 能力，但对连续优化只停留在“梯度下降会让 loss 下降”阶段**的技术人写的自学教程。它不把你拉进厚重定理，而是围绕一个问题展开：**什么时候一个优化问题好解，什么时候优化器只是给了你一个看起来不错的局部答案？**
@@ -135,7 +139,7 @@ README.md
 | `appendix-b-common-pitfalls.md` | TOP 5 必踩坑 | ★★☆☆☆ |
 | `appendix-c-ml-intersection.md` | 凸优化与机器学习 | ★★★☆☆ |
 | `appendix-d-reading-list.md` | 推荐阅读 | ★☆☆☆☆ |
-| `code/*.py` | Python 教学案例与检查脚本 | — |
+| `code/python/*.py` | Python 教学案例与检查脚本 | — |
 | `code/cpp/case03_gradient_descent.cpp` | C++17 对照案例：梯度下降拟合直线 | — |
 
 ---
@@ -156,7 +160,7 @@ g++ -std=c++17 -O2 code/cpp/case03_gradient_descent.cpp -o /tmp/case03_gradient_
 本课程提供轻量验证脚本，会依次运行 6 个 Python 案例并检查关键断言：
 
 ```bash
-python3 code/run_checks.py
+python3 code/python/run_checks.py
 ```
 
 ---

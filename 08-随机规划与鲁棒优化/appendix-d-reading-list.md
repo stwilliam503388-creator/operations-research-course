@@ -1,4 +1,3 @@
-<!-- 文件: stochastic-optimization-course/appendix-d-reading-list.md -->
 # 附录D：推荐阅读
 
 > 以下资源按「先读哪个」排了序。不要全读——**挑你需要的读**。

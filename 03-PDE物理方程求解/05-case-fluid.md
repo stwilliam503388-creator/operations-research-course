@@ -1,4 +1,3 @@
-<!-- 文件: pde-course/05-case-fluid.md -->
 
 # 案例 3：管道内流体流动（Burgers 方程入门）★★★☆☆
 
@@ -111,7 +110,7 @@ u^{n+1}_i = u^n_i + Δt · [-u^n_i · (∂u/∂x)_upwind + ν · (∂²u/∂x²)
 
 ## 代码概览
 
-**文件**: `code/case05_fluid.py`
+**文件**: `code/python/case05_fluid.py`
 
 核心函数 `burgers_fdm()` 完成主要求解：
 
@@ -132,7 +131,7 @@ def burgers_fdm(nx=200, nt=600, L=2.0, T=1.0, nu=0.01, ic='sin'):
 
 ```bash
 cd "03-PDE物理方程求解"
-python code/case05_fluid.py
+python code/python/case05_fluid.py
 ```
 
 ---

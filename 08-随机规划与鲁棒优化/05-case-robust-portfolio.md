@@ -1,6 +1,6 @@
 # 案例 3：鲁棒投资组合优化
 
-> 难度 ★★★☆☆ · 鲁棒优化 · 核心概念：不确定性集合、预算不确定性、最坏情况保护 · 代码：`code/case03_robust_portfolio.py`
+> 难度 ★★★☆☆ · 鲁棒优化 · 核心概念：不确定性集合、预算不确定性、最坏情况保护 · 代码：`code/python/case03_robust_portfolio.py`
 
 ---
 
@@ -122,7 +122,7 @@ s.t.  Σ w_i = 1,  w_i ≥ 0
 ## 4 代码实现概览
 
 ```python
-# 关键代码（完整版见 code/case03_robust_portfolio.py）
+# 关键代码（完整版见 code/python/case03_robust_portfolio.py）
 
 import cvxpy as cp
 import numpy as np
@@ -155,7 +155,7 @@ def evaluate_portfolio(w, n_scenarios=100000):
     ...
 ```
 
-> 完整代码 `code/case03_robust_portfolio.py` 包含三种集合实现、蒙特卡洛验证和对比图。
+> 完整代码 `code/python/case03_robust_portfolio.py` 包含三种鲁棒集合的文本输出和验证指标；如果需要对比图，可以在输出权重和收益指标基础上自行扩展可视化。
 
 ---
 
@@ -221,4 +221,4 @@ def evaluate_portfolio(w, n_scenarios=100000):
 
 ---
 
-> [本章完]
+> [本章完，下一个: 06-case-supply-chain-stochastic.md]

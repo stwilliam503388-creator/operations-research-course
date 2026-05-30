@@ -1,4 +1,3 @@
-<!-- 文件: pde-course/01-physics.md -->
 
 # 第一部分：物理背景与 PDE 简介
 

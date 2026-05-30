@@ -4,6 +4,10 @@
 
 ---
 
+## 内容质量标准
+
+本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+
 ## 这份教程是什么
 
 这是一份给**有运筹学或单目标优化基础、但对多目标优化完全陌生**的技术人/数据科学家/工程师写的自学教程。它不讲学院派的定理证明——每一章都围绕「多个冲突目标怎么同时优化」和「帕累托最优到底告诉你什么」展开。
@@ -187,12 +191,12 @@
 | `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
 | `appendix-c-ml-intersection.md` | 附录C：多目标优化 × ML 的交叉点 | ~800 |
 | `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
-| `code/case03_portfolio_multi.py` | 案例1代码：投资组合双目标优化 | — |
-| `code/case04_product_design.py` | 案例2代码：产品设计权衡 | — |
-| `code/case05_scheduling_multi.py` | 案例3代码：生产调度多目标 | — |
-| `code/case06_supply_chain_multi.py` | 案例4代码：供应链多目标 | — |
-| `code/case07_nsga2.py` | 案例5代码：从零实现 NSGA-II | — |
-| `code/capstone.py` | 毕业项目：城市物流多目标优化 | — |
+| `code/python/case03_portfolio_multi.py` | 案例1代码：投资组合双目标优化 | — |
+| `code/python/case04_product_design.py` | 案例2代码：产品设计权衡 | — |
+| `code/python/case05_scheduling_multi.py` | 案例3代码：生产调度多目标 | — |
+| `code/python/case06_supply_chain_multi.py` | 案例4代码：供应链多目标 | — |
+| `code/python/case07_nsga2.py` | 案例5代码：从零实现 NSGA-II | — |
+| `code/python/capstone.py` | 毕业项目：城市物流多目标优化 | — |
 | `code/cpp/case07_pareto_sort.cpp` | C++17 对照案例：非支配排序与拥挤距离 | — |
 
 ---

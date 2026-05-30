@@ -1,4 +1,3 @@
-<!-- 文件: pde-course/appendix-b-common-pitfalls.md -->
 
 # 附录B：TOP 5 必踩坑
 

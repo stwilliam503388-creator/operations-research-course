@@ -1,4 +1,3 @@
-<!-- 文件: stochastic-optimization-course/appendix-c-ml-intersection.md -->
 # 附录C：随机规划 × ML 的交叉点
 
 > 如果你既是 ML 工程师又是运筹优化的人——这里是你应该关注的前沿交叉地带。

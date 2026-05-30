@@ -69,7 +69,7 @@ Cohen's h = 2 × arcsin(√p₁) - 2 × arcsin(√p₂)
 
 ## 代码
 
-见 `code/case06_hypothesis.py`
+见 `code/python/case06_hypothesis.py`
 
 关键输出：
 - 当新旧算法无差异时，p > 0.05（正确不拒绝 H₀）
