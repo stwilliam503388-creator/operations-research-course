@@ -123,7 +123,7 @@ u_i = ├  0          如果 b_i < 至少一个 b_j
 ## ✅ 代码验证
 
 ```bash
-python3 code/case04_auction.py
+python3 code/python/case04_auction.py
 ```
 
 ### 运行结果（期望）

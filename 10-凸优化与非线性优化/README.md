@@ -139,7 +139,7 @@ README.md
 | `appendix-b-common-pitfalls.md` | TOP 5 必踩坑 | ★★☆☆☆ |
 | `appendix-c-ml-intersection.md` | 凸优化与机器学习 | ★★★☆☆ |
 | `appendix-d-reading-list.md` | 推荐阅读 | ★☆☆☆☆ |
-| `code/*.py` | Python 教学案例与检查脚本 | — |
+| `code/python/*.py` | Python 教学案例与检查脚本 | — |
 | `code/cpp/case03_gradient_descent.cpp` | C++17 对照案例：梯度下降拟合直线 | — |
 
 ---
@@ -160,7 +160,7 @@ g++ -std=c++17 -O2 code/cpp/case03_gradient_descent.cpp -o /tmp/case03_gradient_
 本课程提供轻量验证脚本，会依次运行 6 个 Python 案例并检查关键断言：
 
 ```bash
-python3 code/run_checks.py
+python3 code/python/run_checks.py
 ```
 
 ---

@@ -1,6 +1,6 @@
 # 案例 1：EOQ 与批量决策 ★★☆☆☆
 
-> 难度：★★☆☆☆ · 模型类型：确定型库存模型 / 闭式解 · 求解方法：一阶导数求极值 + 灵敏度分析 · 代码路径：`code/case03_eoq.py`
+> 难度：★★☆☆☆ · 模型类型：确定型库存模型 / 闭式解 · 求解方法：一阶导数求极值 + 灵敏度分析 · 代码路径：`code/python/case03_eoq.py`
 
 ---
 
@@ -124,7 +124,7 @@ def enumerate_optimal(D, K, h, Q_min=500, Q_max=5000):
     return best_Q, best_TC
 ```
 
-完整代码见 `code/case03_eoq.py`，包含：
+完整代码见 `code/python/case03_eoq.py`，包含：
 - EOQ 公式计算 + 总成本验证
 - 枚举法对比（确认公式最优 = 枚举最优）
 - 灵敏度分析：K 和 h 变化对 Q* 和总成本的影响

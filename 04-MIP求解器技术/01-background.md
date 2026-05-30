@@ -1,4 +1,3 @@
-<!-- 文件: mip-course/01-background.md -->
 
 # 第一部分：背景知识
 

@@ -1,6 +1,6 @@
 # 案例 5：供应链网络设计 ★★★★☆ [进阶]
 
-> 难度：★★★★☆ · 模型类型：设施选址 · 求解方法：教学版穷举 + 贪心分配 + 灵敏度分析 · 代码路径：`code/case07_network.py`
+> 难度：★★★★☆ · 模型类型：设施选址 · 求解方法：教学版穷举 + 贪心分配 + 灵敏度分析 · 代码路径：`code/python/case07_network.py`
 
 ---
 
@@ -178,7 +178,7 @@ def optimize_network(n_warehouses, n_customers, ...):
     return best_set, best_cost
 ```
 
-完整代码见 `code/case07_network.py`，包含：
+完整代码见 `code/python/case07_network.py`，包含：
 - 随机生成 10 个候选仓库和 50 个客户城市数据
 - 穷举选址组合（C(10，k)，k=1..5）+ 就近分配客户
 - 总成本计算（建设 + 运输 + 安全库存）

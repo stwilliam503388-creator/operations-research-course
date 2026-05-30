@@ -198,7 +198,7 @@ return lo
 完整可运行的 Python 实现见：
 
 ```
-code/case05_search.py
+code/python/case05_search.py
 ```
 
 包含三种场景的完整实现 + benchmark() 性能对比。

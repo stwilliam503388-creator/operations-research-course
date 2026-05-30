@@ -126,7 +126,7 @@
 | 工作中做采购/仓储/计划相关 | 案例1/2 → 01（概念补齐）→ 案例3 → 02 |
 | 完全不知道从哪开始 | 01 → 案例1（最快的正向反馈）→ 案例2 → capstone |
 | 有运筹学基础，想深入供应链 | 02 → 案例4/5（进阶）→ capstone |
-| 只想看实操代码 | 直接进 `code/` 目录运行 Python 脚本，或编译 `code/cpp/` 下的 C++ 对照案例 |
+| 只想看实操代码 | 直接进 `code/python/` 目录运行 Python 脚本，或编译 `code/cpp/` 下的 C++ 对照案例 |
 | 遇到实际业务问题想找对应模型 | 翻附录A（什么时候不需要模型）→ 01（选模型）→ 对应案例 |
 
 ---
@@ -184,6 +184,12 @@
 | `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
 | `appendix-c-ml-intersection.md` | 附录C：库存与供应链 × ML | ~800 |
 | `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
+| `code/python/case03_eoq.py` | Python 案例：EOQ 批量决策 | — |
+| `code/python/case04_newsvendor.py` | Python 案例：报童订货与服务水平 | — |
+| `code/python/case05_bullwhip.py` | Python 案例：牛鞭效应仿真 | — |
+| `code/python/case06_contract.py` | Python 案例：供应链契约设计 | — |
+| `code/python/case07_network.py` | Python 案例：供应链网络设计 | — |
+| `code/python/capstone.py` | Python 毕业项目：多级供应链库存仿真 | — |
 | `code/cpp/case04_newsvendor.cpp` | C++17 对照案例：报童模型分位数搜索与利润仿真 | — |
 
 ---
@@ -208,4 +214,4 @@ g++ -std=c++17 -O2 code/cpp/case04_newsvendor.cpp -o /tmp/case04_newsvendor
 /tmp/case04_newsvendor
 ```
 
-该案例对应 `04-case-newsvendor.md` / `code/case04_newsvendor.py`，用于对照学习临界分位数、订货量搜索和蒙特卡洛利润验证。
+该案例对应 `04-case-newsvendor.md` / `code/python/case04_newsvendor.py`，用于对照学习临界分位数、订货量搜索和蒙特卡洛利润验证。

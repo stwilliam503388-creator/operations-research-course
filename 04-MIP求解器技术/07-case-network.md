@@ -1,7 +1,6 @@
-<!-- 文件: mip-course/07-case-network.md -->
 # 案例5：电信网络扩容 — 一条光纤该不该铺？
 
-> 难度 ★★★★☆  ·  前置：读完 02-solver-tech.md 全部 + 至少 2 个案例  ·  求解器：Gurobi + HiGHS 对比  ·  代码：code/case05_network.py  ·  预计阅读：45min  ·  预计运行：30-60min  ·  ⚠️ 进阶章节，初学者可跳过
+> 难度 ★★★★☆  ·  前置：读完 02-solver-tech.md 全部 + 至少 2 个案例  ·  求解器：Gurobi + HiGHS 对比  ·  代码：code/python/case05_network.py  ·  预计阅读：45min  ·  预计运行：30-60min  ·  ⚠️ 进阶章节，初学者可跳过
 
 ---
 
@@ -124,6 +123,8 @@ i j k
 
 ## 5. 运行结果：直接求解对比 Benders 分解
 
+> 说明：`code/python/case05_network.py` 在没有 Gurobi 时走 HiGHS 教学估算路径，用于展示规模、Gap 和分解思路；下表是教学对比口径，不应解读为本机实时复现实测。若要获得严格实测，请安装商业求解器或补全 HiGHS 大规模模型。
+
 | 规模 | 直接 MIP (HiGHS) | 直接 MIP (Gurobi) | Benders (HiGHS) | Benders (Gurobi) |
 |------|-----------------|-------------------|-----------------|-----------------|
 | 10 城市 | 12 秒 / Gap 0% | 3 秒 / Gap 0% | 8 秒 / 6 轮迭代 | 2 秒 / 4 轮迭代 |
@@ -136,7 +137,7 @@ i j k
 
 ## 6. 代码实现概述
 
-参见 `code/case05_network.py`。两个核心函数：
+参见 `code/python/case05_network.py`。两个核心函数：
 
 | 函数 | 功能 |
 |------|------|

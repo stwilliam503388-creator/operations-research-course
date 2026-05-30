@@ -1,6 +1,6 @@
 # 案例 3：逻辑回归与客户流失预测
 
-> 难度 ★★★☆☆ · 方法：凸损失 / 梯度下降 / 正则化 · 代码：`code/case05_logistic_regression.py`
+> 难度 ★★★☆☆ · 方法：凸损失 / 梯度下降 / 正则化 · 代码：`code/python/case05_logistic_regression.py`
 
 ## 1. 故事开场
 
@@ -55,6 +55,6 @@ loss = -mean[y_i log p_i + (1-y_i) log(1-p_i)] + λ ||w||^2
 ## 8. 学习验收
 
 - 能解释 sigmoid 为什么把线性打分变成概率。
-- 能运行 `code/case05_logistic_regression.py`，并看到 loss 下降。
+- 能运行 `code/python/case05_logistic_regression.py`，并看到 loss 下降。
 - 能说明 L2 正则化为什么会限制参数过大。
 - 能指出业务上还需要单独选择阈值，并评估召回率、误杀成本和客户价值。

@@ -145,7 +145,7 @@ $$
 
 ## 代码概览
 
-**文件**: `code/case06_queue.py`
+**文件**: `code/python/case06_queue.py`
 
 ```
 Event                  → 仿真事件（时间、类型、病人 ID）

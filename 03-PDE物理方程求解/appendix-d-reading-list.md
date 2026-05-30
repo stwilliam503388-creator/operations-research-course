@@ -1,4 +1,3 @@
-<!-- 文件: pde-course/appendix-d-reading-list.md -->
 
 # 附录D：推荐阅读
 

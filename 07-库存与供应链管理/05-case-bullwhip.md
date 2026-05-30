@@ -1,6 +1,6 @@
 # 案例 3：牛鞭效应仿真 ★★★☆☆
 
-> 难度：★★★☆☆ · 模型类型：系统仿真 / 多级供应链 · 求解方法：离散事件仿真 + 统计比较 · 代码路径：`code/case05_bullwhip.py`
+> 难度：★★★☆☆ · 模型类型：系统仿真 / 多级供应链 · 求解方法：离散事件仿真 + 统计比较 · 代码路径：`code/python/case05_bullwhip.py`
 
 ---
 
@@ -153,7 +153,7 @@ def run_simulation(nodes, n_periods=200, warmup=50):
     # 返回各节点订单历史
 ```
 
-完整代码见 `code/case05_bullwhip.py`，包含：
+完整代码见 `code/python/case05_bullwhip.py`，包含：
 - 4 级供应链仿真引擎
 - 无信息共享模式 vs 信息共享模式对比
 - 不同提前期和批量参数的灵敏度分析

@@ -1,6 +1,6 @@
 # SB1：Pyomo 建模框架 — 从手写到框架
 
-> 难度 ★★☆☆☆ · 建模工具 · 求解器无关 · 代码：`code/case01b_pyomo_transport.py` · 预计阅读：20min
+> 难度 ★★☆☆☆ · 建模工具 · 求解器无关 · 代码：`code/python/case01b_pyomo_transport.py` · 预计阅读：20min
 
 ---
 
@@ -107,7 +107,7 @@ SolverFactory('cbc')
 | `model = ConcreteModel()` | 声明模型容器 |
 | `SolverFactory('appsi_highs').solve(model)` | 调用 HiGHS 求解 |
 
-完整代码见 `code/case01b_pyomo_transport.py`。
+完整代码见 `code/python/case01b_pyomo_transport.py`。
 
 ---
 
