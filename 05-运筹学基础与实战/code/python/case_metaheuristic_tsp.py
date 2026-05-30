@@ -4,7 +4,7 @@
 旅行商问题 (TSP) 是运筹学最经典的 NP-hard 问题之一。
 本文件展示：精确解不可行时，元启发式如何在合理时间内给出满意解。
 
-运行: python3 code/case_metaheuristic_tsp.py
+运行: python3 code/python/case_metaheuristic_tsp.py
 """
 
 import math, random, time
@@ -149,64 +149,70 @@ def genetic_algorithm(D, pop_size=100, generations=500, elite_ratio=0.1, mutate_
 # ============================================================
 # 5. 运行与对比
 # ============================================================
-print("=" * 65)
-print("  案例 MB：元启发式求解 TSP")
-print("  模拟退火(SA) vs 遗传算法(GA) vs 贪心基线")
-print("=" * 65)
 
-for n in [20, 50, 100]:
-    print(f"\n{'─' * 65}")
-    print(f"  城市数: n={n}")
-    print(f"{'─' * 65}")
+def main():
+    print("=" * 65)
+    print("  案例 MB：元启发式求解 TSP")
+    print("  模拟退火(SA) vs 遗传算法(GA) vs 贪心基线")
+    print("=" * 65)
 
-    cities = gen_cities(n)
-    D = dist_matrix(cities)
+    for n in [20, 50, 100]:
+        print(f"\n{'─' * 65}")
+        print(f"  城市数: n={n}")
+        print(f"{'─' * 65}")
 
-    # 贪心基线
-    t0 = time.time()
-    greedy_tour = greedy_tsp(D)
-    greedy_cost = tour_length(greedy_tour, D)
-    gt = time.time() - t0
+        cities = gen_cities(n)
+        D = dist_matrix(cities)
 
-    # 模拟退火
-    sa_iter = 30000 if n <= 50 else 20000
-    t0 = time.time()
-    sa_tour, sa_cost = simulated_annealing(D, max_iter=sa_iter)
-    sa_t = time.time() - t0
+        # 贪心基线
+        t0 = time.time()
+        greedy_tour = greedy_tsp(D)
+        greedy_cost = tour_length(greedy_tour, D)
+        gt = time.time() - t0
 
-    # 遗传算法
-    ga_gen = 300 if n <= 50 else 200
-    ga_pop = 80 if n <= 50 else 60
-    t0 = time.time()
-    ga_tour, ga_cost = genetic_algorithm(D, generations=ga_gen, pop_size=ga_pop)
-    ga_t = time.time() - t0
+        # 模拟退火
+        sa_iter = 30000 if n <= 50 else 20000
+        t0 = time.time()
+        sa_tour, sa_cost = simulated_annealing(D, max_iter=sa_iter)
+        sa_t = time.time() - t0
 
-    # 下界估计：MST 作为下界（严格下界是 1-tree 但教学用近似）
-    # 用贪心作为 100% 基线，展示相对改进
-    print(f"\n  {'方法':<16} {'路径长度':<16} {'相对贪心':<16} {'耗时':<10}")
-    print(f"  {'-'*56}")
-    print(f"  {'贪心 (Nearest Neighbor)':<16} {greedy_cost:<16.1f} {'100%':<16} {gt:<.3f}s")
-    print(f"  {'模拟退火 (SA)':<16} {sa_cost:<16.1f} {sa_cost/greedy_cost*100:<.1f}%{'':<10} {sa_t:<.3f}s")
-    print(f"  {'遗传算法 (GA)':<16} {ga_cost:<16.1f} {ga_cost/greedy_cost*100:<.1f}%{'':<10} {ga_t:<.3f}s")
+        # 遗传算法
+        ga_gen = 300 if n <= 50 else 200
+        ga_pop = 80 if n <= 50 else 60
+        t0 = time.time()
+        ga_tour, ga_cost = genetic_algorithm(D, generations=ga_gen, pop_size=ga_pop)
+        ga_t = time.time() - t0
 
-    # 验证标准
-    print(f"\n  ✅ 验证标准:")
-    print(f"    1. SA 结果 ≤ 贪心结果: {'✅' if sa_cost <= greedy_cost else '❌'}")
-    print(f"    2. GA 结果 ≤ 贪心结果: {'✅' if ga_cost <= greedy_cost else '❌'}")
-    print(f"    3. 所有路径合法（每个城市恰好一次）: ✅")
+        # 下界估计：MST 作为下界（严格下界是 1-tree 但教学用近似）
+        # 用贪心作为 100% 基线，展示相对改进
+        print(f"\n  {'方法':<16} {'路径长度':<16} {'相对贪心':<16} {'耗时':<10}")
+        print(f"  {'-'*56}")
+        print(f"  {'贪心 (Nearest Neighbor)':<16} {greedy_cost:<16.1f} {'100%':<16} {gt:<.3f}s")
+        print(f"  {'模拟退火 (SA)':<16} {sa_cost:<16.1f} {sa_cost/greedy_cost*100:<.1f}%{'':<10} {sa_t:<.3f}s")
+        print(f"  {'遗传算法 (GA)':<16} {ga_cost:<16.1f} {ga_cost/greedy_cost*100:<.1f}%{'':<10} {ga_t:<.3f}s")
 
-print(f"\n{'=' * 65}")
-print(f"  📖 元启发式核心洞察")
-print(f"{'=' * 65}")
-print("""
-  1. 贪心很快（O(n²)），但质量有限——它只看眼前最优
-  2. SA 用退火策略逃离局部最优——前期像随机搜索，后期像爬山
-  3. GA 通过种群进化保持多样性——交叉交换路径片段
-  4. 没有银弹：SA 和 GA 谁更好取决于问题结构
-  5. 工程权衡：100 城市 TSP，精确分支定界要数小时，SA 只要几秒
+        # 验证标准
+        print(f"\n  ✅ 验证标准:")
+        print(f"    1. SA 结果 ≤ 贪心结果: {'✅' if sa_cost <= greedy_cost else '❌'}")
+        print(f"    2. GA 结果 ≤ 贪心结果: {'✅' if ga_cost <= greedy_cost else '❌'}")
+        print(f"    3. 所有路径合法（每个城市恰好一次）: ✅")
 
-  什么时候用元启发式（来自 OR 课程 2.2 节）：
-  - 规模太大，精确算法跑不完
-  - 能接受「不错但不保证最优」
-  - 需要在几分钟而不是几小时内给出答案
-""")
+    print(f"\n{'=' * 65}")
+    print(f"  📖 元启发式核心洞察")
+    print(f"{'=' * 65}")
+    print("""
+      1. 贪心很快（O(n²)），但质量有限——它只看眼前最优
+      2. SA 用退火策略逃离局部最优——前期像随机搜索，后期像爬山
+      3. GA 通过种群进化保持多样性——交叉交换路径片段
+      4. 没有银弹：SA 和 GA 谁更好取决于问题结构
+      5. 工程权衡：100 城市 TSP，精确分支定界要数小时，SA 只要几秒
+
+      什么时候用元启发式（来自 OR 课程 2.2 节）：
+      - 规模太大，精确算法跑不完
+      - 能接受「不错但不保证最优」
+      - 需要在几分钟而不是几小时内给出答案
+    """)
+
+
+if __name__ == "__main__":
+    main()
