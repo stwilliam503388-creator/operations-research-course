@@ -4,6 +4,10 @@
 
 ---
 
+## 内容质量标准
+
+本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+
 ## 导言
 
 **这不是给数学家写的书——是给你写的。**
@@ -12,7 +16,7 @@
 
 这时候，**不确定性优化**就出场了。
 
-这份教程以 README 文件清单中的 **12 个正本文档 + 6 个主线 Python 代码** 为学习入口，从最基础的「为什么确定性优化不够」讲起，带你走过随机规划、鲁棒优化、分布鲁棒优化三大范式，用 5 个行业案例 + 1 个毕业项目，让你真正上手。仓库中保留的同主题早期草稿仅用于历史参考，学习时以本 README 清单为准。
+这份教程以 README 文件清单中的 **12 个正本文档 + 6 个主线 Python 代码** 为学习入口，从最基础的「为什么确定性优化不够」讲起，带你走过随机规划、鲁棒优化、分布鲁棒优化三大范式，用 5 个行业案例 + 1 个毕业项目，让你真正上手。学习时以本 README 清单为准。
 
 **读完你能：**
 - 跟同事解释「随机规划 vs 鲁棒优化到底在解决什么问题、各在什么场景下好用」
@@ -177,7 +181,7 @@ g++ -std=c++17 -O2 code/cpp/case03_saa_newsvendor.cpp -o /tmp/case03_saa_newsven
 | `03-case-newsvendor.md` | 案例 | ★★☆☆☆ | 新闻摊贩的随机版——解析解 vs 仿真 |
 | `04-case-two-stage.md` | 案例 | ★★★☆☆ | 两阶段生产计划——对等模型 |
 | `05-case-robust-portfolio.md` | 案例 | ★★★☆☆ | 鲁棒投资组合——不确定性集合 |
-| `06-case-supply-chain.md` | 案例 | ★★★★☆ | 随机供应链网络设计——大规模 MIP |
+| `06-case-supply-chain-stochastic.md` | 案例 | ★★★★☆ | 随机供应链网络设计——大规模 MIP |
 | `07-case-distributionally-robust.md` | 案例 | ★★★★☆ | 分布鲁棒优化——Wasserstein 模糊集 |
 | `08-capstone.md` | 毕业项目 | ★★★★☆ | 三种方法对比：订货问题 |
 | `appendix-a-when-not-stochastic.md` | 附录 | ★☆☆☆☆ | 什么时候不需要不确定性优化 |
@@ -187,12 +191,12 @@ g++ -std=c++17 -O2 code/cpp/case03_saa_newsvendor.cpp -o /tmp/case03_saa_newsven
 | `code/case01_newsvendor.py` | Python | ★★☆☆☆ | 报童问题 |
 | `code/case02_two_stage.py` | Python | ★★★☆☆ | 两阶段生产计划 |
 | `code/case03_robust_portfolio.py` | Python | ★★★☆☆ | 鲁棒投资组合 |
-| `code/case04_supply_chain.py` | Python | ★★★★☆ | 随机供应链网络设计 |
+| `code/case06_supply_chain_stochastic.py` | Python | ★★★★☆ | 随机供应链网络设计 |
 | `code/case05_distributionally_robust.py` | Python | ★★★★☆ | 分布鲁棒优化 |
 | `code/capstone.py` | Python | ★★★★☆ | 三种方法对比 |
 | `code/cpp/case03_saa_newsvendor.cpp` | C++ 对照 | ★★★☆☆ | SAA 求解报童订货量 |
 
-> 说明：课程中保留了少量早期同主题草稿文件，例如 `03-case-newsvendor-stochastic.md`、`05-case-portfolio.md`、`06-case-supply-chain-stochastic.md`。优先阅读本清单中的文件和案例内代码路径。
+> 说明：同主题重复稿已从学习主目录移除。请以本清单中的文档与代码路径为准。
 
 ## C++ 对照案例定位
 
