@@ -9,6 +9,12 @@
       在最坏的「可能分布」下做最优订货决策。
 """
 
+
+# 教学注释：通过场景、概率权重和坏情况边界刻画不确定需求或收益。
+# 对比不同假设下的解，理解随机性和鲁棒性如何改变决策。
+
+
+
 import numpy as np
 from scipy import stats
 from scipy.optimize import minimize_scalar

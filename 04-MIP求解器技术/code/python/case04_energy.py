@@ -46,6 +46,12 @@
     power[t,g] ∈ [0, P_max] → 机组 g 在时刻 t 的出力 (MW)
 """
 
+
+# 教学注释：重点看变量、约束和目标函数如何把业务规则翻译成 MIP 模型。
+# 求解日志或结果可用来理解分支定界、松弛和可行解质量。
+
+
+
 import numpy as np
 import time
 import sys

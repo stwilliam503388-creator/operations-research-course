@@ -11,6 +11,12 @@
 作者: Game Theory Course
 """
 
+
+# 教学注释：从参与者、策略和收益矩阵出发理解交互决策结构。
+# 计算结果用于验证均衡、分配规则或机制设计是否符合预期。
+
+
+
 import numpy as np
 from typing import List, Tuple
 
