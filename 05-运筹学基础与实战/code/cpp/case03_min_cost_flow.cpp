@@ -4,6 +4,9 @@
 #include <queue>
 #include <vector>
 
+// 教学注释：先识别业务对象，再看它们如何映射为优化、仿真或启发式模型。
+// 结果解读侧重成本、资源利用率和服务水平等管理指标。
+
 struct Edge {
     int to;
     int rev;
@@ -16,6 +19,7 @@ public:
     explicit MinCostFlow(int n) : graph_(n) {}
 
     void add_edge(int from, int to, int capacity, int cost) {
+        // 正向边表示可运输能力；反向边用于残量网络中撤销或调整已有流量。
         Edge forward{to, static_cast<int>(graph_[to].size()), capacity, cost};
         Edge backward{from, static_cast<int>(graph_[from].size()), 0, -cost};
         graph_[from].push_back(forward);
@@ -29,6 +33,7 @@ public:
         const int inf = std::numeric_limits<int>::max() / 4;
 
         while (flow < need) {
+            // 每轮在残量网络中寻找一条单位成本最低的增广路径。
             std::vector<int> dist(n, inf), prev_v(n, -1), prev_e(n, -1);
             std::vector<bool> in_queue(n, false);
             std::queue<int> q;
@@ -56,6 +61,7 @@ public:
 
             if (dist[sink] == inf) break;
             int add = need - flow;
+            // 路径上的最小剩余容量决定本轮最多能新增多少运输量。
             for (int v = sink; v != source; v = prev_v[v]) {
                 add = std::min(add, graph_[prev_v[v]][prev_e[v]].capacity);
             }
@@ -83,6 +89,7 @@ int main() {
     const int sink = 5;
 
     MinCostFlow mcf(6);
+    // 节点含义：源点 -> 工厂供给 -> 仓库需求 -> 汇点；边成本就是单位运输费用。
     mcf.add_edge(source, factory_a, 70, 0);
     mcf.add_edge(source, factory_b, 50, 0);
     mcf.add_edge(factory_a, warehouse_x, 60, 4);
