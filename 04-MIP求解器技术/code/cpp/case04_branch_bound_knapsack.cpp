@@ -4,6 +4,9 @@
 #include <queue>
 #include <vector>
 
+// 教学注释：重点看变量、约束和目标函数如何把业务规则翻译成 MIP 模型。
+// 求解日志或结果可用来理解分支定界、松弛和可行解质量。
+
 struct Item {
     int value;
     int weight;
@@ -22,6 +25,8 @@ double fractional_bound(const Node& node, const std::vector<Item>& items, int ca
     double bound = node.value;
     int total_weight = node.weight;
 
+    // 上界来自“分数背包松弛”：剩余物品可切分时能达到的最好价值。
+    // 若这个上界都不超过当前整数最优解，就没有必要继续展开该分支。
     for (int i = node.level; i < static_cast<int>(items.size()); ++i) {
         if (total_weight + items[i].weight <= capacity) {
             total_weight += items[i].weight;
@@ -58,10 +63,12 @@ int main() {
     while (!pq.empty()) {
         Node cur = pq.top();
         pq.pop();
+        // bound 是剪枝依据；level 到底说明所有物品都已做完取/舍决策。
         if (cur.bound <= best || cur.level == static_cast<int>(items.size())) continue;
         ++expanded;
 
         const Item& item = items[cur.level];
+        // 左分支：选择当前物品，对应 0/1 变量取 1。
         Node take{cur.level + 1, cur.value + item.value, cur.weight + item.weight, 0.0};
         if (take.weight <= capacity) {
             best = std::max(best, take.value);
@@ -69,6 +76,7 @@ int main() {
             if (take.bound > best) pq.push(take);
         }
 
+        // 右分支：跳过当前物品，对应 0/1 变量取 0。
         Node skip{cur.level + 1, cur.value, cur.weight, 0.0};
         skip.bound = fractional_bound(skip, items, capacity);
         if (skip.bound > best) pq.push(skip);
