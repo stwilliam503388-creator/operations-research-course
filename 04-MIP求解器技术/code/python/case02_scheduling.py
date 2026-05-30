@@ -14,6 +14,7 @@
   引入 0-1 变量 y[j,k,m]，「要么 j 在 k 前，要么 k 在 j 前」。
   Big-M 值用物理上界 (总加工时间之和) 而非魔法数字 999999。
 """
+
 import highspy
 import numpy as np
 import time

@@ -126,143 +126,149 @@ def check_core(allocation: dict, players: list, v_func) -> list:
 
     return violations
 
+def main():
 
-# ──────────────────────────────────────────────────────
-# 4. 运行与输出
-# ──────────────────────────────────────────────────────
 
-print("=" * 65)
-print("  合作博弈特征函数")
-print("=" * 65)
-coalition_names = {
-    0b001: "{A}", 0b010: "{B}", 0b100: "{C}",
-    0b011: "{A,B}", 0b101: "{A,C}", 0b110: "{B,C}", 0b111: "{A,B,C}",
-}
-for mask, name in coalition_names.items():
-    print(f"  v({name:>8}) = {coalition_value(mask):3d} 万元")
-print()
+    # ──────────────────────────────────────────────────────
+    # 4. 运行与输出
+    # ──────────────────────────────────────────────────────
 
-# 计算沙普利值
-sv = shapley_values(PLAYERS, coalition_value)
+    print("=" * 65)
+    print("  合作博弈特征函数")
+    print("=" * 65)
+    coalition_names = {
+        0b001: "{A}", 0b010: "{B}", 0b100: "{C}",
+        0b011: "{A,B}", 0b101: "{A,C}", 0b110: "{B,C}", 0b111: "{A,B,C}",
+    }
+    for mask, name in coalition_names.items():
+        print(f"  v({name:>8}) = {coalition_value(mask):3d} 万元")
+    print()
 
-print("=" * 65)
-print("  沙普利值计算结果")
-print("=" * 65)
-total_sv = sum(sv.values())
-for p in PLAYERS:
-    print(f"  φ({p}) = {sv[p]:>6.2f} 万元  ({sv[p]/total_sv*100:.1f}%)")
-print(f"  ─────────────────────")
-print(f"  合计    {total_sv:.2f} 万元")
-print()
+    # 计算沙普利值
+    sv = shapley_values(PLAYERS, coalition_value)
 
-# 核检验
-print("=" * 65)
-print("  核 (Core) 合理性检验")
-print("=" * 65)
-violations = check_core(sv, PLAYERS, coalition_value)
-if not violations:
-    print("  ✅ 沙普利值在核中！所有合理性条件满足。")
-else:
-    for v in violations:
-        print(f"  {v}")
-print()
+    print("=" * 65)
+    print("  沙普利值计算结果")
+    print("=" * 65)
+    total_sv = sum(sv.values())
+    for p in PLAYERS:
+        print(f"  φ({p}) = {sv[p]:>6.2f} 万元  ({sv[p]/total_sv*100:.1f}%)")
+    print(f"  ─────────────────────")
+    print(f"  合计    {total_sv:.2f} 万元")
+    print()
 
-# ──────────────────────────────────────────────────────
-# 5. 对比：不同分配方案的核检验
-# ──────────────────────────────────────────────────────
+    # 核检验
+    print("=" * 65)
+    print("  核 (Core) 合理性检验")
+    print("=" * 65)
+    violations = check_core(sv, PLAYERS, coalition_value)
+    if not violations:
+        print("  ✅ 沙普利值在核中！所有合理性条件满足。")
+    else:
+        for v in violations:
+            print(f"  {v}")
+    print()
 
-print("=" * 65)
-print("  不同分配方案对比")
-print("=" * 65)
+    # ──────────────────────────────────────────────────────
+    # 5. 对比：不同分配方案的核检验
+    # ──────────────────────────────────────────────────────
 
-# 方案1：平均分配
-equal_split = {p: 100 / 3 for p in PLAYERS}
-# 方案2：按单独价值比例
-alone_vals = [coalition_value(1 << i) for i in range(N)]
-total_alone = sum(alone_vals)
-proportional = {p: coalition_value(1 << i) / total_alone * 100 for i, p in enumerate(PLAYERS)}
-# 方案3：沙普利值
-# 方案4：核仁近似（B 和 C 有强议价力 -> B=35, C=35, A=30）
-custom = {'A': 30, 'B': 35, 'C': 35}
+    print("=" * 65)
+    print("  不同分配方案对比")
+    print("=" * 65)
 
-schemes = [
-    ("平均分配", equal_split),
-    ("按单独价值比例", proportional),
-    ("沙普利值", sv),
-    ("自定义 (B=C=35, A=30)", custom),
-]
+    # 方案1：平均分配
+    equal_split = {p: 100 / 3 for p in PLAYERS}
+    # 方案2：按单独价值比例
+    alone_vals = [coalition_value(1 << i) for i in range(N)]
+    total_alone = sum(alone_vals)
+    proportional = {p: coalition_value(1 << i) / total_alone * 100 for i, p in enumerate(PLAYERS)}
+    # 方案3：沙普利值
+    # 方案4：核仁近似（B 和 C 有强议价力 -> B=35, C=35, A=30）
+    custom = {'A': 30, 'B': 35, 'C': 35}
 
-for name, alloc in schemes:
-    violations = check_core(alloc, PLAYERS, coalition_value)
-    in_core = len(violations) == 0
-    total = sum(alloc.values())
-    print(f"\n  {name}:")
-    print(f"    A={alloc['A']:.1f}, B={alloc['B']:.1f}, C={alloc['C']:.1f}  (合计={total:.1f})")
-    print(f"    {'✅ 在核中' if in_core else '❌ 不在核中'}")
-    if not in_core:
-        for v in violations[:2]:  # 只显示前两条
-            print(f"      {v}")
+    schemes = [
+        ("平均分配", equal_split),
+        ("按单独价值比例", proportional),
+        ("沙普利值", sv),
+        ("自定义 (B=C=35, A=30)", custom),
+    ]
 
-# ──────────────────────────────────────────────────────
-# 6. 可视化
-# ──────────────────────────────────────────────────────
+    for name, alloc in schemes:
+        violations = check_core(alloc, PLAYERS, coalition_value)
+        in_core = len(violations) == 0
+        total = sum(alloc.values())
+        print(f"\n  {name}:")
+        print(f"    A={alloc['A']:.1f}, B={alloc['B']:.1f}, C={alloc['C']:.1f}  (合计={total:.1f})")
+        print(f"    {'✅ 在核中' if in_core else '❌ 不在核中'}")
+        if not in_core:
+            for v in violations[:2]:  # 只显示前两条
+                print(f"      {v}")
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4.5))
+    # ──────────────────────────────────────────────────────
+    # 6. 可视化
+    # ──────────────────────────────────────────────────────
 
-# 左图：沙普利值分解
-players_idx = range(N)
-colors = ['#FF6B6B', '#4ECDC4', '#45B7D1']
-bars = ax1.bar(players_idx, [sv[p] for p in PLAYERS], color=colors, width=0.5)
-ax1.set_xticks(players_idx)
-ax1.set_xticklabels([f'Dept {p}\nphi={sv[p]:.1f}' for p in PLAYERS])
-ax1.set_ylabel('Allocation amount')
-ax1.set_title('Shapley value allocation')
-ax1.set_ylim(0, 55)
-for bar, val in zip(bars, [sv[p] for p in PLAYERS]):
-    ax1.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 1,
-             f'{val:.1f}', ha='center', fontweight='bold')
-ax1.axhline(100/3, color='gray', linestyle='--', alpha=0.5, label='Equal split')
-ax1.legend()
-ax1.grid(True, alpha=0.3, axis='y')
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4.5))
 
-# 右图：沙普利值 vs 平均 vs 单独比例
-x = np.arange(N)
-width = 0.25
-ax2.bar(x - width, [equal_split[p] for p in PLAYERS], width, label='Equal split', color='gray', alpha=0.6)
-ax2.bar(x, [sv[p] for p in PLAYERS], width, label='Shapley value', color='#FF6B6B')
-ax2.bar(x + width, [proportional[p] for p in PLAYERS], width, label='Standalone ratio', color='#4ECDC4')
-ax2.set_xticks(x)
-ax2.set_xticklabels([f'Dept {p}' for p in PLAYERS])
-ax2.set_ylabel('Allocation amount')
-ax2.set_title('Allocation scheme comparison')
-ax2.legend()
-ax2.grid(True, alpha=0.3, axis='y')
+    # 左图：沙普利值分解
+    players_idx = range(N)
+    colors = ['#FF6B6B', '#4ECDC4', '#45B7D1']
+    bars = ax1.bar(players_idx, [sv[p] for p in PLAYERS], color=colors, width=0.5)
+    ax1.set_xticks(players_idx)
+    ax1.set_xticklabels([f'Dept {p}\nphi={sv[p]:.1f}' for p in PLAYERS])
+    ax1.set_ylabel('Allocation amount')
+    ax1.set_title('Shapley value allocation')
+    ax1.set_ylim(0, 55)
+    for bar, val in zip(bars, [sv[p] for p in PLAYERS]):
+        ax1.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 1,
+                 f'{val:.1f}', ha='center', fontweight='bold')
+    ax1.axhline(100/3, color='gray', linestyle='--', alpha=0.5, label='Equal split')
+    ax1.legend()
+    ax1.grid(True, alpha=0.3, axis='y')
 
-plt.tight_layout()
-plt.savefig(Path(__file__).with_name('case06_cooperation.png'), dpi=150)
-print("\n📊 可视化已保存: code/case06_cooperation.png")
-plt.close()
+    # 右图：沙普利值 vs 平均 vs 单独比例
+    x = np.arange(N)
+    width = 0.25
+    ax2.bar(x - width, [equal_split[p] for p in PLAYERS], width, label='Equal split', color='gray', alpha=0.6)
+    ax2.bar(x, [sv[p] for p in PLAYERS], width, label='Shapley value', color='#FF6B6B')
+    ax2.bar(x + width, [proportional[p] for p in PLAYERS], width, label='Standalone ratio', color='#4ECDC4')
+    ax2.set_xticks(x)
+    ax2.set_xticklabels([f'Dept {p}' for p in PLAYERS])
+    ax2.set_ylabel('Allocation amount')
+    ax2.set_title('Allocation scheme comparison')
+    ax2.legend()
+    ax2.grid(True, alpha=0.3, axis='y')
 
-# ──────────────────────────────────────────────────────
-# 7. 验证标准自动检查
-# ──────────────────────────────────────────────────────
+    plt.tight_layout()
+    plt.savefig(Path(__file__).with_name('case06_cooperation.png'), dpi=150)
+    print("\n📊 可视化已保存: code/python/case06_cooperation.png")
+    plt.close()
 
-print("\n" + "=" * 65)
-print("  ✅ 验证标准自动检查")
-print("=" * 65)
+    # ──────────────────────────────────────────────────────
+    # 7. 验证标准自动检查
+    # ──────────────────────────────────────────────────────
 
-# 标准1：效率（总和 = 总收益）
-check1 = abs(total_sv - 100) < 1e-9
-print(f"  [效率] 总和={total_sv:.4f}, 期望=100 → {'✅ 通过' if check1 else '❌ 未通过'}")
+    print("\n" + "=" * 65)
+    print("  ✅ 验证标准自动检查")
+    print("=" * 65)
 
-# 标准2：个体理性（每人 ≥ 单独价值）
-check2_all = True
-for i, p in enumerate(PLAYERS):
-    alone_val = coalition_value(1 << i)
-    ok = sv[p] >= alone_val - 1e-9
-    if not ok:
-        check2_all = False
-    print(f"  [个体理性] φ({p})={sv[p]:.2f} ≥ v({{{p}}})={alone_val:.2f} → {'✅ 通过' if ok else '❌ 未通过'}")
+    # 标准1：效率（总和 = 总收益）
+    check1 = abs(total_sv - 100) < 1e-9
+    print(f"  [效率] 总和={total_sv:.4f}, 期望=100 → {'✅ 通过' if check1 else '❌ 未通过'}")
 
-# 标准3：联盟理性示范
-print(f"  [联盟理性] 沙普利值在核中 → {'✅ 通过' if in_core else '❌ 未通过'}")
+    # 标准2：个体理性（每人 ≥ 单独价值）
+    check2_all = True
+    for i, p in enumerate(PLAYERS):
+        alone_val = coalition_value(1 << i)
+        ok = sv[p] >= alone_val - 1e-9
+        if not ok:
+            check2_all = False
+        print(f"  [个体理性] φ({p})={sv[p]:.2f} ≥ v({{{p}}})={alone_val:.2f} → {'✅ 通过' if ok else '❌ 未通过'}")
+
+    # 标准3：联盟理性示范
+    print(f"  [联盟理性] 沙普利值在核中 → {'✅ 通过' if in_core else '❌ 未通过'}")
+
+
+if __name__ == "__main__":
+    main()

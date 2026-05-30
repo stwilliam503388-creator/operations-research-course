@@ -3,7 +3,7 @@
 难度：★★★★☆
 方法：分布鲁棒优化
 依赖：pip install numpy scipy
-运行：python code/case05_distributionally_robust.py
+运行：python code/python/case05_distributionally_robust.py
 
 简述：用 Wasserstein DRO 求解新闻摊贩问题——当真实分布未知时，
       在最坏的「可能分布」下做最优订货决策。

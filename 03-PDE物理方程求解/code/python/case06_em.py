@@ -24,6 +24,15 @@ case06_em.py — 2D Laplace 方程 Gauss-Seidel 迭代求解
 
 import numpy as np
 from pathlib import Path
+import os
+
+
+def maybe_show(plt):
+    """Only open an interactive window when explicitly requested."""
+    if os.environ.get("SHOW_PLOTS") == "1":
+        plt.show()
+    else:
+        plt.close()
 
 
 def laplace_gauss_seidel(nx=40, ny=40, Lx=1.0, Ly=1.0, V0=1.0,
@@ -270,7 +279,7 @@ def plot_results(x, y, phi, history, X, Y, Ex, Ey, E_mag):
         plt.tight_layout()
         plt.savefig(Path(__file__).with_name('fig_laplace_results.png'), dpi=150)
         print("Result figure saved: fig_laplace_results.png")
-        plt.show()
+        maybe_show(plt)
 
     except ImportError:
         print("matplotlib 未安装，跳过图形化绘图。")

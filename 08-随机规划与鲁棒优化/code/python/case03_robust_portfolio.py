@@ -3,7 +3,7 @@
 难度：★★★☆☆
 方法：鲁棒优化
 依赖：pip install numpy scipy
-运行：python code/case03_robust_portfolio.py
+运行：python code/python/case03_robust_portfolio.py
 
 简述：用鲁棒优化构建投资组合——在收益率不确定时最大化最坏情况收益。
 """
@@ -182,21 +182,19 @@ def solve_small():
 def solve_medium():
     """中等规模测试：N=20"""
     print("\n=== 中等规模测试: N=20 ===")
-    # 临时增加股票数量
     global N, r, sigma
-    old_N = N
+    old_N, old_r, old_sigma = N, r.copy(), sigma.copy()
     N = 20
-    r = rng.uniform(0.05, 0.20, N)
-    sigma = rng.uniform(0.02, 0.08, N)
-    for Gamma in [0, 5, 10, 20]:
-        w, obj = solve_budget_robust(Gamma)
-        worst = worst_case_return(w, Gamma)
-        print(f"Γ={Gamma:>2}: 期望收益={obj:.4f}, 最坏收益={worst:.4f}")
-    N = old_N
-    # 恢复原始数据
-    rng = np.random.default_rng(42)
-    r = rng.uniform(0.05, 0.20, N)
-    sigma = rng.uniform(0.02, 0.08, N)
+    local_rng = np.random.default_rng(123)
+    r = local_rng.uniform(0.05, 0.20, N)
+    sigma = local_rng.uniform(0.02, 0.08, N)
+    try:
+        for Gamma in [0, 5, 10, 20]:
+            w, obj = solve_budget_robust(Gamma)
+            worst = worst_case_return(w, Gamma)
+            print(f"Γ={Gamma:>2}: 期望收益={obj:.4f}, 最坏收益={worst:.4f}")
+    finally:
+        N, r, sigma = old_N, old_r, old_sigma
 
 
 if __name__ == "__main__":
