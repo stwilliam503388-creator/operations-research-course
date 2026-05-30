@@ -106,7 +106,7 @@ $$
 
 ## 代码概览
 
-完整代码在 `code/capstone.py`，约 380 行。核心逻辑：
+完整代码在 `code/python/capstone.py`，约 380 行。核心逻辑：
 
 ```python
 # 1. 问题定义
@@ -161,7 +161,7 @@ best_solution, best_idx = topsis_select(pareto, problem,
 
 ## 运行结果
 
-运行 `python code/capstone.py`：
+运行 `python code/python/capstone.py`：
 
 ```
 ============================================================
@@ -206,7 +206,7 @@ best_solution, best_idx = topsis_select(pareto, problem,
     车4: 仓库→C2→C6→C11→C13→C16→C17→C20→仓库 (7件, 72km)
 ```
 
-如果你想进一步做可视化，可以在 `code/capstone.py` 的输出基础上扩展下面几类图：
+如果你想进一步做可视化，可以在 `code/python/capstone.py` 的输出基础上扩展下面几类图：
 
 1. **左上——三维帕累托前沿**：3D 散点图展示成本、时间、碳排放构成的曲面。用颜色梯度表示帕累托前沿层（第 1→5 层从暖到冷）。标注三个极端方案（最低成本/最短时间/最低排放）和 TOPSIS 推荐方案。
 

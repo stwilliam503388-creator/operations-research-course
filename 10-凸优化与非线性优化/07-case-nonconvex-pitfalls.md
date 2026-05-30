@@ -1,6 +1,6 @@
 # 案例 5：非凸优化的坑
 
-> 难度 ★★★★☆ · 方法：多初始点 / 局部最优对比 · 代码：`code/case07_nonconvex_pitfalls.py`
+> 难度 ★★★★☆ · 方法：多初始点 / 局部最优对比 · 代码：`code/python/case07_nonconvex_pitfalls.py`
 
 ## 1. 故事开场
 

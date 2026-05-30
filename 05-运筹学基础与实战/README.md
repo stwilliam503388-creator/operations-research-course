@@ -185,15 +185,15 @@
 | `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
 | `appendix-c-ml-intersection.md` | 附录C：运筹学 × ML 的交叉点 | ~800 |
 | `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
-| `code/case03_logistics.py` | Python 案例：物流网络优化 | — |
-| `code/case04_inventory.py` | Python 案例：库存策略优化 | — |
-| `code/case05_finance.py` | Python 案例：投资组合与风险管理 | — |
-| `code/case06_queue.py` | Python 案例：服务系统排队优化 | — |
-| `code/case07_scheduling.py` | Python 案例：人员排班与约束规划 | — |
-| `code/case01b_pyomo_transport.py` | Sidebar 代码：Pyomo 运输模型 | — |
-| `code/case04b_simpy_queue.py` | Sidebar 代码：SimPy 排队仿真 | — |
-| `code/case_metaheuristic_tsp.py` | Sidebar 代码：SA/GA 解 TSP | — |
-| `code/case05_product_mix.py` | Sidebar 代码：产品组合建模 | — |
+| `code/python/case03_logistics.py` | Python 案例：物流网络优化 | — |
+| `code/python/case04_inventory.py` | Python 案例：库存策略优化 | — |
+| `code/python/case05_finance.py` | Python 案例：投资组合与风险管理 | — |
+| `code/python/case06_queue.py` | Python 案例：服务系统排队优化 | — |
+| `code/python/case07_scheduling.py` | Python 案例：人员排班与约束规划 | — |
+| `code/python/case01b_pyomo_transport.py` | Sidebar 代码：Pyomo 运输模型 | — |
+| `code/python/case04b_simpy_queue.py` | Sidebar 代码：SimPy 排队仿真 | — |
+| `code/python/case_metaheuristic_tsp.py` | Sidebar 代码：SA/GA 解 TSP | — |
+| `code/python/case05_product_mix.py` | Sidebar 代码：产品组合建模 | — |
 | `code/cpp/case03_min_cost_flow.cpp` | C++17 对照案例：最小费用流求物流分配 | — |
 
 ---

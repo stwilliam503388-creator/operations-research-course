@@ -1,4 +1,3 @@
-<!-- 文件: pde-course/08-capstone.md -->
 
 # 🏆 毕业项目：芯片封装多物理场模拟
 
@@ -94,7 +93,7 @@ $$
 | ADI | 隐式的变体，每步只解三对角系统（Thomas 算法） | ✅ |
 | FEM | 适合复杂几何，但实现复杂 | — |
 
-**本实现**：在 `code/capstone.py` 中同时提供了两个求解器：
+**本实现**：在 `code/python/capstone.py` 中同时提供了两个求解器：
 - `solve_steady_state()` — Gauss-Seidel 迭代法
 - `solve_transient()` — ADI（交替方向隐式）法
 

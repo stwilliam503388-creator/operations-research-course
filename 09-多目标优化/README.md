@@ -191,12 +191,12 @@
 | `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
 | `appendix-c-ml-intersection.md` | 附录C：多目标优化 × ML 的交叉点 | ~800 |
 | `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
-| `code/case03_portfolio_multi.py` | 案例1代码：投资组合双目标优化 | — |
-| `code/case04_product_design.py` | 案例2代码：产品设计权衡 | — |
-| `code/case05_scheduling_multi.py` | 案例3代码：生产调度多目标 | — |
-| `code/case06_supply_chain_multi.py` | 案例4代码：供应链多目标 | — |
-| `code/case07_nsga2.py` | 案例5代码：从零实现 NSGA-II | — |
-| `code/capstone.py` | 毕业项目：城市物流多目标优化 | — |
+| `code/python/case03_portfolio_multi.py` | 案例1代码：投资组合双目标优化 | — |
+| `code/python/case04_product_design.py` | 案例2代码：产品设计权衡 | — |
+| `code/python/case05_scheduling_multi.py` | 案例3代码：生产调度多目标 | — |
+| `code/python/case06_supply_chain_multi.py` | 案例4代码：供应链多目标 | — |
+| `code/python/case07_nsga2.py` | 案例5代码：从零实现 NSGA-II | — |
+| `code/python/capstone.py` | 毕业项目：城市物流多目标优化 | — |
 | `code/cpp/case07_pareto_sort.cpp` | C++17 对照案例：非支配排序与拥挤距离 | — |
 
 ---

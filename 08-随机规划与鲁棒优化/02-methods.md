@@ -1,4 +1,3 @@
-<!-- 文件: stochastic-optimization-course/02-methods.md -->
 # 第二部分：核心方法
 
 > 术语速查见 `README.md`

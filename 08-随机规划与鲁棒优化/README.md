@@ -39,7 +39,7 @@
 | CVaR | Conditional Value-at-Risk | 专门盯最惨那一小撮情况：比如最差 5% 时平均会亏多少 |
 | 鲁棒优化 | Robust Optimization | 不确定概率没关系，先画出坏情况范围，保证方案别在坏天气里翻车 |
 | 不确定性集合 | Uncertainty Set | 给未来画一个可能范围，比如需求大概在 `[800, 1200]` 之间 |
-| 椭球集 | Ellipsoidal Set | 像给不确定性套一个椭圆壳，比方盒子更柔和，不把所有极端都同时算进去 |
+| 椭球集 | Ellipsoidal Set | 像给不确定性套一个椭圆壳，比盒子更柔和，不把所有极端都同时算进去 |
 | 预算不确定性 | Budget Uncertainty | 承认会出事，但不假设所有坏事一起发生；最多 K 个参数同时变坏 |
 | 分布鲁棒 | Distributionally Robust Optimization (DRO) | 样本太少不敢信一个分布，就准备一组可能分布，防里面最麻烦的那个 |
 | 机会约束 | Chance Constraint | 允许小概率违规，但要求大多数时候过关，比如 90% 情况不缺货 |
@@ -142,7 +142,7 @@
 Python 主线案例可从本课程目录直接运行，例如：
 
 ```bash
-python code/case01_newsvendor.py
+python code/python/case01_newsvendor.py
 ```
 
 C++ 对照案例默认使用 C++17 标准库：
@@ -188,12 +188,12 @@ g++ -std=c++17 -O2 code/cpp/case03_saa_newsvendor.cpp -o /tmp/case03_saa_newsven
 | `appendix-b-common-pitfalls.md` | 附录 | ★★☆☆☆ | TOP 5 必踩坑 |
 | `appendix-c-ml-intersection.md` | 附录 | ★★★☆☆ | 随机规划 × ML 的交叉点 |
 | `appendix-d-reading-list.md` | 附录 | ★☆☆☆☆ | 推荐阅读 |
-| `code/case01_newsvendor.py` | Python | ★★☆☆☆ | 报童问题 |
-| `code/case02_two_stage.py` | Python | ★★★☆☆ | 两阶段生产计划 |
-| `code/case03_robust_portfolio.py` | Python | ★★★☆☆ | 鲁棒投资组合 |
-| `code/case06_supply_chain_stochastic.py` | Python | ★★★★☆ | 随机供应链网络设计 |
-| `code/case05_distributionally_robust.py` | Python | ★★★★☆ | 分布鲁棒优化 |
-| `code/capstone.py` | Python | ★★★★☆ | 三种方法对比 |
+| `code/python/case01_newsvendor.py` | Python | ★★☆☆☆ | 报童问题 |
+| `code/python/case02_two_stage.py` | Python | ★★★☆☆ | 两阶段生产计划 |
+| `code/python/case03_robust_portfolio.py` | Python | ★★★☆☆ | 鲁棒投资组合 |
+| `code/python/case06_supply_chain_stochastic.py` | Python | ★★★★☆ | 随机供应链网络设计 |
+| `code/python/case05_distributionally_robust.py` | Python | ★★★★☆ | 分布鲁棒优化 |
+| `code/python/capstone.py` | Python | ★★★★☆ | 三种方法对比 |
 | `code/cpp/case03_saa_newsvendor.cpp` | C++ 对照 | ★★★☆☆ | SAA 求解报童订货量 |
 
 > 说明：同主题重复稿已从学习主目录移除。请以本清单中的文档与代码路径为准。

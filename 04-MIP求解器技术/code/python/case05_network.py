@@ -170,12 +170,12 @@ def solve_direct_mip(dist, demand, cap, cost, maint):
         # 简化数据用于 HiGHS（减少变量数避免超时）
         n_small = min(n, 10)  # HiGHS 只跑 10 城
         
-        # ... HiGHS 代码省略（变量太多容易超时），返回估算值
+        # 教学估算路径：保留接口和量级对比，不冒充严格求解结果。
         return {
             "obj": np.sum(demand[:n_small, :n_small]) * total_cost_per_cap[1] * 50,
             "gap": 0.15,
             "time": 1800.0,
-            "status": "time_limit_estimated"
+            "status": "teaching_estimate"
         }
 
 

@@ -1,6 +1,6 @@
 # SB2：SimPy 仿真 — 当数学不够用时
 
-> 难度 ★★★☆☆ · 离散事件仿真 · 排队论 · 代码：`code/case04b_simpy_queue.py` · 预计阅读：25min
+> 难度 ★★★☆☆ · 离散事件仿真 · 排队论 · 代码：`code/python/case04b_simpy_queue.py` · 预计阅读：25min
 
 ---
 
@@ -105,7 +105,7 @@ assert abs(L_sim - L) / L < 0.10
 | `run_emergency()` | 多优先级急诊科仿真 |
 | `arrival_rate(t)` | 时变到达率（白天高峰 2人/h，夜间 0.5人/h）|
 
-完整代码见 `code/case04b_simpy_queue.py`。
+完整代码见 `code/python/case04b_simpy_queue.py`。
 
 ---
 

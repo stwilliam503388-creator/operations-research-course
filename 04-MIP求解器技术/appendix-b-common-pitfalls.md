@@ -1,4 +1,3 @@
-<!-- 文件: mip-course/appendix-b-common-pitfalls.md -->
 # 附录B：TOP 5 初学者必踩的坑
 
 每个坑我都踩过。知道它们能让你少花三天的调试时间。

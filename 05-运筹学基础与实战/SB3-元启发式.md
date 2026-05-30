@@ -1,6 +1,6 @@
 # SB3：元启发式 — 当精确解不可行时
 
-> 难度 ★★★★☆ · 模拟退火 · 遗传算法 · TSP · 代码：`code/case_metaheuristic_tsp.py` · 预计阅读：30min
+> 难度 ★★★★☆ · 模拟退火 · 遗传算法 · TSP · 代码：`code/python/case_metaheuristic_tsp.py` · 预计阅读：30min
 
 ---
 
@@ -92,7 +92,7 @@ TSP 专用算子：
 | `crossover_ox()` | OX 算子 | 保持路径片段顺序，适合 TSP |
 | `tour_length()` | 评估函数 | 计算环游总距离 |
 
-完整代码见 `code/case_metaheuristic_tsp.py`。
+完整代码见 `code/python/case_metaheuristic_tsp.py`。
 
 ---
 

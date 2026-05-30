@@ -83,7 +83,7 @@
 
 ## 代码概览
 
-完整代码见 `code/case07_opt.py`。以下是核心函数骨架：
+完整代码见 `code/python/case07_opt.py`。以下是核心函数骨架：
 
 ```python
 # 滑动窗口最大值（单调队列 O(n)）

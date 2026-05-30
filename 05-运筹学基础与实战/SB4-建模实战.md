@@ -1,6 +1,6 @@
 # SB4：建模实战 — 产品组合优化
 
-> 难度 ★★☆☆☆ · LP 建模 · 影子价格 · 灵敏度分析 · 代码：`code/case05_product_mix.py` · 预计阅读：25min
+> 难度 ★★☆☆☆ · LP 建模 · 影子价格 · 灵敏度分析 · 代码：`code/python/case05_product_mix.py` · 预计阅读：25min
 
 ---
 
@@ -70,7 +70,7 @@ s.t.   2·x_A +  1·x_B +  4·x_C ≤ 2000  ← 原料限制（kg）
 | `model.obj` | 目标函数 |
 | `model.res` | 约束列表（ConstraintList）|
 
-完整代码见 `code/case05_product_mix.py`。
+完整代码见 `code/python/case05_product_mix.py`。
 
 ---
 

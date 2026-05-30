@@ -1,4 +1,3 @@
-<!-- 文件: mip-course/appendix-c-ml-intersection.md -->
 # 附录C：MIP 与机器学习的交叉点
 
 MIP 和 ML 正在快速融合。以下三个方向是你学完本课程后可以探索的。

@@ -78,111 +78,117 @@ def rubinstein_solution(delta: float, total=100.0):
     b_share = total - a_share
     return a_share, b_share
 
+def main():
 
-# ──────────────────────────────────────────────────────
-# 3. 运行与输出
-# ──────────────────────────────────────────────────────
 
-print("=" * 65)
-print("  例1：一轮博弈（最后通牒）")
-print("=" * 65)
-a, b = finite_round_bargaining(delta=0.9, total_rounds=1)
-print(f"  δ=0.9, 1轮 → A拿 {a:.2f}元, B拿 {b:.2f}元")
-print(f"  ✅ 验证：一轮博弈 A 拿走几乎全部 (99.9+?)")
-print()
+    # ──────────────────────────────────────────────────────
+    # 3. 运行与输出
+    # ──────────────────────────────────────────────────────
 
-print("=" * 65)
-print("  例2：两轮博弈")
-print("=" * 65)
-for d in [0.3, 0.5, 0.8, 0.9, 0.99]:
-    a, b = finite_round_bargaining(delta=d, total_rounds=2)
-    print(f"  δ={d:.2f} → A拿 {a:.2f}元, B拿 {b:.2f}元")
-print(f"  ✅ 验证：两轮博弈 A 拿 1-δ（蛋糕归一化后）")
-print()
+    print("=" * 65)
+    print("  例1：一轮博弈（最后通牒）")
+    print("=" * 65)
+    a, b = finite_round_bargaining(delta=0.9, total_rounds=1)
+    print(f"  δ=0.9, 1轮 → A拿 {a:.2f}元, B拿 {b:.2f}元")
+    print(f"  ✅ 验证：一轮博弈 A 拿走几乎全部 (99.9+?)")
+    print()
 
-print("=" * 65)
-print("  例3：轮数增加 → 趋向各半")
-print("=" * 65)
-for rounds in [2, 5, 10, 50, 100]:
-    a, b = finite_round_bargaining(delta=0.8, total_rounds=rounds)
-    print(f"  δ=0.8, {rounds:3d}轮 → A拿 {a:6.2f}元, B拿 {b:6.2f}元")
-print()
+    print("=" * 65)
+    print("  例2：两轮博弈")
+    print("=" * 65)
+    for d in [0.3, 0.5, 0.8, 0.9, 0.99]:
+        a, b = finite_round_bargaining(delta=d, total_rounds=2)
+        print(f"  δ={d:.2f} → A拿 {a:.2f}元, B拿 {b:.2f}元")
+    print(f"  ✅ 验证：两轮博弈 A 拿 1-δ（蛋糕归一化后）")
+    print()
 
-print("=" * 65)
-print("  例4：无限轮解析解（Rubinstein 1982）")
-print("=" * 65)
-for d in [0.1, 0.3, 0.5, 0.7, 0.9, 0.99]:
-    a, b = rubinstein_solution(delta=d)
-    print(f"  δ={d:.2f} → A拿 {a:7.2f}元 ({a/100*100:.1f}%), B拿 {b:7.2f}元 ({b/100*100:.1f}%)")
-print()
+    print("=" * 65)
+    print("  例3：轮数增加 → 趋向各半")
+    print("=" * 65)
+    for rounds in [2, 5, 10, 50, 100]:
+        a, b = finite_round_bargaining(delta=0.8, total_rounds=rounds)
+        print(f"  δ=0.8, {rounds:3d}轮 → A拿 {a:6.2f}元, B拿 {b:6.2f}元")
+    print()
 
-# ──────────────────────────────────────────────────────
-# 4. 可视化：δ 和轮数的影响
-# ──────────────────────────────────────────────────────
+    print("=" * 65)
+    print("  例4：无限轮解析解（Rubinstein 1982）")
+    print("=" * 65)
+    for d in [0.1, 0.3, 0.5, 0.7, 0.9, 0.99]:
+        a, b = rubinstein_solution(delta=d)
+        print(f"  δ={d:.2f} → A拿 {a:7.2f}元 ({a/100*100:.1f}%), B拿 {b:7.2f}元 ({b/100*100:.1f}%)")
+    print()
 
-# 4a. δ 对分配的影响（无限轮）
-deltas = np.linspace(0.01, 0.99, 50)
-a_shares_inf = [rubinstein_solution(d)[0] for d in deltas]
+    # ──────────────────────────────────────────────────────
+    # 4. 可视化：δ 和轮数的影响
+    # ──────────────────────────────────────────────────────
 
-# 4b. 轮数对分配的影响（固定 δ）
-rounds_list = np.arange(1, 21)
-a_by_rounds_09 = [finite_round_bargaining(0.9, r)[0] for r in rounds_list]
-a_by_rounds_05 = [finite_round_bargaining(0.5, r)[0] for r in rounds_list]
+    # 4a. δ 对分配的影响（无限轮）
+    deltas = np.linspace(0.01, 0.99, 50)
+    a_shares_inf = [rubinstein_solution(d)[0] for d in deltas]
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4.5))
+    # 4b. 轮数对分配的影响（固定 δ）
+    rounds_list = np.arange(1, 21)
+    a_by_rounds_09 = [finite_round_bargaining(0.9, r)[0] for r in rounds_list]
+    a_by_rounds_05 = [finite_round_bargaining(0.5, r)[0] for r in rounds_list]
 
-# 左图：δ 的影响
-ax1.plot(deltas, a_shares_inf, 'b-', linewidth=2, label='A share')
-ax1.plot(deltas, [100 - s for s in a_shares_inf], 'r--', linewidth=2, label='B share')
-ax1.axhline(50, color='gray', linestyle=':', alpha=0.5)
-ax1.set_xlabel('Discount factor delta')
-ax1.set_ylabel('Allocation amount')
-ax1.set_title('Infinite-round bargaining: discount factor impact')
-ax1.legend()
-ax1.grid(True, alpha=0.3)
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4.5))
 
-# 右图：轮数的影响
-ax2.plot(rounds_list, a_by_rounds_09, 'b-o', label='δ = 0.9')
-ax2.plot(rounds_list, a_by_rounds_05, 'r-s', label='δ = 0.5')
-ax2.axhline(50, color='gray', linestyle=':', alpha=0.5, label='Equal split')
-ax2.set_xlabel('Rounds')
-ax2.set_ylabel('A share')
-ax2.set_title('Finite-round bargaining: rounds impact')
-ax2.legend()
-ax2.grid(True, alpha=0.3)
+    # 左图：δ 的影响
+    ax1.plot(deltas, a_shares_inf, 'b-', linewidth=2, label='A share')
+    ax1.plot(deltas, [100 - s for s in a_shares_inf], 'r--', linewidth=2, label='B share')
+    ax1.axhline(50, color='gray', linestyle=':', alpha=0.5)
+    ax1.set_xlabel('Discount factor delta')
+    ax1.set_ylabel('Allocation amount')
+    ax1.set_title('Infinite-round bargaining: discount factor impact')
+    ax1.legend()
+    ax1.grid(True, alpha=0.3)
 
-plt.tight_layout()
-plt.savefig(Path(__file__).with_name('case05_bargaining.png'), dpi=150)
-print("📊 可视化已保存: code/case05_bargaining.png")
-plt.close()
+    # 右图：轮数的影响
+    ax2.plot(rounds_list, a_by_rounds_09, 'b-o', label='δ = 0.9')
+    ax2.plot(rounds_list, a_by_rounds_05, 'r-s', label='δ = 0.5')
+    ax2.axhline(50, color='gray', linestyle=':', alpha=0.5, label='Equal split')
+    ax2.set_xlabel('Rounds')
+    ax2.set_ylabel('A share')
+    ax2.set_title('Finite-round bargaining: rounds impact')
+    ax2.legend()
+    ax2.grid(True, alpha=0.3)
 
-# ──────────────────────────────────────────────────────
-# 5. 验证标准自动检查
-# ──────────────────────────────────────────────────────
+    plt.tight_layout()
+    plt.savefig(Path(__file__).with_name('case05_bargaining.png'), dpi=150)
+    print("📊 可视化已保存: code/python/case05_bargaining.png")
+    plt.close()
 
-print("\n" + "=" * 65)
-print("  ✅ 验证标准自动检查")
-print("=" * 65)
+    # ──────────────────────────────────────────────────────
+    # 5. 验证标准自动检查
+    # ──────────────────────────────────────────────────────
 
-# 标准1：一轮博弈 A 拿几乎全部
-a1, b1 = finite_round_bargaining(delta=0.9, total_rounds=1)
-check1 = a1 >= 99.9
-print(f"  [一轮A拿99.9+] A={a1:.4f} → {'✅ 通过' if check1 else '❌ 未通过'}")
+    print("\n" + "=" * 65)
+    print("  ✅ 验证标准自动检查")
+    print("=" * 65)
 
-# 标准2：两轮博弈 A 拿 1-δ（蛋糕=1 归一化）
-for d in [0.3, 0.5, 0.8]:
-    a2, _ = finite_round_bargaining(delta=d, total_rounds=2, total=1.0)
-    expected = 1 - d
-    check2 = abs(a2 - expected) < 1e-10
-    print(f"  [两轮A=1-δ] δ={d}: A={a2:.6f}, 期望={expected:.6f} → {'✅ 通过' if check2 else '❌ 未通过'}")
+    # 标准1：一轮博弈 A 拿几乎全部
+    a1, b1 = finite_round_bargaining(delta=0.9, total_rounds=1)
+    check1 = a1 >= 99.9
+    print(f"  [一轮A拿99.9+] A={a1:.4f} → {'✅ 通过' if check1 else '❌ 未通过'}")
 
-# 标准3：轮数增加 → 无限轮解析解（δ=0.5 时极限 66.67）
-a_100, _ = finite_round_bargaining(delta=0.5, total_rounds=100)
-inf_solution = rubinstein_solution(delta=0.5)[0]
-check3 = abs(a_100 - inf_solution) < 0.01
-print(f"  [多轮→无限轮] δ=0.5, 100轮: A={a_100:.4f}, 无限轮解={inf_solution:.4f} → {'✅ 通过' if check3 else '❌ 未通过'}")
+    # 标准2：两轮博弈 A 拿 1-δ（蛋糕=1 归一化）
+    for d in [0.3, 0.5, 0.8]:
+        a2, _ = finite_round_bargaining(delta=d, total_rounds=2, total=1.0)
+        expected = 1 - d
+        check2 = abs(a2 - expected) < 1e-10
+        print(f"  [两轮A=1-δ] δ={d}: A={a2:.6f}, 期望={expected:.6f} → {'✅ 通过' if check2 else '❌ 未通过'}")
 
-# 标准4：无限轮 δ→1 时趋向 50
-a_inf_99, _ = rubinstein_solution(delta=0.999)
-check4 = abs(a_inf_99 - 50) < 0.1
-print(f"  [δ→1→50] δ=0.999: A={a_inf_99:.4f} → {'✅ 通过' if check4 else '❌ 未通过'}")
+    # 标准3：轮数增加 → 无限轮解析解（δ=0.5 时极限 66.67）
+    a_100, _ = finite_round_bargaining(delta=0.5, total_rounds=100)
+    inf_solution = rubinstein_solution(delta=0.5)[0]
+    check3 = abs(a_100 - inf_solution) < 0.01
+    print(f"  [多轮→无限轮] δ=0.5, 100轮: A={a_100:.4f}, 无限轮解={inf_solution:.4f} → {'✅ 通过' if check3 else '❌ 未通过'}")
+
+    # 标准4：无限轮 δ→1 时趋向 50
+    a_inf_99, _ = rubinstein_solution(delta=0.999)
+    check4 = abs(a_inf_99 - 50) < 0.1
+    print(f"  [δ→1→50] δ=0.999: A={a_inf_99:.4f} → {'✅ 通过' if check4 else '❌ 未通过'}")
+
+
+if __name__ == "__main__":
+    main()

@@ -12,4 +12,6 @@ or-env/
 
 # Generated teaching outputs
 **/code/*.png
+**/code/**/*.png
 **/code/output/
+**/code/**/output/

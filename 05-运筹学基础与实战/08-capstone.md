@@ -181,7 +181,7 @@ Step 4: 对比
 
 ## 8.7 代码架构
 
-### 主文件：`code/capstone.py`
+### 主文件：`code/python/capstone.py`
 
 ```bash
 cd "05-运筹学基础与实战/code"

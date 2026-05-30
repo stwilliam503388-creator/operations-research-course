@@ -6,7 +6,7 @@
   - 随机数据生成器
   - 方案一：分治 + DP (TSP) + 贪心
   - 方案二：纯贪心快速版
-  - 方案三：模拟退火（骨架）
+  - 方案三：模拟退火（可运行的订单序列邻域搜索）
   - evaluate() 评估函数
   - 对比测试入口
 
@@ -432,7 +432,7 @@ class DeliveryScheduler:
 # 方案二：纯贪心快速版
 # ============================================================
 
-def solve_greedy(data):
+def solve_greedy(data, order_sequence=None):
     """
     纯贪心快速版：
     - 订单按 deadline 排序
@@ -442,7 +442,11 @@ def solve_greedy(data):
     返回:
         dict: {assignments, total_cost}
     """
-    orders = sorted(data["orders"], key=lambda o: o["deadline"])
+    if order_sequence is None:
+        orders = sorted(data["orders"], key=lambda o: o["deadline"])
+    else:
+        order_by_id = {o["id"]: o for o in data["orders"]}
+        orders = [order_by_id[order_id] for order_id in order_sequence if order_id in order_by_id]
     riders = [
         {**r, "current_x": r["start_x"], "current_y": r["start_y"],
          "load": 0, "route": [], "distance": 0.0, "penalty": 0.0,
@@ -521,27 +525,52 @@ def solve_greedy(data):
 # 方案三：模拟退火（骨架）
 # ============================================================
 
-def solve_simulated_annealing(data, T_init=100.0, T_min=0.01, alpha=0.99):
+def solve_simulated_annealing(data, T_init=20.0, T_min=0.05, alpha=0.97, max_iter=300, seed=7):
     """
-    模拟退火版（骨架）。
-    实际使用时需要定义邻域交换操作和冷却计划。
+    模拟退火版：在订单访问顺序上做邻域搜索。
+
+    邻域操作很简单：随机交换两个订单在调度序列中的位置，然后用同一个
+    贪心分配器评估总成本。它不是工业级 SA，但能完整演示“当前解 →
+    邻域解 → 按温度接受”的优化循环。
 
     返回:
         dict: {assignments, total_cost}
     """
-    # 先跑一个贪心初始解
-    current_solution = solve_greedy(data)
+    rng = random.Random(seed)
+    current_order = [o["id"] for o in sorted(data["orders"], key=lambda o: o["deadline"])]
+    current_solution = solve_greedy(data, current_order)
+    current_cost = current_solution["total_cost"]
+    best_order = current_order[:]
+    best_solution = current_solution
+    best_cost = current_cost
 
-    # 以下是骨架，TODO: 实现邻域搜索
-    # T = T_init
-    # while T > T_min:
-    #     neighbor = _generate_neighbor(current_solution)
-    #     delta = neighbor["total_cost"] - current_solution["total_cost"]
-    #     if delta < 0 or random.random() < math.exp(-delta / T):
-    #         current_solution = neighbor
-    #     T *= alpha
+    T = T_init
+    iteration = 0
+    while T > T_min and iteration < max_iter and len(current_order) >= 2:
+        neighbor_order = current_order[:]
+        i, j = rng.sample(range(len(neighbor_order)), 2)
+        neighbor_order[i], neighbor_order[j] = neighbor_order[j], neighbor_order[i]
 
-    return current_solution
+        neighbor_solution = solve_greedy(data, neighbor_order)
+        neighbor_cost = neighbor_solution["total_cost"]
+        delta = neighbor_cost - current_cost
+
+        if delta < 0 or rng.random() < math.exp(-delta / T):
+            current_order = neighbor_order
+            current_solution = neighbor_solution
+            current_cost = neighbor_cost
+
+            if current_cost < best_cost:
+                best_order = current_order[:]
+                best_solution = current_solution
+                best_cost = current_cost
+
+        T *= alpha
+        iteration += 1
+
+    best_solution["search_iterations"] = iteration
+    best_solution["order_sequence"] = best_order
+    return best_solution
 
 
 # ============================================================
@@ -620,23 +649,30 @@ def main():
         t2 = time.perf_counter() - start
         eval2 = evaluate(result2, data)
 
+        # 方案三：模拟退火
+        start = time.perf_counter()
+        result3 = solve_simulated_annealing(data)
+        t3 = time.perf_counter() - start
+        eval3 = evaluate(result3, data)
+
         # 对比输出
-        print(f"  {'指标':<20} | {'分治+DP+贪心':<18} | {'纯贪心':<12}")
-        print(f"  {'-'*19} | {'-'*17} | {'-'*11}")
-        print(f"  {'总成本':<20} | {eval1['total_cost']:<18.2f} | {eval2['total_cost']:<12.2f}")
-        print(f"  {'总距离':<20} | {eval1['total_distance']:<18.2f} | {eval2['total_distance']:<12.2f}")
-        print(f"  {'总罚金':<20} | {eval1['total_penalty']:<18.2f} | {eval2['total_penalty']:<12.2f}")
-        print(f"  {'骑手利用率':<20} | {eval1['utilization']:<18.3f} | {eval2['utilization']:<12.3f}")
-        print(f"  {'与下界差距':<20} | {eval1['gap_to_lower_bound']:<18.3f} | {eval2['gap_to_lower_bound']:<12.3f}")
-        print(f"  {'耗时(秒)':<20} | {t1:<18.4f} | {t2:<12.4f}")
+        print(f"  {'指标':<20} | {'分治+DP+贪心':<18} | {'纯贪心':<12} | {'模拟退火':<12}")
+        print(f"  {'-'*19} | {'-'*17} | {'-'*11} | {'-'*11}")
+        print(f"  {'总成本':<20} | {eval1['total_cost']:<18.2f} | {eval2['total_cost']:<12.2f} | {eval3['total_cost']:<12.2f}")
+        print(f"  {'总距离':<20} | {eval1['total_distance']:<18.2f} | {eval2['total_distance']:<12.2f} | {eval3['total_distance']:<12.2f}")
+        print(f"  {'总罚金':<20} | {eval1['total_penalty']:<18.2f} | {eval2['total_penalty']:<12.2f} | {eval3['total_penalty']:<12.2f}")
+        print(f"  {'骑手利用率':<20} | {eval1['utilization']:<18.3f} | {eval2['utilization']:<12.3f} | {eval3['utilization']:<12.3f}")
+        print(f"  {'与下界差距':<20} | {eval1['gap_to_lower_bound']:<18.3f} | {eval2['gap_to_lower_bound']:<12.3f} | {eval3['gap_to_lower_bound']:<12.3f}")
+        print(f"  {'耗时(秒)':<20} | {t1:<18.4f} | {t2:<12.4f} | {t3:<12.4f}")
 
     print()
     print("=" * 65)
     print("  总结")
     print("=" * 65)
     print("  • 分治+DP+贪心：成本最优，但耗时较长（适合离线调度）")
-    print("  • 纯贪心：极快，但成本高 10-30%（适合在线调度）")
-    print("  • 推荐组合：分治缩小规模 → 每个小规模精确解")
+    print("  • 纯贪心：极快，但成本通常较高（适合在线调度）")
+    print("  • 模拟退火：在贪心序列附近搜索，适合做轻量改进")
+    print("  • 推荐组合：分治缩小规模 → 每个小规模精确解 → 元启发式微调")
     print()
 
 
