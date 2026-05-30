@@ -10,6 +10,12 @@
 5. 卖家期望收入验证（收入等价定理）
 """
 
+
+# 教学注释：从参与者、策略和收益矩阵出发理解交互决策结构。
+# 计算结果用于验证均衡、分配规则或机制设计是否符合预期。
+
+
+
 import numpy as np
 from typing import Callable, List, Tuple
 

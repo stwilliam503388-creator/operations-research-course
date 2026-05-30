@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Trace the two-phase scheduling construction step by step."""
+"""Trace the greedy construction step by step"""
+
+# 教学注释：先识别业务对象，再看它们如何映射为优化、仿真或启发式模型。
+# 结果解读侧重成本、资源利用率和服务水平等管理指标。
+
 
 import numpy as np
 import sys

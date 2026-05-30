@@ -8,6 +8,12 @@
 简述：两阶段生产计划——先采购原材料，观察需求后决定产量。
 """
 
+
+# 教学注释：通过场景、概率权重和坏情况边界刻画不确定需求或收益。
+# 对比不同假设下的解，理解随机性和鲁棒性如何改变决策。
+
+
+
 import numpy as np
 from scipy.optimize import linprog
 import time
