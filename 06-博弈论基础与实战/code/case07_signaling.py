@@ -275,19 +275,19 @@ w_for_H = model.c_H * e_range + sep['payoff_H']
 # 低能力无差异曲线
 w_for_L = model.c_L * e_range + sep['payoff_L']
 
-ax1.plot(e_range, w_for_H, 'b-', linewidth=2, label='高能力无差异曲线')
-ax1.plot(e_range, w_for_L, 'r-', linewidth=2, label='低能力无差异曲线')
+ax1.plot(e_range, w_for_H, 'b-', linewidth=2, label='High-type indifference')
+ax1.plot(e_range, w_for_L, 'r-', linewidth=2, label='Low-type indifference')
 # 标记均衡点
-ax1.plot(sep['e_H'], sep['w_H'], 'bo', markersize=10, label=f"高能力均衡 (e={sep['e_H']:.1f})")
-ax1.plot(sep['e_L'], sep['w_L'], 'ro', markersize=10, label=f"低能力均衡 (e={sep['e_L']:.1f})")
+ax1.plot(sep['e_H'], sep['w_H'], 'bo', markersize=10, label=f"High-type equilibrium (e={sep['e_H']:.1f})")
+ax1.plot(sep['e_L'], sep['w_L'], 'ro', markersize=10, label=f"Low-type equilibrium (e={sep['e_L']:.1f})")
 # 显示教育成本差异
 ax1.annotate(f'Δθ/c_L={sep["e_min"]:.1f}', xy=(sep['e_min'], 75), fontsize=9, color='gray')
 ax1.annotate(f'Δθ/c_H={sep["e_max"]:.1f}', xy=(sep['e_max'], 75), fontsize=9, color='gray')
 ax1.axvline(sep['e_min'], color='gray', linestyle=':', alpha=0.5)
 ax1.axvline(sep['e_max'], color='gray', linestyle=':', alpha=0.5)
-ax1.set_xlabel('教育水平 e')
-ax1.set_ylabel('工资 w')
-ax1.set_title('分离均衡：无差异曲线')
+ax1.set_xlabel('Education level e')
+ax1.set_ylabel('Wage w')
+ax1.set_title('Separating equilibrium: indifference curves')
 ax1.legend(loc='lower right')
 ax1.grid(True, alpha=0.3)
 
@@ -308,13 +308,13 @@ for ch in c_H_vals:
         e_mins.append(np.nan)
         e_maxs.append(np.nan)
 
-ax2.plot(c_H_vals, e_mins, 'g--', label='e* 下界 (Δθ/c_L)', linewidth=2)
-ax2.plot(c_H_vals, e_maxs, 'b-', label='e* 上界 (Δθ/c_H)', linewidth=2)
-ax2.fill_between(c_H_vals, e_mins, e_maxs, alpha=0.2, color='blue', label='可行 e* 范围')
+ax2.plot(c_H_vals, e_mins, 'g--', label='Lower bound (dtheta/c_L)', linewidth=2)
+ax2.plot(c_H_vals, e_maxs, 'b-', label='Upper bound (dtheta/c_H)', linewidth=2)
+ax2.fill_between(c_H_vals, e_mins, e_maxs, alpha=0.2, color='blue', label='Feasible e* range')
 ax2.axvline(8, color='red', linestyle=':', alpha=0.7, label='c_L = 8')
-ax2.set_xlabel('高能力教育成本 c_H')
-ax2.set_ylabel('教育水平 e*')
-ax2.set_title('分离均衡 e* 取值范围')
+ax2.set_xlabel('High-type education cost c_H')
+ax2.set_ylabel('Education level e*')
+ax2.set_title('Feasible range of separating e*')
 ax2.legend()
 ax2.grid(True, alpha=0.3)
 
@@ -332,12 +332,12 @@ for th in theta_H_vals:
         e_mins2.append(np.nan)
         e_maxs2.append(np.nan)
 
-ax3.plot(theta_H_vals - 50, e_mins2, 'g--', label='下界', linewidth=2)
-ax3.plot(theta_H_vals - 50, e_maxs2, 'b-', label='上界', linewidth=2)
+ax3.plot(theta_H_vals - 50, e_mins2, 'g--', label='Lower bound', linewidth=2)
+ax3.plot(theta_H_vals - 50, e_maxs2, 'b-', label='Upper bound', linewidth=2)
 ax3.fill_between(theta_H_vals - 50, e_mins2, e_maxs2, alpha=0.2, color='blue')
-ax3.set_xlabel('能力差距 Δθ')
-ax3.set_ylabel('教育水平 e*')
-ax3.set_title('Δθ 对分离均衡的影响')
+ax3.set_xlabel('Ability gap dtheta')
+ax3.set_ylabel('Education level e*')
+ax3.set_title('Ability gap impact on separating equilibrium')
 ax3.legend()
 ax3.grid(True, alpha=0.3)
 
@@ -346,13 +346,13 @@ e_pool_vals = np.linspace(0, 10, 50)
 u_H_pool = [model.payoff_H(e, model.pooling_wage()) for e in e_pool_vals]
 u_L_pool = [model.payoff_L(e, model.pooling_wage()) for e in e_pool_vals]
 
-ax4.plot(e_pool_vals, u_H_pool, 'b-', linewidth=2, label='高能力收益')
-ax4.plot(e_pool_vals, u_L_pool, 'r-', linewidth=2, label='低能力收益')
-ax4.axhline(model.payoff_H(0, model.theta_L), color='blue', linestyle='--', alpha=0.5, label='高能力偏离收益')
-ax4.axhline(model.payoff_L(0, model.theta_L), color='red', linestyle='--', alpha=0.5, label='低能力偏离收益')
-ax4.set_xlabel('混同教育水平 e_pool')
-ax4.set_ylabel('工人收益')
-ax4.set_title('混同均衡：各类型收益')
+ax4.plot(e_pool_vals, u_H_pool, 'b-', linewidth=2, label='High-type payoff')
+ax4.plot(e_pool_vals, u_L_pool, 'r-', linewidth=2, label='Low-type payoff')
+ax4.axhline(model.payoff_H(0, model.theta_L), color='blue', linestyle='--', alpha=0.5, label='High-type deviation payoff')
+ax4.axhline(model.payoff_L(0, model.theta_L), color='red', linestyle='--', alpha=0.5, label='Low-type deviation payoff')
+ax4.set_xlabel('Pooling education level e_pool')
+ax4.set_ylabel('Worker payoff')
+ax4.set_title('Pooling equilibrium: type payoffs')
 ax4.legend()
 ax4.grid(True, alpha=0.3)
 

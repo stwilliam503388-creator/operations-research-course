@@ -214,27 +214,27 @@ players_idx = range(N)
 colors = ['#FF6B6B', '#4ECDC4', '#45B7D1']
 bars = ax1.bar(players_idx, [sv[p] for p in PLAYERS], color=colors, width=0.5)
 ax1.set_xticks(players_idx)
-ax1.set_xticklabels([f'部门 {p}\nφ={sv[p]:.1f}' for p in PLAYERS])
-ax1.set_ylabel('分配金额（万元）')
-ax1.set_title('沙普利值分配')
+ax1.set_xticklabels([f'Dept {p}\nphi={sv[p]:.1f}' for p in PLAYERS])
+ax1.set_ylabel('Allocation amount')
+ax1.set_title('Shapley value allocation')
 ax1.set_ylim(0, 55)
 for bar, val in zip(bars, [sv[p] for p in PLAYERS]):
     ax1.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 1,
              f'{val:.1f}', ha='center', fontweight='bold')
-ax1.axhline(100/3, color='gray', linestyle='--', alpha=0.5, label='平均分配线')
+ax1.axhline(100/3, color='gray', linestyle='--', alpha=0.5, label='Equal split')
 ax1.legend()
 ax1.grid(True, alpha=0.3, axis='y')
 
 # 右图：沙普利值 vs 平均 vs 单独比例
 x = np.arange(N)
 width = 0.25
-ax2.bar(x - width, [equal_split[p] for p in PLAYERS], width, label='平均分配', color='gray', alpha=0.6)
-ax2.bar(x, [sv[p] for p in PLAYERS], width, label='沙普利值', color='#FF6B6B')
-ax2.bar(x + width, [proportional[p] for p in PLAYERS], width, label='按单独比例', color='#4ECDC4')
+ax2.bar(x - width, [equal_split[p] for p in PLAYERS], width, label='Equal split', color='gray', alpha=0.6)
+ax2.bar(x, [sv[p] for p in PLAYERS], width, label='Shapley value', color='#FF6B6B')
+ax2.bar(x + width, [proportional[p] for p in PLAYERS], width, label='Standalone ratio', color='#4ECDC4')
 ax2.set_xticks(x)
-ax2.set_xticklabels([f'部门 {p}' for p in PLAYERS])
-ax2.set_ylabel('分配金额（万元）')
-ax2.set_title('分配方案对比')
+ax2.set_xticklabels([f'Dept {p}' for p in PLAYERS])
+ax2.set_ylabel('Allocation amount')
+ax2.set_title('Allocation scheme comparison')
 ax2.legend()
 ax2.grid(True, alpha=0.3, axis='y')
 

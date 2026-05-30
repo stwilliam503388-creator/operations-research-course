@@ -126,22 +126,22 @@ a_by_rounds_05 = [finite_round_bargaining(0.5, r)[0] for r in rounds_list]
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 4.5))
 
 # 左图：δ 的影响
-ax1.plot(deltas, a_shares_inf, 'b-', linewidth=2, label='A 的份额')
-ax1.plot(deltas, [100 - s for s in a_shares_inf], 'r--', linewidth=2, label='B 的份额')
+ax1.plot(deltas, a_shares_inf, 'b-', linewidth=2, label='A share')
+ax1.plot(deltas, [100 - s for s in a_shares_inf], 'r--', linewidth=2, label='B share')
 ax1.axhline(50, color='gray', linestyle=':', alpha=0.5)
-ax1.set_xlabel('贴现因子 δ')
-ax1.set_ylabel('分配金额（元）')
-ax1.set_title('无限轮谈判：δ 对分配的影响')
+ax1.set_xlabel('Discount factor delta')
+ax1.set_ylabel('Allocation amount')
+ax1.set_title('Infinite-round bargaining: discount factor impact')
 ax1.legend()
 ax1.grid(True, alpha=0.3)
 
 # 右图：轮数的影响
 ax2.plot(rounds_list, a_by_rounds_09, 'b-o', label='δ = 0.9')
 ax2.plot(rounds_list, a_by_rounds_05, 'r-s', label='δ = 0.5')
-ax2.axhline(50, color='gray', linestyle=':', alpha=0.5, label='平均分配')
-ax2.set_xlabel('轮数')
-ax2.set_ylabel('A 的份额（元）')
-ax2.set_title('有限轮谈判：轮数对 A 份额的影响')
+ax2.axhline(50, color='gray', linestyle=':', alpha=0.5, label='Equal split')
+ax2.set_xlabel('Rounds')
+ax2.set_ylabel('A share')
+ax2.set_title('Finite-round bargaining: rounds impact')
 ax2.legend()
 ax2.grid(True, alpha=0.3)
 

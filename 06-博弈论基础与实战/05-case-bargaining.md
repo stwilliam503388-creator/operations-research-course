@@ -108,7 +108,7 @@ def rubinstein_solution(delta, total=100.0):
   δ=0.99 → A拿 50.25元 (50.3%)
 ```
 
-可视化图表: `code/case05_bargaining.png`
+运行 `code/case05_bargaining.py` 后会在 `code/` 目录生成可视化图表：`case05_bargaining.png`
 
 ---
 

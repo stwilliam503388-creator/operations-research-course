@@ -33,12 +33,12 @@ def generate_packages(n_packages=20, seed=42):
     """生成包裹数据。
     
     Returns:
-        weights:  重量数组 (kg)，范围 3-25
+        weights:  重量数组 (kg)，范围 3-18
         coords:   坐标数组 (km)，范围 0.1-15
         deadlines: 截止时间数组 (小时，从 8:00 开始算)
     """
     rng = np.random.default_rng(seed)
-    weights = rng.uniform(3, 25, n_packages)  # kg
+    weights = rng.uniform(3, 18, n_packages)  # kg
     coords = rng.uniform(0.1, 15, (n_packages, 2))  # 坐标 (x, y)
     
     # 时间窗：每个包裹截止时间 = 8+随机小时，有 30% 是 17:00 前必须送到
@@ -132,40 +132,42 @@ def random_baseline(riders, weights, coords, n_trials=100):
     n_pkg = len(weights)
     best_dist = float("inf")
     best_routes = None
+    rng = np.random.default_rng(123)
     
     for _ in range(n_trials):
-        # 随机打乱包裹顺序
-        order = np.random.permutation(n_pkg)
+        order = rng.permutation(n_pkg)
         routes = {r["id"]: [] for r in riders}
-        rider_loads = {r["id"]: [] for r in riders}
+        rider_loads = {r["id"]: 0.0 for r in riders}
         
-        pkg_idx = 0
-        for rider in riders:
-            capacity = rider["capacity"]
-            count = rider.get("max_pkgs", n_pkg)
-            load = 0
-            assigned = []
-            
-            while pkg_idx < n_pkg and len(assigned) < count:
-                pkg = order[pkg_idx]
-                if load + weights[pkg] <= capacity:
-                    load += weights[pkg]
-                    assigned.append(pkg)
-                pkg_idx += 1
-            
-            routes[rider["id"]] = assigned
+        feasible_plan = True
+        for pkg in order:
+            feasible = [
+                r for r in riders
+                if rider_loads[r["id"]] + weights[pkg] <= r["capacity"]
+                and len(routes[r["id"]]) < r.get("max_pkgs", n_pkg)
+            ]
+            if not feasible:
+                feasible_plan = False
+                break
+
+            rider = rng.choice(feasible)
+            rid = rider["id"]
+            routes[rid].append(pkg)
+            rider_loads[rid] += weights[pkg]
+
+        if not feasible_plan:
+            continue
         
-        # 计算距离（每个快递员从站点出发，最近邻顺序配送）
+        # 计算距离（每个快递员从站点出发，按当前顺序配送后回站）
         total = 0
         for rid, pkg_list in routes.items():
             if not pkg_list:
                 continue
-            prev = 0  # 从站点出发
+            prev = np.array([0.0, 0.0])
             for pkg in pkg_list:
-                total += np.abs(coords[pkg, 0] - (0 if prev == 0 else coords[prev, 0])) + \
-                         np.abs(coords[pkg, 1] - (0 if prev == 0 else coords[prev, 1]))
-                prev = pkg + 1  # 包裹索引偏移
-            total += np.abs(coords[prev - 1, 0]) + np.abs(coords[prev - 1, 1])  # 回站
+                total += np.abs(coords[pkg, 0] - prev[0]) + np.abs(coords[pkg, 1] - prev[1])
+                prev = coords[pkg]
+            total += np.abs(prev[0]) + np.abs(prev[1])  # 回站
         
         if total < best_dist:
             best_dist = total
@@ -231,7 +233,7 @@ def greedy_baseline(riders, weights, coords):
 # 可视化
 # ============================================================
 
-def visualize(routes, coords, title="配送路线图"):
+def visualize(routes, coords, title="Delivery routes"):
     """用 matplotlib 画路线图。"""
     if not HAS_MPL:
         print("[WARNING] 无法可视化：matplotlib 未安装")
@@ -242,10 +244,10 @@ def visualize(routes, coords, title="配送路线图"):
     fig, ax = plt.subplots(figsize=(10, 10))
     
     # 站点
-    ax.scatter(0, 0, c="black", marker="*", s=300, zorder=5, label="配送站")
+    ax.scatter(0, 0, c="black", marker="*", s=300, zorder=5, label="Depot")
     
     # 包裹点
-    ax.scatter(coords[:, 0], coords[:, 1], c="gray", s=50, alpha=0.5, label="包裹")
+    ax.scatter(coords[:, 0], coords[:, 1], c="gray", s=50, alpha=0.5, label="Packages")
     
     # 每个快递员的路线
     for i, (rid, pkg_list) in enumerate(routes.items()):
@@ -257,7 +259,7 @@ def visualize(routes, coords, title="配送路线图"):
         path = [np.array([0.0, 0.0])] + [coords[p] for p in pkg_list] + [np.array([0.0, 0.0])]
         path = np.array(path)
         ax.plot(path[:, 0], path[:, 1], "-o", color=color, linewidth=2, markersize=6,
-                label=f"快递员 {rid}")
+                label=f"Rider {rid}")
     
     ax.set_xlabel("X (km)")
     ax.set_ylabel("Y (km)")
@@ -323,7 +325,7 @@ if __name__ == "__main__":
     print(f"{'='*70}")
     
     # 可视化
-    visualize(result["routes"], coords, title="构造式可行路线")
+    visualize(result["routes"], coords, title="Constructive feasible routes")
     
     print("\n💡 提示: 这是可运行的教学版构造式方案，不是严格 MIP 最优解。")
     print("如果要做完整 MIP，可把本函数作为初始可行解，再实现 x/y/u 变量和 MTZ 约束。")

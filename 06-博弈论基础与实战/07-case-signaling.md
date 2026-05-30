@@ -128,7 +128,7 @@ class SpenceModel:
   e_pool=0: w=75.0, U_H=75.0, U_L=75.0, 可行=✅
 ```
 
-可视化图表: `code/case07_signaling.png`
+运行 `code/case07_signaling.py` 后会在 `code/` 目录生成可视化图表：`case07_signaling.png`
 
 ---
 
