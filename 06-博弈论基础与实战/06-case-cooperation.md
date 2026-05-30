@@ -121,7 +121,7 @@ def shapley_values(players, v_func):
 | 按单独比例 | 26.67 | 40.00 | 33.33 | ✅ |
 | **沙普利值** | **26.67** | **39.17** | **34.17** | **✅** |
 
-可视化图表: `code/case06_cooperation.png`
+运行 `code/case06_cooperation.py` 后会在 `code/` 目录生成可视化图表：`case06_cooperation.png`
 
 ---
 

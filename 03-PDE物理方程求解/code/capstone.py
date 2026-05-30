@@ -248,7 +248,7 @@ class HeatSolver2D:
         plt.colorbar(cf, ax=ax, label='Temperature [°C]')
         ax.set_xlabel('x [mm]')
         ax.set_ylabel('y [mm]')
-        ax.set_title(f'芯片封装稳态温度场 (T_max = {np.max(self.T):.1f}°C)')
+        ax.set_title(f'Steady-state package temperature (T_max = {np.max(self.T):.1f}°C)')
         ax.set_aspect('equal')
         plt.tight_layout()
         plt.savefig(Path(__file__).with_name('capstone_temperature.png'), dpi=150)
@@ -334,7 +334,7 @@ class StressSolver2D:
             ax.set_title(title)
             ax.set_aspect('equal')
 
-        plt.suptitle('芯片封装热应力分布', fontsize=14)
+        plt.suptitle('Thermal stress distribution in chip package', fontsize=14)
         plt.tight_layout()
         plt.savefig(Path(__file__).with_name('capstone_stress.png'), dpi=150)
         print("热应力图形已保存: capstone_stress.png")

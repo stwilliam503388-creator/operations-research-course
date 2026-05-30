@@ -241,10 +241,10 @@ def main():
 
     # 图1：挠度曲线对比
     ax1 = axes[0]
-    ax1.plot(x * 1000, w_num * 1000, 'b-', linewidth=2, label='FDM 数值解')
-    ax1.plot(x * 1000, w_exact * 1000, 'r--', linewidth=2, label='材料力学解析解')
-    ax1.set_ylabel('挠度 w [mm]')
-    ax1.set_title('悬臂梁挠度曲线 (均布载荷 q₀ + 端部集中力 P)')
+    ax1.plot(x * 1000, w_num * 1000, 'b-', linewidth=2, label='FDM solution')
+    ax1.plot(x * 1000, w_exact * 1000, 'r--', linewidth=2, label='Analytical solution')
+    ax1.set_ylabel('Deflection w [mm]')
+    ax1.set_title('Cantilever deflection (distributed load q0 + end load P)')
     ax1.legend()
     ax1.grid(True, alpha=0.3)
     ax1.invert_yaxis()  # 挠度向下为正
@@ -253,8 +253,8 @@ def main():
     ax2 = axes[1]
     ax2.plot(x * 1000, (w_num - w_exact) * 1000, 'g-', linewidth=1.5)
     ax2.set_xlabel('x [mm]')
-    ax2.set_ylabel('误差 [mm]')
-    ax2.set_title(f'FDM 误差分布 (N={N}, max|e|={error_max*1000:.4f} mm)')
+    ax2.set_ylabel('Error [mm]')
+    ax2.set_title(f'FDM error distribution (N={N}, max|e|={error_max*1000:.4f} mm)')
     ax2.grid(True, alpha=0.3)
 
     plt.tight_layout()

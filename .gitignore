@@ -9,3 +9,7 @@ or-env/
 
 # macOS
 .DS_Store
+
+# Generated teaching outputs
+**/code/*.png
+**/code/output/
