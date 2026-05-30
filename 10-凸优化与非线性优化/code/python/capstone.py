@@ -1,5 +1,11 @@
 """Capstone: continuous optimization for marketing budget allocation."""
 
+
+# 教学注释：把梯度、凸性、约束和步长选择对应到优化迭代过程。
+# 收敛指标和残差帮助判断算法是否稳定接近最优解。
+
+
+
 from __future__ import annotations
 
 import numpy as np

@@ -12,6 +12,12 @@
 完整 MIP 版本可作为课后扩展：参考案例 1 (VRP) 的 MTZ 子环消除实现。
 """
 
+
+# 教学注释：重点看变量、约束和目标函数如何把业务规则翻译成 MIP 模型。
+# 求解日志或结果可用来理解分支定界、松弛和可行解质量。
+
+
+
 import numpy as np
 import time
 from pathlib import Path

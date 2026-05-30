@@ -6,6 +6,12 @@ NSGA-II 从零实现：非支配排序 + 拥挤距离 + 锦标赛选择 + SBX交
 测试问题：ZDT1（双目标，凸前沿）
 """
 
+
+# 教学注释：关注多个目标之间的冲突、Pareto 支配关系和权衡参数。
+# 输出的解集用于筛选可解释、可落地的折中方案。
+
+
+
 import math
 import random
 import copy

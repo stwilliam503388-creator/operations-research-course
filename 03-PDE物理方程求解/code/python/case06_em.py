@@ -22,6 +22,12 @@ case06_em.py — 2D Laplace 方程 Gauss-Seidel 迭代求解
 作者: pde-course
 """
 
+
+# 教学注释：把离散格式、时间步长和稳定性条件联系到原始物理模型。
+# 输出的温度、波形或场量用于检查数值解是否符合物理直觉。
+
+
+
 import numpy as np
 from pathlib import Path
 import os

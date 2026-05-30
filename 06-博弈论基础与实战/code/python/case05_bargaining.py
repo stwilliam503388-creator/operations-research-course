@@ -16,6 +16,12 @@
  当 δ → 1 时，分配趋向 (50, 50)
 """
 
+
+# 教学注释：从参与者、策略和收益矩阵出发理解交互决策结构。
+# 计算结果用于验证均衡、分配规则或机制设计是否符合预期。
+
+
+
 import numpy as np
 import matplotlib.pyplot as plt
 from pathlib import Path

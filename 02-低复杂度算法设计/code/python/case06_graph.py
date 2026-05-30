@@ -13,6 +13,12 @@ case06_graph.py — 最短路径算法教学案例
   - 多规模 Benchmark
 """
 
+
+# 教学注释：关注复杂度、状态设计与数据结构选择如何影响可运行规模。
+# 阅读时对照搜索、剪枝或启发式步骤，理解它们减少计算量的方式。
+
+
+
 import heapq
 import math
 import time
