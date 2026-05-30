@@ -1,6 +1,6 @@
 # 案例 4：约束产品设计优化
 
-> 难度 ★★★★☆ · 方法：约束非线性优化 / KKT 直觉 · 代码：`code/case06_constrained_design.py`
+> 难度 ★★★★☆ · 方法：约束非线性优化 / KKT 直觉 · 代码：`code/python/case06_constrained_design.py`
 
 ## 1. 故事开场
 

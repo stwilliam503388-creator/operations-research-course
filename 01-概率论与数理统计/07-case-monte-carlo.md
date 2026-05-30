@@ -71,7 +71,7 @@ CVaR 比 VaR 更保守——它考虑了尾部风险。
 
 ## 代码
 
-见 `code/case07_monte_carlo.py`
+见 `code/python/case07_monte_carlo.py`
 
 关键输出：
 - 组合的期望收益率和标准差

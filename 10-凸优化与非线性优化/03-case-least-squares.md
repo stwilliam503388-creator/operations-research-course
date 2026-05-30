@@ -1,6 +1,6 @@
 # 案例 1：广告投入与销量预测
 
-> 难度 ★★☆☆☆ · 方法：最小二乘 / 梯度下降 · 代码：`code/case03_least_squares.py`、`code/cpp/case03_gradient_descent.cpp`
+> 难度 ★★☆☆☆ · 方法：最小二乘 / 梯度下降 · 代码：`code/python/case03_least_squares.py`、`code/cpp/case03_gradient_descent.cpp`
 
 ## 1. 故事开场
 

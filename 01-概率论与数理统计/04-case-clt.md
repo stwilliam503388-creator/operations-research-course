@@ -56,7 +56,7 @@ Z = (X̄ - μ) / (σ/√n) ~ N(0, 1)
 
 ## 代码
 
-见 `code/case04_clt.py`
+见 `code/python/case04_clt.py`
 
 关键输出：
 - 对于均匀、指数、二项三种分布

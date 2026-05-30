@@ -208,7 +208,7 @@
 
 ## 代码骨架
 
-完整脚手架见 `code/capstone.py`。核心结构：
+完整脚手架见 `code/python/capstone.py`。核心结构：
 
 ```
 DeliveryScheduler

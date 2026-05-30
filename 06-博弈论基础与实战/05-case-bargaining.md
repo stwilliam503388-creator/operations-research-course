@@ -1,4 +1,3 @@
-<!-- 文件: game-theory-course/05-case-bargaining.md -->
 
 # 案例3：谈判与讨价还价博弈
 
@@ -81,7 +80,7 @@ def rubinstein_solution(delta, total=100.0):
     return a_share, total - a_share
 ```
 
-完整代码: `code/case05_bargaining.py`
+完整代码: `code/python/case05_bargaining.py`
 
 ---
 
@@ -108,7 +107,7 @@ def rubinstein_solution(delta, total=100.0):
   δ=0.99 → A拿 50.25元 (50.3%)
 ```
 
-运行 `code/case05_bargaining.py` 后会在 `code/` 目录生成可视化图表：`case05_bargaining.png`
+运行 `code/python/case05_bargaining.py` 后会在 `code/python/` 目录生成可视化图表：`case05_bargaining.png`
 
 ---
 

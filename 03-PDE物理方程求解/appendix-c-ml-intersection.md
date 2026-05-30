@@ -1,4 +1,3 @@
-<!-- 文件: pde-course/appendix-c-ml-intersection.md -->
 
 # 附录C：PDE 与 ML（PINN, 算子学习）的交叉点
 

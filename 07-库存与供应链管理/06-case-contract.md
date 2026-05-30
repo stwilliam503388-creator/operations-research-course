@@ -1,6 +1,6 @@
 # 案例 4：供应链契约设计 ★★★★☆
 
-> 难度：★★★★☆ · 模型类型：博弈论 + 库存理论 / 契约协调 · 求解方法：数学推导 + 数值仿真 · 代码路径：`code/case06_contract.py`
+> 难度：★★★★☆ · 模型类型：博弈论 + 库存理论 / 契约协调 · 求解方法：数学推导 + 数值仿真 · 代码路径：`code/python/case06_contract.py`
 
 ---
 
@@ -165,7 +165,7 @@ def simulate_profits(Q, mu, sigma, p, c, w, s, b, n_sims=100000):
     return profit_r.mean(), profit_m.mean()
 ```
 
-完整代码见 `code/case06_contract.py`，包含：
+完整代码见 `code/python/case06_contract.py`，包含：
 - 集中决策最优订货量计算
 - 批发价契约的分散均衡
 - 回购契约的协调条件推导

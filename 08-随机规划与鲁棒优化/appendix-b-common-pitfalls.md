@@ -1,4 +1,3 @@
-<!-- 文件: stochastic-optimization-course/appendix-b-common-pitfalls.md -->
 # 附录B：TOP 5 必踩坑
 
 > 这些坑我本人（和很多前辈）都踩过。提前知道，至少省你一周的 debug 时间。

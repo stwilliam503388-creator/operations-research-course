@@ -1,7 +1,6 @@
-<!-- 文件: mip-course/04-case-scheduling.md -->
 # 案例2：工厂生产排程
 
-> 难度 ★★★☆☆  ·  前置：读完 02-solver-tech.md (2.4) + 案例1  ·  求解器：HiGHS 或 Gurobi  ·  代码：code/case02_scheduling.py  ·  预计阅读：40min  ·  预计运行：5-15min
+> 难度 ★★★☆☆  ·  前置：读完 02-solver-tech.md (2.4) + 案例1  ·  求解器：HiGHS 或 Gurobi  ·  代码：code/python/case02_scheduling.py  ·  预计阅读：40min  ·  预计运行：5-15min
 
 ---
 
@@ -179,7 +178,7 @@ start[1, first_machine] <= start[2, first_machine]
 
 ## 6 代码实现概述
 
-完整代码见 `code/case02_scheduling.py`（约 400 行，可在 10 分钟内跑通）。
+完整代码见 `code/python/case02_scheduling.py`（约 400 行，可在 10 分钟内跑通）。
 
 **代码结构：**
 
@@ -205,7 +204,7 @@ start[1, first_machine] <= start[2, first_machine]
 
 ## 7 运行结果对比
 
-运行 `python code/case02_scheduling.py`，输出如下：
+运行 `python code/python/case02_scheduling.py`，输出如下：
 
 ### 规模对比
 

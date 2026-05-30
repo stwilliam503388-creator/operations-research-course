@@ -1,4 +1,3 @@
-<!-- 文件: game-theory-course/06-case-cooperation.md -->
 
 # 案例4：合作博弈与公平分配
 
@@ -95,7 +94,7 @@ def shapley_values(players, v_func):
     return {p: contributions[p] / n_fact for p in players}
 ```
 
-完整代码: `code/case06_cooperation.py`
+完整代码: `code/python/case06_cooperation.py`
 
 ---
 
@@ -121,7 +120,7 @@ def shapley_values(players, v_func):
 | 按单独比例 | 26.67 | 40.00 | 33.33 | ✅ |
 | **沙普利值** | **26.67** | **39.17** | **34.17** | **✅** |
 
-运行 `code/case06_cooperation.py` 后会在 `code/` 目录生成可视化图表：`case06_cooperation.png`
+运行 `code/python/case06_cooperation.py` 后会在 `code/python/` 目录生成可视化图表：`case06_cooperation.png`
 
 ---
 
