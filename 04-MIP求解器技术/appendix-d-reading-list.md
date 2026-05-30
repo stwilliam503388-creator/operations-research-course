@@ -1,4 +1,3 @@
-<!-- 文件: mip-course/appendix-d-reading-list.md -->
 # 附录D：推荐阅读与进阶路径
 
 读完本课程后，按你的兴趣方向选路：

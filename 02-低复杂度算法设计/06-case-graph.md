@@ -253,7 +253,7 @@ Floyd 只有 5 行代码。Dijkstra 堆优化版需要 20+ 行。如果你的 V=
 完整可运行的 Python 实现见：
 
 ```
-code/case06_graph.py
+code/python/case06_graph.py
 ```
 
 包含图生成、BFS 暴力解、Dijkstra 堆优化、Floyd、正确性验证、BMK 多规模性能对比。

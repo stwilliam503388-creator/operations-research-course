@@ -159,7 +159,7 @@ $$
 
 ## 5. 代码概览
 
-完整的代码在 `code/case04_inventory.py`，核心结构：
+完整的代码在 `code/python/case04_inventory.py`，核心结构：
 
 ```
 main()

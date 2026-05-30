@@ -1,4 +1,3 @@
-<!-- 文件: pde-course/04-case-wave.md -->
 
 # 案例2：地震波传播（波动方程）★★★☆☆
 
@@ -208,7 +207,7 @@ PML 的核心思想：
 
 ## 代码概览
 
-代码位于 `code/case04_wave.py`，包含以下核心函数：
+代码位于 `code/python/case04_wave.py`，包含以下核心函数：
 
 | 函数 | 作用 |
 |------|------|
@@ -240,7 +239,7 @@ apply_boundary(u, n+1, mesh, params)
 
 ## 运行结果
 
-执行 `python code/case04_wave.py`：
+执行 `python code/python/case04_wave.py`：
 
 ```
 ╔══════════════════════════════════════════════════╗

@@ -146,7 +146,7 @@
 | `07-case-monte-carlo.md` | 案例5：蒙特卡洛仿真与风险评估 ★★★★☆ | ~3,000 |
 | `08-capstone.md` | 🏆 综合毕业项目 | ~2,000 |
 | `附录A-D` | 何时不需要、必踩坑、×ML、荐读 | ~800 每个 |
-| `code/*.py` | 配套 Python 代码 | — |
+| `code/python/*.py` | 配套 Python 代码 | — |
 | `code/cpp/case07_monte_carlo.cpp` | C++17 对照案例：蒙特卡洛估计 π 与置信区间 | — |
 
 ---

@@ -1,4 +1,3 @@
-<!-- 文件: stochastic-optimization-course/01-stochastic-bg.md -->
 # 第一部分：不确定性下的优化
 
 > 术语速查见 `README.md`

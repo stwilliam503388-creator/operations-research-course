@@ -1,4 +1,3 @@
-<!-- 文件: mip-course/02-solver-tech.md -->
 
 # 第二章 求解器技术入门
 

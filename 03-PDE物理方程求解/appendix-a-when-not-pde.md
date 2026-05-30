@@ -1,4 +1,3 @@
-<!-- 文件: pde-course/appendix-a-when-not-pde.md -->
 
 # 附录A：什么时候不需要 PDE
 

@@ -1,6 +1,6 @@
 # 案例 2：两阶段随机生产计划
 
-> 难度 ★★★☆☆ · 随机规划 / 两阶段 · 核心概念：两阶段结构、对等模型、这里决策 vs 那里决策 · 代码：`code/case02_two_stage.py`
+> 难度 ★★★☆☆ · 随机规划 / 两阶段 · 核心概念：两阶段结构、对等模型、这里决策 vs 那里决策 · 代码：`code/python/case02_two_stage.py`
 
 ---
 
@@ -114,7 +114,7 @@ max  -10·x + 0.5·(25·yA_高 + 30·yB_高) + 0.5·(25·yA_低 + 30·yB_低)
 ## 4 代码实现概览
 
 ```python
-# 关键代码（完整版见 code/case02_two_stage.py）
+# 关键代码（完整版见 code/python/case02_two_stage.py）
 
 import pulp
 
@@ -149,7 +149,7 @@ for s in scenarios:
 prob.solve()
 ```
 
-> 完整代码 `code/case02_two_stage.py` 还包含 Benders 分解实现和确定性方案对比。
+> 完整代码 `code/python/case02_two_stage.py` 还包含确定性方案对比和多场景敏感性检查；Benders 分解可作为进阶扩展继续实现。
 
 ---
 

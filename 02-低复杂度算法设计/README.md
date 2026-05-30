@@ -201,7 +201,7 @@ g++ -std=c++17 -O2 code/cpp/case03_merge_sort.cpp -o /tmp/case03_merge_sort
 /tmp/case03_merge_sort
 ```
 
-这个案例对应 `03-case-multi.md` / `code/case03_merge.py`，用于比较手写归并排序与标准库排序，并观察 `O(n log n)` 在不同输入规模下的表现。
+这个案例对应 `03-case-multi.md` / `code/python/case03_merge.py`，用于比较手写归并排序与标准库排序，并观察 `O(n log n)` 在不同输入规模下的表现。
 
 ---
 
