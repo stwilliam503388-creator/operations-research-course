@@ -12,6 +12,12 @@ case07_network.py — 供应链网络设计（简化版选址模型）
 仅使用 Python 标准库（math, random）
 """
 
+
+# 教学注释：围绕订货、库存、契约和网络配置观察供应链决策变量。
+# 重点比较成本、缺货风险与服务水平之间的权衡。
+
+
+
 import math
 import random
 import itertools

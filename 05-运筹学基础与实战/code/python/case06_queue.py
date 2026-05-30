@@ -6,6 +6,12 @@
 教学点：M/M/c 模型直觉、Little 定律 L=λW、仿真 vs 解析、非平稳排队
 """
 
+
+# 教学注释：先识别业务对象，再看它们如何映射为优化、仿真或启发式模型。
+# 结果解读侧重成本、资源利用率和服务水平等管理指标。
+
+
+
 import numpy as np
 from collections import deque
 import heapq

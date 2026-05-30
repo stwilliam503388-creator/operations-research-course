@@ -10,6 +10,12 @@ case06_contract.py — 供应链契约模型：回购契约
 仅使用 Python 标准库（math, random）
 """
 
+
+# 教学注释：围绕订货、库存、契约和网络配置观察供应链决策变量。
+# 重点比较成本、缺货风险与服务水平之间的权衡。
+
+
+
 import math
 import random
 

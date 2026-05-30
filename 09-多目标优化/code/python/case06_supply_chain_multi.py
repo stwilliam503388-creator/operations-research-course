@@ -9,6 +9,12 @@ case06_supply_chain_multi.py
 验证：前沿支配性检查 — 前沿上任意两点互不支配
 """
 
+
+# 教学注释：关注多个目标之间的冲突、Pareto 支配关系和权衡参数。
+# 输出的解集用于筛选可解释、可落地的折中方案。
+
+
+
 import random
 import math
 

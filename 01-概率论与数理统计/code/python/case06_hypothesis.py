@@ -6,6 +6,12 @@
 纯 Python 标准库实现，无第三方依赖。
 """
 
+
+# 教学注释：围绕随机分布、样本统计量和蒙特卡洛估计观察不确定性。
+# 运行时重点比较理论量与模拟结果如何支撑决策判断。
+
+
+
 import math
 import random
 import statistics
