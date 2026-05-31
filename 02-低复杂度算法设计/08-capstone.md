@@ -1,4 +1,3 @@
-<!-- 文件: low-complexity-algo-course/08-capstone.md -->
 
 # 🏆 毕业项目：智能外卖调度系统
 
@@ -223,6 +222,13 @@ DeliveryScheduler
 ├── evaluate()             # 计算所有指标
 └── visualize()            # 画路径图（可选，需 matplotlib）
 ```
+
+---
+
+## 延伸阅读
+
+- 如果你想把配送问题写成整数规划模型，继续看 `04-MIP求解器技术/03-case-vrp.md`。
+- 如果你更关心业务建模和方案解释，继续看 `05-运筹学基础与实战/03-case-logistics.md`。
 
 ---
 

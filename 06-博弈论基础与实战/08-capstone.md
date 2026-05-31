@@ -174,3 +174,8 @@ $$b(v) = v - \frac{1}{r} \cdot \ln\left( \frac{1 - e^{-r}}{1 - e^{-rv}} \right)$
 - Krishna, V. (2009). *Auction Theory*. Academic Press.
 - Myerson, R. (1981). "Optimal Auction Design." *Mathematics of Operations Research*.
 - Kagel, J. & Levin, D. (2008). "Auctions: A Survey of Experimental Research."
+
+## 延伸到其他课程
+
+- 如果拍卖机制需要和库存或供应链合同联动，可以继续看 `07-库存与供应链管理/06-case-contract.md`。
+- 如果机制设计要服务于整体业务优化，可以回到 `05-运筹学基础与实战/08-capstone.md`。
