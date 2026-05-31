@@ -16,9 +16,6 @@
 import math, random, time
 import numpy as np
 
-random.seed(42)
-np.random.seed(42)
-
 # ============================================================
 # 1. 问题：TSP
 # ============================================================
@@ -157,6 +154,8 @@ def genetic_algorithm(D, pop_size=100, generations=500, elite_ratio=0.1, mutate_
 # ============================================================
 
 def main():
+    random.seed(42)
+    np.random.seed(42)
     print("=" * 65)
     print("  案例 MB：元启发式求解 TSP")
     print("  模拟退火(SA) vs 遗传算法(GA) vs 贪心基线")

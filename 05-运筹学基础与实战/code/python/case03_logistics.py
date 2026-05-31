@@ -30,9 +30,6 @@ from copy import deepcopy
 # 1. 数据生成
 # ============================================================
 
-random.seed(42)
-
-
 def generate_data():
     """
     生成案例数据：
@@ -448,6 +445,7 @@ def sensitivity_analysis(supply, demand, cost, base_result):
 # ============================================================
 
 def main():
+    random.seed(42)
     print("=" * 72)
     print("  案例1：物流网络优化 — 运输问题 LP 求解")
     print("  3 工厂 → 10 仓库 → 200 客户")

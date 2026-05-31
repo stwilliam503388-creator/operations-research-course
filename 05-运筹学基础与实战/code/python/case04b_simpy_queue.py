@@ -17,9 +17,6 @@ import simpy
 import numpy as np
 import random
 
-random.seed(42)
-np.random.seed(42)
-
 # ============================================================
 # 1. M/M/1 基础排队（与解析解对比验证）
 # ============================================================
@@ -139,6 +136,8 @@ def run_emergency(num_doctors=3, sim_hours=168):
 # ============================================================
 
 def main():
+    random.seed(42)
+    np.random.seed(42)
     print("=" * 65)
     print("  案例4b：SimPy 排队仿真")
     print("=" * 65)
