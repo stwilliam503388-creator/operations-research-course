@@ -1,4 +1,3 @@
-<!-- 文件: low-complexity-algo-course/05-case-search.md -->
 
 # 案例 3：有序空间快速搜索（二分答案+剪枝）★★☆☆☆
 

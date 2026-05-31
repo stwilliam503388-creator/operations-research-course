@@ -1,4 +1,3 @@
-<!-- 文件: low-complexity-algo-course/03-case-multi.md -->
 
 # 案例 1：大规模数据合并与排序（分治+归并）★★☆☆☆
 
