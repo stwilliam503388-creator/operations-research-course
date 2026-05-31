@@ -63,6 +63,24 @@ def compile_cpp() -> None:
             output.unlink(missing_ok=True)
 
 
+def run_unit_tests() -> None:
+    test_dirs = sorted({path.parent for path in ROOT.glob("**/test_*.py") if path.is_file()})
+    print(f"Unit test discovery: {len(test_dirs)} directories")
+    env = os.environ.copy()
+    env.setdefault("PYTHONPYCACHEPREFIX", str(Path(tempfile.gettempdir()) / "pycache-or-course"))
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
+    for test_dir in test_dirs:
+        print(f"Running unit tests in {test_dir.relative_to(ROOT)}")
+        result = subprocess.run(
+            [sys.executable, "-m", "unittest", "discover", "-s", str(test_dir), "-p", "test_*.py"],
+            cwd=ROOT,
+            env=env,
+            check=False,
+        )
+        if result.returncode != 0:
+            raise RuntimeError(f"Unit tests failed in: {test_dir.relative_to(ROOT)}")
+
+
 def iter_course_check_scripts() -> list[Path]:
     return sorted(path for path in ROOT.glob("*/code/python/run_checks.py") if path.is_file())
 
@@ -84,6 +102,7 @@ def run_course_checks() -> None:
 def main() -> None:
     compile_python()
     compile_cpp()
+    run_unit_tests()
     run_course_checks()
     print("All smoke checks passed.")
 
