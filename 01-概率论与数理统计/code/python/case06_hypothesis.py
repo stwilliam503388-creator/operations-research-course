@@ -15,41 +15,15 @@
 import math
 import random
 import statistics
+import sys
+from pathlib import Path
 
 
-def normal_cdf(x, mu=0, sigma=1):
-    """正态分布累积分布函数"""
-    z = (x - mu) / sigma
-    a1 = 0.254829592
-    a2 = -0.284496736
-    a3 = 1.421413741
-    a4 = -1.453152027
-    a5 = 1.061405429
-    p = 0.3275911
-    sign = 1 if z >= 0 else -1
-    z_abs = abs(z) / math.sqrt(2)
-    t = 1.0 / (1.0 + p * z_abs)
-    y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * math.exp(-z_abs * z_abs)
-    return 0.5 * (1.0 + sign * y)
+ROOT = Path(__file__).resolve().parents[3]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-
-def normal_ppf(p, mu=0, sigma=1, tol=1e-10, max_iter=100):
-    """正态分布分位数函数"""
-    if p <= 0:
-        return -float('inf')
-    if p >= 1:
-        return float('inf')
-    lo, hi = -10, 10
-    for _ in range(max_iter):
-        mid = (lo + hi) / 2
-        cdf_mid = normal_cdf(mid, mu, sigma)
-        if abs(cdf_mid - p) < tol:
-            return mid
-        if cdf_mid < p:
-            lo = mid
-        else:
-            hi = mid
-    return (lo + hi) / 2
+from common.stats_utils import normal_cdf, normal_ppf
 
 
 def two_proportion_z_test(n1, x1, n2, x2, alternative='two-sided'):

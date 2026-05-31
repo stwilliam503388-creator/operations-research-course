@@ -15,29 +15,15 @@
 import math
 import random
 import statistics
+import sys
+from pathlib import Path
 
 
-def normal_pdf(x, mu=0, sigma=1):
-    """正态分布概率密度函数"""
-    return (1.0 / (sigma * math.sqrt(2 * math.pi))) * \
-           math.exp(-0.5 * ((x - mu) / sigma) ** 2)
+ROOT = Path(__file__).resolve().parents[3]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-
-def normal_cdf(x, mu=0, sigma=1):
-    """正态分布累积分布函数（近似）"""
-    z = (x - mu) / sigma
-    # 使用 Abramowitz and Stegun 公式 7.1.26
-    a1 = 0.254829592
-    a2 = -0.284496736
-    a3 = 1.421413741
-    a4 = -1.453152027
-    a5 = 1.061405429
-    p = 0.3275911
-    sign = 1 if z >= 0 else -1
-    z = abs(z) / math.sqrt(2)
-    t = 1.0 / (1.0 + p * z)
-    y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * math.exp(-z * z)
-    return 0.5 * (1.0 + sign * y)
+from common.stats_utils import generate_normal, normal_cdf, normal_pdf, normal_ppf
 
 
 def exponential_cdf(x, lam=1.0):
@@ -45,19 +31,6 @@ def exponential_cdf(x, lam=1.0):
     if x < 0:
         return 0.0
     return 1.0 - math.exp(-lam * x)
-
-
-def generate_normal(n, mu=0, sigma=1):
-    """Box-Muller 变换生成正态分布样本"""
-    samples = []
-    for _ in range(n // 2 + 1):
-        u1 = random.random()
-        u2 = random.random()
-        z1 = math.sqrt(-2 * math.log(u1)) * math.cos(2 * math.pi * u2)
-        z2 = math.sqrt(-2 * math.log(u1)) * math.sin(2 * math.pi * u2)
-        samples.append(mu + sigma * z1)
-        samples.append(mu + sigma * z2)
-    return samples[:n]
 
 
 def generate_exponential(n, lam=1.0):
@@ -105,25 +78,6 @@ def normal_qq(data):
     return x_vals, y_vals
 
 
-def normal_ppf(p, mu=0, sigma=1, tol=1e-10, max_iter=100):
-    """正态分布分位数函数（二分法求逆 CDF）"""
-    if p <= 0:
-        return -float('inf')
-    if p >= 1:
-        return float('inf')
-    lo, hi = -10, 10
-    for _ in range(max_iter):
-        mid = (lo + hi) / 2
-        cdf_mid = normal_cdf(mid, mu, sigma)
-        if abs(cdf_mid - p) < tol:
-            return mid
-        if cdf_mid < p:
-            lo = mid
-        else:
-            hi = mid
-    return (lo + hi) / 2
-
-
 def exponential_qq(data):
     """指数 QQ 图"""
     n = len(data)
@@ -142,8 +96,8 @@ def exponential_qq(data):
 def shapiro_wilk(data):
     """
     Shapiro-Wilk 正态性检验的简化版
-    返回 (W_statistic, p_value_approx)
-    注意：这是简化的近似实现，仅供教学参考
+    返回 (W_statistic, p_value)
+    注意：这是简化实现，仅计算 W；精确 p 值需要查表或专门近似
     """
     n = len(data)
     if n < 3 or n > 5000:
@@ -158,9 +112,8 @@ def shapiro_wilk(data):
     if denominator == 0:
         return 0, 1.0
     w = numerator / denominator
-    # p 值近似（简化版）
-    # 实际应用中应查表，这里给出基于变换的正态近似
-    return w, w
+    # 精确 p 值需要查表或专门近似公式；这里不要把 W 统计量误当作 p 值。
+    return w, None
 
 
 def pearson_correlation(x, y):
