@@ -1,4 +1,3 @@
-<!-- 文件: low-complexity-algo-course/07-case-opt.md -->
 
 # 案例 5：实时数据流优化（滑动窗口 + 单调队列）
 

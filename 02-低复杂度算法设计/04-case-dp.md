@@ -1,4 +1,3 @@
-<!-- 文件: low-complexity-algo-course/04-case-dp.md -->
 
 # 案例 2：多重约束资源分配（背包 DP）★★★☆☆
 

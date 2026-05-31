@@ -1,4 +1,3 @@
-<!-- 文件: low-complexity-algo-course/02-classic-tech.md -->
 
 # 第二部分：五大算法设计范式详解
 

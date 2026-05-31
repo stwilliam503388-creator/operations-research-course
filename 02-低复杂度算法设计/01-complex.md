@@ -1,4 +1,3 @@
-<!-- 文件: low-complexity-algo-course/01-complex.md -->
 
 # 第一部分：复杂度分析与算法设计基础
 
