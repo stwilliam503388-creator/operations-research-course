@@ -6,7 +6,7 @@
 
 ## 内容质量标准
 
-本课程遵循根目录的 [课程内容质量规范](../docs/docs/COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+本课程遵循根目录的 [课程内容质量规范](../docs/COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
 
 ## 这份教程是什么
 
@@ -83,7 +83,7 @@ README.md
 | 想快速上手梯度下降 | `lectures/02-methods.md` → `lectures/03-case-least-squares.md` → `code/cpp/case03_gradient_descent.cpp` |
 | 想理解 KKT 和约束 | `lectures/02-methods.md` → `lectures/06-case-constrained-design.md` |
 | 想做机器学习优化 | `lectures/03-case-least-squares.md` → `lectures/05-case-logistic-regression.md` |
-| 想连接多目标/投资组合 | `lectures/04-case-portfolio-qp.md` → `../09-多目标优化/03-case-portfolio-multi.md` |
+| 想连接多目标/投资组合 | `lectures/04-case-portfolio-qp.md` → `../09-多目标优化/lectures/03-case-portfolio-multi.md` |
 | 想知道优化器为什么会卡住 | `lectures/07-case-nonconvex-pitfalls.md` |
 
 ---
