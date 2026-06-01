@@ -6,7 +6,7 @@
 
 ## 内容质量标准
 
-本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+本课程遵循根目录的 [课程内容质量规范](../docs/docs/COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
 
 ## 这份教程是什么
 
@@ -99,12 +99,12 @@
 
 | 你的情况 | 直接读 |
 |----------|--------|
-| 只想了解 PDE 能描述什么物理现象 | `03-case-heat.md` → `05-case-fluid.md` |
-| 想快速上手写 PDE 数值求解代码 | `01-physics.md`（重点读 1.4+1.5）→ `03-case-heat.md` |
-| 想理解三大方程（热传导/波动/拉普拉斯）的区别 | 按顺序：`01-physics.md` → `02-pde-basics.md` → 任意案例 |
+| 只想了解 PDE 能描述什么物理现象 | `lectures/03-case-heat.md` → `lectures/05-case-fluid.md` |
+| 想快速上手写 PDE 数值求解代码 | `lectures/01-physics.md`（重点读 1.4+1.5）→ `lectures/03-case-heat.md` |
+| 想理解三大方程（热传导/波动/拉普拉斯）的区别 | 按顺序：`lectures/01-physics.md` → `lectures/02-pde-basics.md` → 任意案例 |
 | 工作中碰到了需要模拟的物理场景 | 在 5 个案例中找最接近的，逆向往回学 |
-| 完全不知道从哪开始 | `01-physics.md` → `02-pde-basics.md` → `03-case-heat.md` → `08-capstone.md` |
-| 有数值计算经验 | `02-pde-basics.md`（重点 2.7 稳定性 + 2.8 选型） |
+| 完全不知道从哪开始 | `lectures/01-physics.md` → `lectures/02-pde-basics.md` → `lectures/03-case-heat.md` → `lectures/08-capstone.md` |
+| 有数值计算经验 | `lectures/02-pde-basics.md`（重点 2.7 稳定性 + 2.8 选型） |
 
 ---
 
@@ -162,18 +162,18 @@ PDE 课程是这套系列里的“连续系统模拟”支线：它不直接替�
 
 | 文件 | 内容 | 字数 | 状态 |
 |------|------|------|------|
-| `01-physics.md` | 第一部分：物理背景与 PDE 简介（1.1 ~ 1.5） | ~5,000 | - |
-| `02-pde-basics.md` | 第二部分：PDE 求解基础知识（2.1 ~ 2.8） | ~6,000 | - |
-| `03-case-heat.md` | 案例1：芯片散热模拟（热传导方程）★★☆☆☆ | ~3,000 | - |
-| `04-case-wave.md` | 案例2：地震波传播（波动方程）★★★☆☆ | ~3,000 | - |
-| `05-case-fluid.md` | 案例3：Burgers 方程入门（Navier-Stokes 的一维简化直觉）★★★☆☆ | ~2,500 | - |
-| `06-case-em.md` | 案例4：电磁场分布（Laplace）★★★☆☆ | ~2,500 | - |
-| `07-case-struct.md` | 案例5：结构受力变形（弹性力学）★★★★☆ [进阶] | ~3,000 | - |
-| `08-capstone.md` | 🏆 毕业项目：综合模拟 | ~2,000 | - |
-| `appendix-a-when-not-pde.md` | 附录A：什么时候不需要 PDE | ~800 | - |
-| `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 | - |
-| `appendix-c-ml-intersection.md` | 附录C：PDE 与 ML（PINN, 算子学习）的交叉点 | ~800 | - |
-| `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 | - |
+| `lectures/01-physics.md` | 第一部分：物理背景与 PDE 简介（1.1 ~ 1.5） | ~5,000 | - |
+| `lectures/02-pde-basics.md` | 第二部分：PDE 求解基础知识（2.1 ~ 2.8） | ~6,000 | - |
+| `lectures/03-case-heat.md` | 案例1：芯片散热模拟（热传导方程）★★☆☆☆ | ~3,000 | - |
+| `lectures/04-case-wave.md` | 案例2：地震波传播（波动方程）★★★☆☆ | ~3,000 | - |
+| `lectures/05-case-fluid.md` | 案例3：Burgers 方程入门（Navier-Stokes 的一维简化直觉）★★★☆☆ | ~2,500 | - |
+| `lectures/06-case-em.md` | 案例4：电磁场分布（Laplace）★★★☆☆ | ~2,500 | - |
+| `lectures/07-case-struct.md` | 案例5：结构受力变形（弹性力学）★★★★☆ [进阶] | ~3,000 | - |
+| `lectures/08-capstone.md` | 🏆 毕业项目：综合模拟 | ~2,000 | - |
+| `appendices/appendix-a-when-not-pde.md` | 附录A：什么时候不需要 PDE | ~800 | - |
+| `appendices/appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 | - |
+| `appendices/appendix-c-ml-intersection.md` | 附录C：PDE 与 ML（PINN, 算子学习）的交叉点 | ~800 | - |
+| `appendices/appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 | - |
 | `code/cpp/case03_heat_equation.cpp` | C++17 对照案例：一维热传导显式差分 | — | 新增 |
 
 ---

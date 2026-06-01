@@ -6,7 +6,7 @@
 
 ## 内容质量标准
 
-本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+本课程遵循根目录的 [课程内容质量规范](../docs/docs/COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
 
 ## 这份教程是什么
 
@@ -79,12 +79,12 @@ README.md
 
 | 你的情况 | 直接读 |
 |----------|--------|
-| 只想理解凸优化为什么重要 | `01-convex-bg.md` → `03-case-least-squares.md` |
-| 想快速上手梯度下降 | `02-methods.md` → `03-case-least-squares.md` → `code/cpp/case03_gradient_descent.cpp` |
-| 想理解 KKT 和约束 | `02-methods.md` → `06-case-constrained-design.md` |
-| 想做机器学习优化 | `03-case-least-squares.md` → `05-case-logistic-regression.md` |
-| 想连接多目标/投资组合 | `04-case-portfolio-qp.md` → `../09-多目标优化/03-case-portfolio-multi.md` |
-| 想知道优化器为什么会卡住 | `07-case-nonconvex-pitfalls.md` |
+| 只想理解凸优化为什么重要 | `lectures/01-convex-bg.md` → `lectures/03-case-least-squares.md` |
+| 想快速上手梯度下降 | `lectures/02-methods.md` → `lectures/03-case-least-squares.md` → `code/cpp/case03_gradient_descent.cpp` |
+| 想理解 KKT 和约束 | `lectures/02-methods.md` → `lectures/06-case-constrained-design.md` |
+| 想做机器学习优化 | `lectures/03-case-least-squares.md` → `lectures/05-case-logistic-regression.md` |
+| 想连接多目标/投资组合 | `lectures/04-case-portfolio-qp.md` → `../09-多目标优化/03-case-portfolio-multi.md` |
+| 想知道优化器为什么会卡住 | `lectures/07-case-nonconvex-pitfalls.md` |
 
 ---
 
@@ -127,18 +127,18 @@ README.md
 
 | 文件 | 内容 | 难度 |
 |------|------|------|
-| `01-convex-bg.md` | 凸优化背景、凸集、凸函数、全局最优、非凸风险 | ★★☆☆☆ |
-| `02-methods.md` | 梯度下降、牛顿法、投影梯度、KKT、对偶直觉 | ★★★☆☆ |
-| `03-case-least-squares.md` | 最小二乘：广告投入与销量预测 | ★★☆☆☆ |
-| `04-case-portfolio-qp.md` | 投资组合 QP：风险-收益折中 | ★★★☆☆ |
-| `05-case-logistic-regression.md` | 逻辑回归：客户流失二分类 | ★★★☆☆ |
-| `06-case-constrained-design.md` | 约束设计：非线性目标与活跃约束 | ★★★★☆ |
-| `07-case-nonconvex-pitfalls.md` | 非凸陷阱：初始点、局部最优、鞍点 | ★★★★☆ |
-| `08-capstone.md` | 综合项目：营销预算连续优化 | ★★★★☆ |
-| `appendix-a-when-not-convex.md` | 什么时候不该用凸优化/非线性优化 | ★★☆☆☆ |
-| `appendix-b-common-pitfalls.md` | TOP 5 必踩坑 | ★★☆☆☆ |
-| `appendix-c-ml-intersection.md` | 凸优化与机器学习 | ★★★☆☆ |
-| `appendix-d-reading-list.md` | 推荐阅读 | ★☆☆☆☆ |
+| `lectures/01-convex-bg.md` | 凸优化背景、凸集、凸函数、全局最优、非凸风险 | ★★☆☆☆ |
+| `lectures/02-methods.md` | 梯度下降、牛顿法、投影梯度、KKT、对偶直觉 | ★★★☆☆ |
+| `lectures/03-case-least-squares.md` | 最小二乘：广告投入与销量预测 | ★★☆☆☆ |
+| `lectures/04-case-portfolio-qp.md` | 投资组合 QP：风险-收益折中 | ★★★☆☆ |
+| `lectures/05-case-logistic-regression.md` | 逻辑回归：客户流失二分类 | ★★★☆☆ |
+| `lectures/06-case-constrained-design.md` | 约束设计：非线性目标与活跃约束 | ★★★★☆ |
+| `lectures/07-case-nonconvex-pitfalls.md` | 非凸陷阱：初始点、局部最优、鞍点 | ★★★★☆ |
+| `lectures/08-capstone.md` | 综合项目：营销预算连续优化 | ★★★★☆ |
+| `appendices/appendix-a-when-not-convex.md` | 什么时候不该用凸优化/非线性优化 | ★★☆☆☆ |
+| `appendices/appendix-b-common-pitfalls.md` | TOP 5 必踩坑 | ★★☆☆☆ |
+| `appendices/appendix-c-ml-intersection.md` | 凸优化与机器学习 | ★★★☆☆ |
+| `appendices/appendix-d-reading-list.md` | 推荐阅读 | ★☆☆☆☆ |
 | `code/python/*.py` | Python 教学案例与检查脚本 | — |
 | `code/cpp/case03_gradient_descent.cpp` | C++17 对照案例：梯度下降拟合直线 | — |
 
@@ -165,4 +165,4 @@ python3 code/python/run_checks.py
 
 ---
 
-> 准备好了吗？从 [01-convex-bg.md](01-convex-bg.md) 开始。
+> 准备好了吗？从 [01-convex-bg.md](lectures/01-convex-bg.md) 开始。

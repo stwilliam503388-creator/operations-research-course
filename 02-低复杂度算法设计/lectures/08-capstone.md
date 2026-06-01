@@ -227,9 +227,9 @@ DeliveryScheduler
 
 ## 延伸阅读
 
-- 如果你想把配送问题写成整数规划模型，继续看 `04-MIP求解器技术/03-case-vrp.md`。
-- 如果你更关心业务建模和方案解释，继续看 `05-运筹学基础与实战/03-case-logistics.md`。
+- 如果你想把配送问题写成整数规划模型，继续看 `04-MIP求解器技术/lectures/03-case-vrp.md`。
+- 如果你更关心业务建模和方案解释，继续看 `05-运筹学基础与实战/lectures/03-case-logistics.md`。
 
 ---
 
-> [文件完，下一个: appendix-a-when-not-optimize.md]
+> [文件完，下一个: appendices/appendix-a-when-not-optimize.md]

@@ -6,7 +6,7 @@
 
 ## 内容质量标准
 
-本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+本课程遵循根目录的 [课程内容质量规范](../docs/docs/COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
 
 ## 这份教程是什么
 
@@ -160,18 +160,18 @@
 
 | 文件 | 内容 | 字数 |
 |------|------|------|
-| `01-intro.md` | 博弈论概览：历史、分类、三个基本问题 | ~5,000 |
-| `02-core-concepts.md` | 核心概念：纳什均衡、混合策略、子博弈完美均衡 | ~6,000 |
-| `03-case-prisoner.md` | 案例1：定价博弈与囚徒困境 ★★☆☆☆ | ~3,000 |
-| `04-case-auction.md` | 案例2：拍卖出价策略 ★★★☆☆ | ~3,000 |
-| `05-case-bargaining.md` | 案例3：谈判与讨价还价 ★★★☆☆ | ~3,000 |
-| `06-case-cooperation.md` | 案例4：合作博弈与公平分配 ★★★☆☆ | ~3,000 |
-| `07-case-signaling.md` | 案例5：信号传递与市场 ★★★★☆ [进阶] | ~3,000 |
-| `08-capstone.md` | 🏆 综合毕业项目 | ~2,000 |
-| `appendix-a-when-not-game-theory.md` | 附录A：什么时候不需要博弈论 | ~800 |
-| `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
-| `appendix-c-ml-intersection.md` | 附录C：博弈论 × ML 的交叉点 | ~800 |
-| `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
+| `lectures/01-intro.md` | 博弈论概览：历史、分类、三个基本问题 | ~5,000 |
+| `lectures/02-core-concepts.md` | 核心概念：纳什均衡、混合策略、子博弈完美均衡 | ~6,000 |
+| `lectures/03-case-prisoner.md` | 案例1：定价博弈与囚徒困境 ★★☆☆☆ | ~3,000 |
+| `lectures/04-case-auction.md` | 案例2：拍卖出价策略 ★★★☆☆ | ~3,000 |
+| `lectures/05-case-bargaining.md` | 案例3：谈判与讨价还价 ★★★☆☆ | ~3,000 |
+| `lectures/06-case-cooperation.md` | 案例4：合作博弈与公平分配 ★★★☆☆ | ~3,000 |
+| `lectures/07-case-signaling.md` | 案例5：信号传递与市场 ★★★★☆ [进阶] | ~3,000 |
+| `lectures/08-capstone.md` | 🏆 综合毕业项目 | ~2,000 |
+| `appendices/appendix-a-when-not-game-theory.md` | 附录A：什么时候不需要博弈论 | ~800 |
+| `appendices/appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
+| `appendices/appendix-c-ml-intersection.md` | 附录C：博弈论 × ML 的交叉点 | ~800 |
+| `appendices/appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
 | `code/python/case03_pricing.py` | Python 案例：定价博弈与囚徒困境 | — |
 | `code/python/case04_auction.py` | Python 案例：拍卖出价策略 | — |
 | `code/python/case05_bargaining.py` | Python 案例：谈判与讨价还价 | — |
@@ -191,5 +191,5 @@ g++ -std=c++17 -O2 code/cpp/case03_prisoner_equilibrium.cpp -o /tmp/case03_priso
 /tmp/case03_prisoner_equilibrium
 ```
 
-它对应 `03-case-prisoner.md`，适合用来理解“给定别人策略后没有单方面改动动机”的程序化判定。
+它对应 `lectures/03-case-prisoner.md`，适合用来理解“给定别人策略后没有单方面改动动机”的程序化判定。
 

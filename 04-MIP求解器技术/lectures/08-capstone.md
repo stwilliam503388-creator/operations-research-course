@@ -54,8 +54,8 @@
 
 ## 延伸阅读
 
-- 想看同一类物流问题在运筹学课程中的业务解释，可以读 `05-运筹学基础与实战/03-case-logistics.md`。
-- 想把单目标配送扩展到成本、时间、排放的权衡，可以继续看 `09-多目标优化/08-capstone.md`。
+- 想看同一类物流问题在运筹学课程中的业务解释，可以读 `05-运筹学基础与实战/lectures/03-case-logistics.md`。
+- 想把单目标配送扩展到成本、时间、排放的权衡，可以继续看 `09-多目标优化/lectures/08-capstone.md`。
 
 ---
 
@@ -82,4 +82,4 @@ my-solution/
 
 ---
 
-> [文件完，下一个: appendix-a-when-not-mip.md]
+> [文件完，下一个: appendices/appendix-a-when-not-mip.md]

@@ -258,9 +258,9 @@ best_solution, best_idx = topsis_select(pareto, problem,
 
 ## 延伸阅读
 
-- 单目标配送和整数建模可回看 `04-MIP求解器技术/08-capstone.md`。
-- 业务侧的供应链网络设计可继续看 `05-运筹学基础与实战/08-capstone.md`。
-- 不确定交通和需求可连接到 `08-随机规划与鲁棒优化/08-capstone.md`。
+- 单目标配送和整数建模可回看 `04-MIP求解器技术/lectures/08-capstone.md`。
+- 业务侧的供应链网络设计可继续看 `05-运筹学基础与实战/lectures/08-capstone.md`。
+- 不确定交通和需求可连接到 `08-随机规划与鲁棒优化/lectures/08-capstone.md`。
 
 ---
 

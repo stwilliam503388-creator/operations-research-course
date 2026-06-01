@@ -60,6 +60,6 @@ Capstone 的重点不是写一个复杂求解器，而是完整走通：业务�
 
 ## 延伸阅读
 
-- 如果你想把这个预算分配问题扩展为多目标权衡，可继续看 `09-多目标优化/03-case-portfolio-multi.md`。
-- 如果约束中存在不确定需求或收益，可连接到 `08-随机规划与鲁棒优化/05-case-robust-portfolio.md`。
-- 如果要把业务优化落到完整运筹项目，可回看 `05-运筹学基础与实战/08-capstone.md`。
+- 如果你想把这个预算分配问题扩展为多目标权衡，可继续看 `09-多目标优化/lectures/03-case-portfolio-multi.md`。
+- 如果约束中存在不确定需求或收益，可连接到 `08-随机规划与鲁棒优化/lectures/05-case-robust-portfolio.md`。
+- 如果要把业务优化落到完整运筹项目，可回看 `05-运筹学基础与实战/lectures/08-capstone.md`。

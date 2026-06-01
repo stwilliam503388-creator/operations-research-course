@@ -6,7 +6,7 @@
 
 ## 内容质量标准
 
-本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+本课程遵循根目录的 [课程内容质量规范](../docs/docs/COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
 
 ## 这份教程是什么
 
@@ -179,18 +179,18 @@
 
 | 文件 | 内容 | 字数 |
 |------|------|------|
-| `01-multiobj-bg.md` | 多目标优化概览：历史、核心矛盾、三种处理策略、建模心法 | ~5,000 |
-| `02-methods.md` | 核心方法：帕累托支配、加权求和、ε-约束、目标规划、NSGA-II、性能指标 | ~6,000 |
-| `03-case-portfolio-multi.md` | 案例1：投资组合双目标优化 ★★☆☆☆ | ~3,000 |
-| `04-case-product-design.md` | 案例2：产品设计权衡 ★★★☆☆ | ~3,000 |
-| `05-case-scheduling-multi.md` | 案例3：生产调度多目标 ★★★☆☆ | ~3,000 |
-| `06-case-supply-chain-multi.md` | 案例4：供应链多目标 ★★★★☆ | ~3,000 |
-| `07-case-nsga2.md` | 案例5：NSGA-II 实战 ★★★★☆ [进阶] | ~3,000 |
-| `08-capstone.md` | 🏆 综合毕业项目 | ~2,000 |
-| `appendix-a-when-not-multiobj.md` | 附录A：什么时候不需要多目标优化 | ~800 |
-| `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
-| `appendix-c-ml-intersection.md` | 附录C：多目标优化 × ML 的交叉点 | ~800 |
-| `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
+| `lectures/01-multiobj-bg.md` | 多目标优化概览：历史、核心矛盾、三种处理策略、建模心法 | ~5,000 |
+| `lectures/02-methods.md` | 核心方法：帕累托支配、加权求和、ε-约束、目标规划、NSGA-II、性能指标 | ~6,000 |
+| `lectures/03-case-portfolio-multi.md` | 案例1：投资组合双目标优化 ★★☆☆☆ | ~3,000 |
+| `lectures/04-case-product-design.md` | 案例2：产品设计权衡 ★★★☆☆ | ~3,000 |
+| `lectures/05-case-scheduling-multi.md` | 案例3：生产调度多目标 ★★★☆☆ | ~3,000 |
+| `lectures/06-case-supply-chain-multi.md` | 案例4：供应链多目标 ★★★★☆ | ~3,000 |
+| `lectures/07-case-nsga2.md` | 案例5：NSGA-II 实战 ★★★★☆ [进阶] | ~3,000 |
+| `lectures/08-capstone.md` | 🏆 综合毕业项目 | ~2,000 |
+| `appendices/appendix-a-when-not-multiobj.md` | 附录A：什么时候不需要多目标优化 | ~800 |
+| `appendices/appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
+| `appendices/appendix-c-ml-intersection.md` | 附录C：多目标优化 × ML 的交叉点 | ~800 |
+| `appendices/appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
 | `code/python/case03_portfolio_multi.py` | 案例1代码：投资组合双目标优化 | — |
 | `code/python/case04_product_design.py` | 案例2代码：产品设计权衡 | — |
 | `code/python/case05_scheduling_multi.py` | 案例3代码：生产调度多目标 | — |
@@ -214,4 +214,4 @@ g++ -std=c++17 -O2 code/cpp/case07_pareto_sort.cpp -o /tmp/case07_pareto_sort
 
 ---
 
-> 准备好了吗？从 [01-multiobj-bg.md](01-multiobj-bg.md) 开始。
+> 准备好了吗？从 [01-multiobj-bg.md](lectures/01-multiobj-bg.md) 开始。

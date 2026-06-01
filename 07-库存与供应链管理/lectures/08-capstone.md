@@ -125,6 +125,6 @@ python3 code/python/capstone.py
 
 ## 8 延伸阅读
 
-- 本项目里的需求分布和服务水平，依赖 `01-概率论与数理统计/08-capstone.md` 的不确定性分析能力。
-- 如果要把需求场景显式写入优化模型，继续看 `08-随机规划与鲁棒优化/06-case-supply-chain-stochastic.md`。
-- 如果要把供应链网络和选址一起优化，可阅读 `05-运筹学基础与实战/08-capstone.md`。
+- 本项目里的需求分布和服务水平，依赖 `01-概率论与数理统计/lectures/08-capstone.md` 的不确定性分析能力。
+- 如果要把需求场景显式写入优化模型，继续看 `08-随机规划与鲁棒优化/lectures/06-case-supply-chain-stochastic.md`。
+- 如果要把供应链网络和选址一起优化，可阅读 `05-运筹学基础与实战/lectures/08-capstone.md`。

@@ -89,6 +89,6 @@
 
 > **不确定性优化是手术刀，不是锤子。** 在需要的时候它威力巨大，但如果问题没那么复杂，确定性模型 + 一点安全系数可能是更好的选择。
 
-> 🆘 逃生通道：如果你判断自己的问题确实需要不确定性优化，回到 [01-stochastic-bg.md](01-stochastic-bg.md) 的 1.5 节，从五步法的 Step 1 开始。
+> 🆘 逃生通道：如果你判断自己的问题确实需要不确定性优化，回到 [01-stochastic-bg.md](../lectures/01-stochastic-bg.md) 的 1.5 节，从五步法的 Step 1 开始。
 
 > [文件完，下一个: appendix-b-common-pitfalls.md]

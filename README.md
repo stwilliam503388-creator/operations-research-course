@@ -113,10 +113,10 @@
 
 | 主题 | 推荐顺序 |
 |------|----------|
-| 投资组合 | `05-运筹学基础与实战/05-case-finance.md` → `08-随机规划与鲁棒优化/05-case-robust-portfolio.md` → `09-多目标优化/03-case-portfolio-multi.md` → `10-凸优化与非线性优化/04-case-portfolio-qp.md` |
-| 报童与库存 | `01-概率论与数理统计/03-case-distributions.md` → `07-库存与供应链管理/04-case-newsvendor.md` → `08-随机规划与鲁棒优化/03-case-newsvendor.md` |
-| 供应链网络 | `05-运筹学基础与实战/03-case-logistics.md` → `07-库存与供应链管理/07-case-network.md` → `08-随机规划与鲁棒优化/06-case-supply-chain-stochastic.md` → `09-多目标优化/06-case-supply-chain-multi.md` |
-| 约束优化 | `05-运筹学基础与实战/01-or-bg.md` → `04-MIP求解器技术/01-background.md` → `10-凸优化与非线性优化/02-methods.md` |
+| 投资组合 | `05-运筹学基础与实战/lectures/05-case-finance.md` → `08-随机规划与鲁棒优化/lectures/05-case-robust-portfolio.md` → `09-多目标优化/lectures/03-case-portfolio-multi.md` → `10-凸优化与非线性优化/lectures/04-case-portfolio-qp.md` |
+| 报童与库存 | `01-概率论与数理统计/lectures/03-case-distributions.md` → `07-库存与供应链管理/lectures/04-case-newsvendor.md` → `08-随机规划与鲁棒优化/lectures/03-case-newsvendor.md` |
+| 供应链网络 | `05-运筹学基础与实战/lectures/03-case-logistics.md` → `07-库存与供应链管理/lectures/07-case-network.md` → `08-随机规划与鲁棒优化/lectures/06-case-supply-chain-stochastic.md` → `09-多目标优化/lectures/06-case-supply-chain-multi.md` |
+| 约束优化 | `05-运筹学基础与实战/lectures/01-or-bg.md` → `04-MIP求解器技术/lectures/01-background.md` → `10-凸优化与非线性优化/lectures/02-methods.md` |
 
 ---
 
@@ -203,7 +203,7 @@ C++ 案例不是对 Python 的机械翻译，而是用于补充三类教学价�
 
 ## 内容质量标准
 
-本课程系列采用“人话解释 + 严格边界 + 可运行案例”的写法。为了避免“听起来懂了但其实被误导”，后续新增或重写内容都遵循 [课程内容质量规范](COURSE_CONTENT_GUIDE.md)：
+本课程系列采用“人话解释 + 严格边界 + 可运行案例”的写法。为了避免“听起来懂了但其实被误导”，后续新增或重写内容都遵循 [课程内容质量规范](docs/COURSE_CONTENT_GUIDE.md)：
 
 - 核心术语要同时说明直觉、严格含义、常见误解和案例用途。
 - 案例要明确模型假设、现实边界和工业版还需要补什么。

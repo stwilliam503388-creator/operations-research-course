@@ -56,4 +56,4 @@ subject to  Σ_i w_i = 1
 - 能解释为什么协方差会影响组合风险。
 - 能运行 `code/python/case04_portfolio_qp.py` 并检查权重和是否为 1。
 - 能说明 `γ` 变大时，组合为什么通常更偏向高收益资产。
-- 能区分本案例的单目标 QP 与 `../09-多目标优化/03-case-portfolio-multi.md` 的 Pareto 前沿分析。
+- 能区分本案例的单目标 QP 与 `../09-多目标优化/lectures/03-case-portfolio-multi.md` 的 Pareto 前沿分析。

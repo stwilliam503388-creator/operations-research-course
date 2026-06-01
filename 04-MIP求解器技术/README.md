@@ -6,7 +6,7 @@
 
 ## 内容质量标准
 
-本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+本课程遵循根目录的 [课程内容质量规范](../docs/docs/COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
 
 ## 这份教程是什么
 
@@ -113,12 +113,12 @@ MIP 求解器报告 `optimal` 时，严格含义是：**在你写下的变量、
 
 | 你的情况 | 直接读 |
 |----------|--------|
-| 只想了解 MIP 能干什么 | `03-case-vrp.md` → `05-case-portfolio.md` |
-| 想快速上手写模型 | `01-background.md`（重点读 1.4 + 1.5）→ `03-case-vrp.md` |
-| 想理解求解器内部原理 | 按顺序：`01-background.md` → `02-solver-tech.md` → 任意案例 |
+| 只想了解 MIP 能干什么 | `lectures/03-case-vrp.md` → `lectures/05-case-portfolio.md` |
+| 想快速上手写模型 | `lectures/01-background.md`（重点读 1.4 + 1.5）→ `lectures/03-case-vrp.md` |
+| 想理解求解器内部原理 | 按顺序：`lectures/01-background.md` → `lectures/02-solver-tech.md` → 任意案例 |
 | 工作中遇到了具体优化问题 | 在 5 个案例中找最接近你场景的，逆向往回学 |
-| 完全不知道从哪开始 | `01-background.md` → `02-solver-tech.md` → `03-case-vrp.md` → `08-capstone.md` |
-| 有经验，想快速了解求解器差异 | `02-solver-tech.md`（重点读 2.8 调参 + 2.9 选型） |
+| 完全不知道从哪开始 | `lectures/01-background.md` → `lectures/02-solver-tech.md` → `lectures/03-case-vrp.md` → `lectures/08-capstone.md` |
+| 有经验，想快速了解求解器差异 | `lectures/02-solver-tech.md`（重点读 2.8 调参 + 2.9 选型） |
 
 ---
 
@@ -198,18 +198,18 @@ g++ -std=c++17 -O2 code/cpp/case04_branch_bound_knapsack.cpp -o /tmp/case04_bran
 
 | 文件 | 内容 | 字数 | 状态 |
 |------|------|------|------|
-| `01-background.md` | 第一部分：背景知识（1.1 ~ 1.5） | ~5,000 | - |
-| `02-solver-tech.md` | 第二部分：求解器技术入门（2.1 ~ 2.9） | ~6,000 | - |
-| `03-case-vrp.md` | 案例1：外卖骑手路线规划 (VRP) ★★☆☆☆ | ~3,000 | - |
-| `04-case-scheduling.md` | 案例2：工厂生产排程 ★★★☆☆ | ~3,000 | - |
-| `05-case-portfolio.md` | 案例3：投资组合优化 (MIQP) ★★☆☆☆ | ~2,500 | - |
-| `06-case-energy.md` | 案例4：发电厂调度 ★★★☆☆ | ~2,500 | - |
-| `07-case-network.md` | 案例5：电信网络扩容 ★★★★☆ [进阶] | ~3,000 | - |
-| `08-capstone.md` | 🏆 毕业项目 | ~2,000 | - |
-| `appendix-a-when-not-mip.md` | 附录A：什么时候不需要 MIP | ~800 | - |
-| `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 | - |
-| `appendix-c-ml-intersection.md` | 附录C：MIP 与 ML 交叉点 | ~800 | - |
-| `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 | - |
+| `lectures/01-background.md` | 第一部分：背景知识（1.1 ~ 1.5） | ~5,000 | - |
+| `lectures/02-solver-tech.md` | 第二部分：求解器技术入门（2.1 ~ 2.9） | ~6,000 | - |
+| `lectures/03-case-vrp.md` | 案例1：外卖骑手路线规划 (VRP) ★★☆☆☆ | ~3,000 | - |
+| `lectures/04-case-scheduling.md` | 案例2：工厂生产排程 ★★★☆☆ | ~3,000 | - |
+| `lectures/05-case-portfolio.md` | 案例3：投资组合优化 (MIQP) ★★☆☆☆ | ~2,500 | - |
+| `lectures/06-case-energy.md` | 案例4：发电厂调度 ★★★☆☆ | ~2,500 | - |
+| `lectures/07-case-network.md` | 案例5：电信网络扩容 ★★★★☆ [进阶] | ~3,000 | - |
+| `lectures/08-capstone.md` | 🏆 毕业项目 | ~2,000 | - |
+| `appendices/appendix-a-when-not-mip.md` | 附录A：什么时候不需要 MIP | ~800 | - |
+| `appendices/appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 | - |
+| `appendices/appendix-c-ml-intersection.md` | 附录C：MIP 与 ML 交叉点 | ~800 | - |
+| `appendices/appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 | - |
 | `code/cpp/case04_branch_bound_knapsack.cpp` | C++17 对照案例：0/1 背包分支定界 | — | 新增 |
 
 ---

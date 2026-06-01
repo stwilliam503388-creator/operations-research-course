@@ -67,7 +67,7 @@
 
 ## 3. 数据驱动的分布鲁棒优化
 
-> 这其实是本课程 [07 案例](07-case-distributionally-robust.md) 的核心——所以这里只讲和 ML 的交叉。
+> 这其实是本课程 [07 案例](../lectures/07-case-distributionally-robust.md) 的核心——所以这里只讲和 ML 的交叉。
 
 **核心想法**：你不是假设一个分布再优化——你是用一个 Wasserstein 球包围经验分布，在球内最坏分布下优化。这个框架天然是数据驱动的。
 
