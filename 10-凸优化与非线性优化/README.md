@@ -57,21 +57,34 @@
 
 ## 学习路线图
 
-```text
-README.md
-  ↓
-01-convex-bg.md      先理解凸性、全局最优和非凸风险
-  ↓
-02-methods.md        梯度下降、牛顿法、投影梯度、KKT
-  ↓
-03-case-least-squares.md      最小二乘：第一门可手算的凸优化案例
-  ├─ 04-case-portfolio-qp.md  投资组合 QP
-  ├─ 05-case-logistic-regression.md  逻辑回归与正则化
-  ├─ 06-case-constrained-design.md   约束设计与 KKT 直觉
-  └─ 07-case-nonconvex-pitfalls.md   非凸陷阱
-  ↓
-08-capstone.md       营销预算连续优化综合项目
-```
+> **Step 1 — 入门与速查**
+
+| 章节 | 内容 | 建议 |
+|------|------|------|
+| README.md | 术语速查 | 随时回来查 |
+
+> **Step 2 — 理论基础**
+
+| 章节 | 内容 | 建议 |
+|------|------|------|
+| 01-convex-bg | 凸性、全局最优和非凸风险 | 必读 |
+| 02-methods | 梯度下降、牛顿法、投影梯度、KKT | 必读 |
+
+> **Step 3 — 案例实战**（可跳到感兴趣的案例直接读）
+
+| 章节 | 内容 | 难度 |
+|------|------|------|
+| 03-case-least-squares | 最小二乘：可手算的凸优化案例 | ★★☆☆☆ |
+| 04-case-portfolio-qp | 投资组合 QP | ★★★☆☆ |
+| 05-case-logistic-regression | 逻辑回归与正则化 | ★★★☆☆ |
+| 06-case-constrained-design | 约束设计与 KKT 直觉 | ★★★☆☆ |
+| 07-case-nonconvex-pitfalls | 非凸陷阱 | ★★★★☆ |
+
+> **Step 4 — 毕业项目**
+
+| 章节 | 内容 | 建议 |
+|------|------|------|
+| 08-capstone | 🏆 营销预算连续优化综合项目 | 综合检验 |
 
 ---
 
