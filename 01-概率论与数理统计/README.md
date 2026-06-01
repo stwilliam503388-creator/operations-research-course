@@ -6,7 +6,7 @@
 
 ## 内容质量标准
 
-本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+本课程遵循根目录的 [课程内容质量规范](../docs/COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
 
 ## 这份教程是什么
 
@@ -137,14 +137,14 @@
 
 | 文件 | 内容 | 字数 |
 |------|------|------|
-| `01-prob.md` | 概率基础：公理、随机变量、分布、期望、方差、CLT | ~6,000 |
-| `02-statistics.md` | 统计推断：估计、假设检验、贝叶斯、蒙特卡洛 | ~6,000 |
-| `03-case-distributions.md` | 案例1：常见分布拟合与识别 ★★☆☆☆ | ~3,000 |
-| `04-case-clt.md` | 案例2：中心极限定理演示 ★★☆☆☆ | ~3,000 |
-| `05-case-bayesian.md` | 案例3：贝叶斯推断 ★★★☆☆ | ~3,000 |
-| `06-case-hypothesis.md` | 案例4：假设检验与A/B测试 ★★★☆☆ | ~3,000 |
-| `07-case-monte-carlo.md` | 案例5：蒙特卡洛仿真与风险评估 ★★★★☆ | ~3,000 |
-| `08-capstone.md` | 🏆 综合毕业项目 | ~2,000 |
+| `lectures/01-prob.md` | 概率基础：公理、随机变量、分布、期望、方差、CLT | ~6,000 |
+| `lectures/02-statistics.md` | 统计推断：估计、假设检验、贝叶斯、蒙特卡洛 | ~6,000 |
+| `lectures/03-case-distributions.md` | 案例1：常见分布拟合与识别 ★★☆☆☆ | ~3,000 |
+| `lectures/04-case-clt.md` | 案例2：中心极限定理演示 ★★☆☆☆ | ~3,000 |
+| `lectures/05-case-bayesian.md` | 案例3：贝叶斯推断 ★★★☆☆ | ~3,000 |
+| `lectures/06-case-hypothesis.md` | 案例4：假设检验与A/B测试 ★★★☆☆ | ~3,000 |
+| `lectures/07-case-monte-carlo.md` | 案例5：蒙特卡洛仿真与风险评估 ★★★★☆ | ~3,000 |
+| `lectures/08-capstone.md` | 🏆 综合毕业项目 | ~2,000 |
 | `附录A-D` | 何时不需要、必踩坑、×ML、荐读 | ~800 每个 |
 | `code/python/*.py` | 配套 Python 代码 | — |
 | `code/cpp/case07_monte_carlo.cpp` | C++17 对照案例：蒙特卡洛估计 π 与置信区间 | — |
@@ -166,7 +166,7 @@ g++ -std=c++17 -O2 code/cpp/case07_monte_carlo.cpp -o /tmp/case07_monte_carlo
 
 ## 附录导航
 
-- [附录A：什么时候不需要概率论](appendix-a-when-not-probability.md)
-- [附录B：TOP 5 必踩坑](appendix-b-common-pitfalls.md)
-- [附录C：概率论与机器学习的交叉点](appendix-c-ml-intersection.md)
-- [附录D：推荐阅读](appendix-d-reading-list.md)
+- [附录A：什么时候不需要概率论](appendices/appendix-a-when-not-probability.md)
+- [附录B：TOP 5 必踩坑](appendices/appendix-b-common-pitfalls.md)
+- [附录C：概率论与机器学习的交叉点](appendices/appendix-c-ml-intersection.md)
+- [附录D：推荐阅读](appendices/appendix-d-reading-list.md)

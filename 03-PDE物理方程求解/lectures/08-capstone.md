@@ -164,7 +164,7 @@ $$
 
 ## 延伸阅读
 
-- 如果你关心数值方法的复杂度和稳定运行规模，可以回看 `02-低复杂度算法设计/01-complex.md`。
-- 如果你想了解物理仿真和机器学习的交叉，可继续阅读 `10-凸优化与非线性优化/appendix-c-ml-intersection.md`。
+- 如果你关心数值方法的复杂度和稳定运行规模，可以回看 `02-低复杂度算法设计/lectures/01-complex.md`。
+- 如果你想了解物理仿真和机器学习的交叉，可继续阅读 `10-凸优化与非线性优化/appendices/appendix-c-ml-intersection.md`。
 
-> [文件完，下一个: appendix-a-when-not-pde.md]
+> [文件完，下一个: appendices/appendix-a-when-not-pde.md]

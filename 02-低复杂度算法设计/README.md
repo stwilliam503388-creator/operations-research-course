@@ -6,7 +6,7 @@
 
 ## 内容质量标准
 
-本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+本课程遵循根目录的 [课程内容质量规范](../docs/COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
 
 ## 这份教程是什么
 
@@ -104,13 +104,13 @@
 
 | 你的情况 | 直接读 |
 |----------|--------|
-| 只想了解「算法是怎么快起来的」 | `03-case-multi.md` → `06-case-graph.md` |
-| 想快速上手刷 LeetCode | `01-complex.md`（重点读 1.4+1.5）→ `03-case-multi.md` → `04-case-dp.md` |
-| 想理解不同算法设计范式之间的内在联系 | 按顺序：`01-complex.md` → `02-classic-tech.md` → 任意案例 |
+| 只想了解「算法是怎么快起来的」 | `lectures/03-case-multi.md` → `lectures/06-case-graph.md` |
+| 想快速上手刷 LeetCode | `lectures/01-complex.md`（重点读 1.4+1.5）→ `lectures/03-case-multi.md` → `lectures/04-case-dp.md` |
+| 想理解不同算法设计范式之间的内在联系 | 按顺序：`lectures/01-complex.md` → `lectures/02-classic-tech.md` → 任意案例 |
 | 工作中遇到了性能瓶颈 | 在 5 个案例中找最接近你场景的，逆向往回学 |
-| 完全不知道从哪开始 | `01-complex.md` → `02-classic-tech.md` → `03-case-multi.md` → `08-capstone.md` |
-| 有面试需求 | `04-case-dp.md`（重点 DP 范式）→ `07-case-opt.md`（滑动窗口+单调栈）|
-| 有经验，想快速回顾复杂度 | `02-classic-tech.md`（重点读 2.8 速查表 + 2.9 决策树） |
+| 完全不知道从哪开始 | `lectures/01-complex.md` → `lectures/02-classic-tech.md` → `lectures/03-case-multi.md` → `lectures/08-capstone.md` |
+| 有面试需求 | `lectures/04-case-dp.md`（重点 DP 范式）→ `lectures/07-case-opt.md`（滑动窗口+单调栈）|
+| 有经验，想快速回顾复杂度 | `lectures/02-classic-tech.md`（重点读 2.8 速查表 + 2.9 决策树） |
 
 ---
 
@@ -176,18 +176,18 @@ python --version  # >= 3.9
 
 | 文件 | 内容 | 字数 | 状态 |
 |------|------|------|------|
-| `01-complex.md` | 第一部分：复杂度分析与算法设计基础（1.1 ~ 1.5） | ~5,000 | - |
-| `02-classic-tech.md` | 第二部分：五大算法设计范式详解（2.1 ~ 2.9） | ~6,000 | - |
-| `03-case-multi.md` | 案例1：大规模数据合并与排序（分治+归并）★★☆☆☆ | ~3,000 | - |
-| `04-case-dp.md` | 案例2：多重约束资源分配（背包DP）★★★☆☆ | ~3,000 | - |
-| `05-case-search.md` | 案例3：有序空间快速搜索（二分答案+剪枝）★★☆☆☆ | ~2,500 | - |
-| `06-case-graph.md` | 案例4：最短路径与网络流★★★☆☆ | ~2,500 | - |
-| `07-case-opt.md` | 案例5：实时数据流优化（滑动窗口+单调队列）★★★★☆ [进阶] | ~3,000 | - |
-| `08-capstone.md` | 🏆 毕业项目：综合实战 | ~2,000 | - |
-| `appendix-a-when-not-optimize.md` | 附录A：什么时候不需要优化 | ~800 | - |
-| `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 | - |
-| `appendix-c-ml-intersection.md` | 附录C：算法优化与 ML 的交叉点 | ~800 | - |
-| `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 | - |
+| `lectures/01-complex.md` | 第一部分：复杂度分析与算法设计基础（1.1 ~ 1.5） | ~5,000 | - |
+| `lectures/02-classic-tech.md` | 第二部分：五大算法设计范式详解（2.1 ~ 2.9） | ~6,000 | - |
+| `lectures/03-case-multi.md` | 案例1：大规模数据合并与排序（分治+归并）★★☆☆☆ | ~3,000 | - |
+| `lectures/04-case-dp.md` | 案例2：多重约束资源分配（背包DP）★★★☆☆ | ~3,000 | - |
+| `lectures/05-case-search.md` | 案例3：有序空间快速搜索（二分答案+剪枝）★★☆☆☆ | ~2,500 | - |
+| `lectures/06-case-graph.md` | 案例4：最短路径与网络流★★★☆☆ | ~2,500 | - |
+| `lectures/07-case-opt.md` | 案例5：实时数据流优化（滑动窗口+单调队列）★★★★☆ [进阶] | ~3,000 | - |
+| `lectures/08-capstone.md` | 🏆 毕业项目：综合实战 | ~2,000 | - |
+| `appendices/appendix-a-when-not-optimize.md` | 附录A：什么时候不需要优化 | ~800 | - |
+| `appendices/appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 | - |
+| `appendices/appendix-c-ml-intersection.md` | 附录C：算法优化与 ML 的交叉点 | ~800 | - |
+| `appendices/appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 | - |
 | `code/cpp/case03_merge_sort.cpp` | C++17 对照案例：归并排序与 `std::sort` 性能对比 | — | 新增 |
 
 ---
@@ -201,7 +201,7 @@ g++ -std=c++17 -O2 code/cpp/case03_merge_sort.cpp -o /tmp/case03_merge_sort
 /tmp/case03_merge_sort
 ```
 
-这个案例对应 `03-case-multi.md` / `code/python/case03_merge.py`，用于比较手写归并排序与标准库排序，并观察 `O(n log n)` 在不同输入规模下的表现。
+这个案例对应 `lectures/03-case-multi.md` / `code/python/case03_merge.py`，用于比较手写归并排序与标准库排序，并观察 `O(n log n)` 在不同输入规模下的表现。
 
 ---
 

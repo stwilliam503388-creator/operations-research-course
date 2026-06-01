@@ -6,7 +6,7 @@
 数值方法: FTCS 显式格式 / 隐式格式 (Crank-Nicolson)
 边界条件: 左边界 Dirichlet (固定温度), 右边界 Neumann (绝热)
 
-参考: 03-case-heat.md
+参考: lectures/03-case-heat.md
 """
 
 

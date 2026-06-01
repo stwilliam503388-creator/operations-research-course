@@ -6,7 +6,7 @@
 
 ## 内容质量标准
 
-本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+本课程遵循根目录的 [课程内容质量规范](../docs/COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
 
 ## 导言
 
@@ -176,18 +176,18 @@ g++ -std=c++17 -O2 code/cpp/case03_saa_newsvendor.cpp -o /tmp/case03_saa_newsven
 
 | 文件 | 类型 | 难度 | 内容 |
 |------|------|------|------|
-| `01-stochastic-bg.md` | 背景理论 | ★★☆☆☆ | 不确定性优化基础、历史、三种范式、建模心法 |
-| `02-methods.md` | 方法理论 | ★★★☆☆ | 两阶段随机规划、场景生成、对等模型、鲁棒优化、机会约束 |
-| `03-case-newsvendor.md` | 案例 | ★★☆☆☆ | 新闻摊贩的随机版——解析解 vs 仿真 |
-| `04-case-two-stage.md` | 案例 | ★★★☆☆ | 两阶段生产计划——对等模型 |
-| `05-case-robust-portfolio.md` | 案例 | ★★★☆☆ | 鲁棒投资组合——不确定性集合 |
-| `06-case-supply-chain-stochastic.md` | 案例 | ★★★★☆ | 随机供应链网络设计——大规模 MIP |
-| `07-case-distributionally-robust.md` | 案例 | ★★★★☆ | 分布鲁棒优化——Wasserstein 模糊集 |
-| `08-capstone.md` | 毕业项目 | ★★★★☆ | 三种方法对比：订货问题 |
-| `appendix-a-when-not-stochastic.md` | 附录 | ★☆☆☆☆ | 什么时候不需要不确定性优化 |
-| `appendix-b-common-pitfalls.md` | 附录 | ★★☆☆☆ | TOP 5 必踩坑 |
-| `appendix-c-ml-intersection.md` | 附录 | ★★★☆☆ | 随机规划 × ML 的交叉点 |
-| `appendix-d-reading-list.md` | 附录 | ★☆☆☆☆ | 推荐阅读 |
+| `lectures/01-stochastic-bg.md` | 背景理论 | ★★☆☆☆ | 不确定性优化基础、历史、三种范式、建模心法 |
+| `lectures/02-methods.md` | 方法理论 | ★★★☆☆ | 两阶段随机规划、场景生成、对等模型、鲁棒优化、机会约束 |
+| `lectures/03-case-newsvendor.md` | 案例 | ★★☆☆☆ | 新闻摊贩的随机版——解析解 vs 仿真 |
+| `lectures/04-case-two-stage.md` | 案例 | ★★★☆☆ | 两阶段生产计划——对等模型 |
+| `lectures/05-case-robust-portfolio.md` | 案例 | ★★★☆☆ | 鲁棒投资组合——不确定性集合 |
+| `lectures/06-case-supply-chain-stochastic.md` | 案例 | ★★★★☆ | 随机供应链网络设计——大规模 MIP |
+| `lectures/07-case-distributionally-robust.md` | 案例 | ★★★★☆ | 分布鲁棒优化——Wasserstein 模糊集 |
+| `lectures/08-capstone.md` | 毕业项目 | ★★★★☆ | 三种方法对比：订货问题 |
+| `appendices/appendix-a-when-not-stochastic.md` | 附录 | ★☆☆☆☆ | 什么时候不需要不确定性优化 |
+| `appendices/appendix-b-common-pitfalls.md` | 附录 | ★★☆☆☆ | TOP 5 必踩坑 |
+| `appendices/appendix-c-ml-intersection.md` | 附录 | ★★★☆☆ | 随机规划 × ML 的交叉点 |
+| `appendices/appendix-d-reading-list.md` | 附录 | ★☆☆☆☆ | 推荐阅读 |
 | `code/python/case01_newsvendor.py` | Python | ★★☆☆☆ | 报童问题 |
 | `code/python/case02_two_stage.py` | Python | ★★★☆☆ | 两阶段生产计划 |
 | `code/python/case03_robust_portfolio.py` | Python | ★★★☆☆ | 鲁棒投资组合 |

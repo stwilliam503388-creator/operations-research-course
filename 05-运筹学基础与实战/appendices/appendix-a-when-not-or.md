@@ -79,4 +79,4 @@
 
 ---
 
-*[← 毕业项目](08-capstone.md) | [附录 B →](appendix-b-common-pitfalls.md)*
+*[← 毕业项目](../lectures/08-capstone.md) | [附录 B →](appendix-b-common-pitfalls.md)*

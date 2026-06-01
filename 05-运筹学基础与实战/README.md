@@ -6,7 +6,7 @@
 
 ## 内容质量标准
 
-本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+本课程遵循根目录的 [课程内容质量规范](../docs/COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
 
 ## 这份教程是什么
 
@@ -169,22 +169,22 @@
 
 | 文件 | 内容 | 字数 |
 |------|------|------|
-| `01-or-bg.md` | 运筹学概览：历史、分类、三个基本问题 | ~5,000 |
-| `02-model-method.md` | 建模三要素 + 算法框架（精确解→启发式→仿真） | ~6,000 |
-| `03-case-logistics.md` | 案例1：物流网络优化（LP + 网络流）★★☆☆☆ | ~3,000 |
-| `04-case-inventory.md` | 案例2：库存策略优化（MIP + DP）★★★☆☆ | ~3,000 |
-| `05-case-finance.md` | 案例3：投资组合与风险管理（NLP）★★★☆☆ | ~2,500 |
-| `06-case-queue.md` | 案例4：服务系统排队优化（仿真）★★★☆☆ | ~2,500 |
-| `07-case-scheduling.md` | 案例5：人员排班与约束规划★★★★☆ [进阶] | ~3,000 |
-| `08-capstone.md` | 🏆 综合毕业项目 | ~2,000 |
-| `SB1-Pyomo建模框架.md` | 🧰 从手写到框架：Pyomo 快速建模 | ~3,000 |
-| `SB2-SimPy仿真.md` | 🧰 当数学不够用：SimPy 排队仿真 | ~3,000 |
-| `SB3-元启发式.md` | 🧰 精确解不可行：SA + GA 解 TSP | ~3,000 |
-| `SB4-建模实战.md` | 🧰 建模实战：产品组合 + 影子价格 | ~3,000 |
-| `appendix-a-when-not-or.md` | 附录A：什么时候不需要运筹学 | ~800 |
-| `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
-| `appendix-c-ml-intersection.md` | 附录C：运筹学 × ML 的交叉点 | ~800 |
-| `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
+| `lectures/01-or-bg.md` | 运筹学概览：历史、分类、三个基本问题 | ~5,000 |
+| `lectures/02-model-method.md` | 建模三要素 + 算法框架（精确解→启发式→仿真） | ~6,000 |
+| `lectures/03-case-logistics.md` | 案例1：物流网络优化（LP + 网络流）★★☆☆☆ | ~3,000 |
+| `lectures/04-case-inventory.md` | 案例2：库存策略优化（MIP + DP）★★★☆☆ | ~3,000 |
+| `lectures/05-case-finance.md` | 案例3：投资组合与风险管理（NLP）★★★☆☆ | ~2,500 |
+| `lectures/06-case-queue.md` | 案例4：服务系统排队优化（仿真）★★★☆☆ | ~2,500 |
+| `lectures/07-case-scheduling.md` | 案例5：人员排班与约束规划★★★★☆ [进阶] | ~3,000 |
+| `lectures/08-capstone.md` | 🏆 综合毕业项目 | ~2,000 |
+| `lectures/SB1-Pyomo建模框架.md` | 🧰 从手写到框架：Pyomo 快速建模 | ~3,000 |
+| `lectures/SB2-SimPy仿真.md` | 🧰 当数学不够用：SimPy 排队仿真 | ~3,000 |
+| `lectures/SB3-元启发式.md` | 🧰 精确解不可行：SA + GA 解 TSP | ~3,000 |
+| `lectures/SB4-建模实战.md` | 🧰 建模实战：产品组合 + 影子价格 | ~3,000 |
+| `appendices/appendix-a-when-not-or.md` | 附录A：什么时候不需要运筹学 | ~800 |
+| `appendices/appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
+| `appendices/appendix-c-ml-intersection.md` | 附录C：运筹学 × ML 的交叉点 | ~800 |
+| `appendices/appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
 | `code/python/case03_logistics.py` | Python 案例：物流网络优化 | — |
 | `code/python/case04_inventory.py` | Python 案例：库存策略优化 | — |
 | `code/python/case05_finance.py` | Python 案例：投资组合与风险管理 | — |
@@ -207,7 +207,7 @@ g++ -std=c++17 -O2 code/cpp/case03_min_cost_flow.cpp -o /tmp/case03_min_cost_flo
 /tmp/case03_min_cost_flow
 ```
 
-该案例对应 `03-case-logistics.md`，突出最小费用流在物流网络中的工程实现方式。
+该案例对应 `lectures/03-case-logistics.md`，突出最小费用流在物流网络中的工程实现方式。
 
 ---
 

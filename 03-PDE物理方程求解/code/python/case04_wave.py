@@ -6,7 +6,7 @@
 数值方法: 显式中心差分格式
 边界条件: 反射边界 (固定端) / 吸收边界 (一阶 Mur)
 
-参考: 04-case-wave.md
+参考: lectures/04-case-wave.md
 """
 
 

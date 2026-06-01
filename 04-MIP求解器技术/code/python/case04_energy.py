@@ -813,5 +813,5 @@ if __name__ == "__main__":
 
     print(f"\n{'═'*60}")
     print(f"  完成。")
-    print(f"  更多解释见: 06-case-energy.md")
+    print(f"  更多解释见: lectures/06-case-energy.md")
     print(f"{'═'*60}\n")

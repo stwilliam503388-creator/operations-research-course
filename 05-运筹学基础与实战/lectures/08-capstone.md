@@ -243,10 +243,10 @@ python capstone.py
 
 ## 8.10 延伸阅读
 
-- 算法复杂度和启发式设计可回看 `02-低复杂度算法设计/08-capstone.md`。
-- 若要把选址和运输写成严格整数规划，可继续读 `04-MIP求解器技术/08-capstone.md`。
-- 供应链库存和契约细节见 `07-库存与供应链管理/08-capstone.md`。
-- 多目标版本可延伸到 `09-多目标优化/08-capstone.md`。
+- 算法复杂度和启发式设计可回看 `02-低复杂度算法设计/lectures/08-capstone.md`。
+- 若要把选址和运输写成严格整数规划，可继续读 `04-MIP求解器技术/lectures/08-capstone.md`。
+- 供应链库存和契约细节见 `07-库存与供应链管理/lectures/08-capstone.md`。
+- 多目标版本可延伸到 `09-多目标优化/lectures/08-capstone.md`。
 
 ---
 
@@ -262,4 +262,4 @@ python capstone.py
 
 ---
 
-*[← 上一章：案例5 - 人员排班与约束规划](07-case-scheduling.md) | [附录 A →](appendix-a-when-not-or.md)*
+*[← 上一章：案例5 - 人员排班与约束规划](07-case-scheduling.md) | [附录 A →](../appendices/appendix-a-when-not-or.md)*

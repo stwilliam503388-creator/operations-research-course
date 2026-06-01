@@ -6,7 +6,7 @@
 
 ## 内容质量标准
 
-本课程遵循根目录的 [课程内容质量规范](../COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
+本课程遵循根目录的 [课程内容质量规范](../docs/COURSE_CONTENT_GUIDE.md)：用人话解释核心直觉，同时明确模型假设、适用边界和可运行验证方式。
 
 ## 这份教程是什么
 
@@ -172,18 +172,18 @@
 
 | 文件 | 内容 | 字数 |
 |------|------|------|
-| `01-inventory-bg.md` | 库存管理概览：历史、四大模型、核心矛盾、建模五步法 | ~5,000 |
-| `02-supply-chain.md` | 供应链管理核心：推/拉、牛鞭效应、VMI/CPFR、契约设计、网络设计 | ~6,000 |
-| `03-case-eoq.md` | 案例1：EOQ与批量决策 ★★☆☆☆ | ~3,000 |
-| `04-case-newsvendor.md` | 案例2：报童与服务水平 ★★★☆☆ | ~3,000 |
-| `05-case-bullwhip.md` | 案例3：牛鞭效应仿真 ★★★☆☆ | ~3,000 |
-| `06-case-contract.md` | 案例4：供应链契约设计 ★★★★☆ | ~3,000 |
-| `07-case-network.md` | 案例5：供应链网络设计 ★★★★☆ [进阶] | ~3,000 |
-| `08-capstone.md` | 综合毕业项目 | ~2,000 |
-| `appendix-a-when-not-inventory.md` | 附录A：什么时候不需要库存模型 | ~800 |
-| `appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
-| `appendix-c-ml-intersection.md` | 附录C：库存与供应链 × ML | ~800 |
-| `appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
+| `lectures/01-inventory-bg.md` | 库存管理概览：历史、四大模型、核心矛盾、建模五步法 | ~5,000 |
+| `lectures/02-supply-chain.md` | 供应链管理核心：推/拉、牛鞭效应、VMI/CPFR、契约设计、网络设计 | ~6,000 |
+| `lectures/03-case-eoq.md` | 案例1：EOQ与批量决策 ★★☆☆☆ | ~3,000 |
+| `lectures/04-case-newsvendor.md` | 案例2：报童与服务水平 ★★★☆☆ | ~3,000 |
+| `lectures/05-case-bullwhip.md` | 案例3：牛鞭效应仿真 ★★★☆☆ | ~3,000 |
+| `lectures/06-case-contract.md` | 案例4：供应链契约设计 ★★★★☆ | ~3,000 |
+| `lectures/07-case-network.md` | 案例5：供应链网络设计 ★★★★☆ [进阶] | ~3,000 |
+| `lectures/08-capstone.md` | 综合毕业项目 | ~2,000 |
+| `appendices/appendix-a-when-not-inventory.md` | 附录A：什么时候不需要库存模型 | ~800 |
+| `appendices/appendix-b-common-pitfalls.md` | 附录B：TOP 5 必踩坑 | ~800 |
+| `appendices/appendix-c-ml-intersection.md` | 附录C：库存与供应链 × ML | ~800 |
+| `appendices/appendix-d-reading-list.md` | 附录D：推荐阅读 | ~500 |
 | `code/python/case03_eoq.py` | Python 案例：EOQ 批量决策 | — |
 | `code/python/case04_newsvendor.py` | Python 案例：报童订货与服务水平 | — |
 | `code/python/case05_bullwhip.py` | Python 案例：牛鞭效应仿真 | — |
@@ -214,4 +214,4 @@ g++ -std=c++17 -O2 code/cpp/case04_newsvendor.cpp -o /tmp/case04_newsvendor
 /tmp/case04_newsvendor
 ```
 
-该案例对应 `04-case-newsvendor.md` / `code/python/case04_newsvendor.py`，用于对照学习临界分位数、订货量搜索和蒙特卡洛利润验证。
+该案例对应 `lectures/04-case-newsvendor.md` / `code/python/case04_newsvendor.py`，用于对照学习临界分位数、订货量搜索和蒙特卡洛利润验证。

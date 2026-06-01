@@ -63,6 +63,56 @@ def compile_cpp() -> None:
             output.unlink(missing_ok=True)
 
 
+def run_cpp_tests() -> None:
+    test_files = sorted(ROOT.glob("**/test_*.cpp"))
+    print(f"C++ test files: {len(test_files)} files")
+    for path in test_files:
+        output = Path(tempfile.gettempdir()) / f"{path.stem}_run"
+        try:
+            comp = subprocess.run(
+                ["g++", "-std=c++17", "-O2", str(path), "-o", str(output)],
+                cwd=ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            if comp.returncode != 0:
+                print(comp.stdout)
+                print(comp.stderr)
+                raise RuntimeError(f"C++ test compile failed: {path}")
+            result = subprocess.run(
+                [str(output)],
+                cwd=ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            print(result.stdout.strip())
+            if result.returncode != 0:
+                print(result.stderr)
+                raise RuntimeError(f"C++ tests failed: {path}")
+        finally:
+            output.unlink(missing_ok=True)
+
+
+def run_unit_tests() -> None:
+    test_dirs = sorted({path.parent for path in ROOT.glob("**/test_*.py") if path.is_file()})
+    print(f"Unit test discovery: {len(test_dirs)} directories")
+    env = os.environ.copy()
+    env.setdefault("PYTHONPYCACHEPREFIX", str(Path(tempfile.gettempdir()) / "pycache-or-course"))
+    env["PYTHONDONTWRITEBYTECODE"] = "1"
+    for test_dir in test_dirs:
+        print(f"Running unit tests in {test_dir.relative_to(ROOT)}")
+        result = subprocess.run(
+            [sys.executable, "-m", "unittest", "discover", "-s", str(test_dir), "-p", "test_*.py"],
+            cwd=ROOT,
+            env=env,
+            check=False,
+        )
+        if result.returncode != 0:
+            raise RuntimeError(f"Unit tests failed in: {test_dir.relative_to(ROOT)}")
+
+
 def iter_course_check_scripts() -> list[Path]:
     return sorted(path for path in ROOT.glob("*/code/python/run_checks.py") if path.is_file())
 
@@ -84,6 +134,8 @@ def run_course_checks() -> None:
 def main() -> None:
     compile_python()
     compile_cpp()
+    run_unit_tests()
+    run_cpp_tests()
     run_course_checks()
     print("All smoke checks passed.")
 
