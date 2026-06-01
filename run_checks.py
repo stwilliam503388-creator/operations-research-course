@@ -63,6 +63,38 @@ def compile_cpp() -> None:
             output.unlink(missing_ok=True)
 
 
+def run_cpp_tests() -> None:
+    test_files = sorted(ROOT.glob("**/test_*.cpp"))
+    print(f"C++ test files: {len(test_files)} files")
+    for path in test_files:
+        output = Path(tempfile.gettempdir()) / f"{path.stem}_run"
+        try:
+            comp = subprocess.run(
+                ["g++", "-std=c++17", "-O2", str(path), "-o", str(output)],
+                cwd=ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            if comp.returncode != 0:
+                print(comp.stdout)
+                print(comp.stderr)
+                raise RuntimeError(f"C++ test compile failed: {path}")
+            result = subprocess.run(
+                [str(output)],
+                cwd=ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            print(result.stdout.strip())
+            if result.returncode != 0:
+                print(result.stderr)
+                raise RuntimeError(f"C++ tests failed: {path}")
+        finally:
+            output.unlink(missing_ok=True)
+
+
 def run_unit_tests() -> None:
     test_dirs = sorted({path.parent for path in ROOT.glob("**/test_*.py") if path.is_file()})
     print(f"Unit test discovery: {len(test_dirs)} directories")
@@ -103,6 +135,7 @@ def main() -> None:
     compile_python()
     compile_cpp()
     run_unit_tests()
+    run_cpp_tests()
     run_course_checks()
     print("All smoke checks passed.")
 

@@ -3,6 +3,15 @@
 These deterministic tests exercise the shared statistical helpers that are
 reused across several course examples.  They use only the standard library so
 they run under the repository smoke checks without extra dependencies.
+
+被测函数与课程对应关系
+====================
+- normal_pdf  → 课程 01-概率论与数理统计 (case03, case04_clt, capstone)
+- normal_cdf  → 课程 01-概率论与数理统计 (case03, case06_hypothesis, capstone)
+                 课程 07-库存与供应链管理 (case04_newsvendor)
+- normal_ppf  → 课程 01-概率论与数理统计 (case03, case04_clt, case06, case07, capstone)
+                 课程 07-库存与供应链管理 (case04_newsvendor)
+- generate_normal → 课程 01-概率论与数理统计 (case03, case07_monte_carlo, capstone)
 """
 
 from __future__ import annotations
@@ -27,6 +36,12 @@ from common.stats_utils import (
 
 
 class NormalPdfTests(unittest.TestCase):
+    """normal_pdf 测试。
+
+    覆盖课程：
+    - 01-概率论与数理统计: case03_distributions（概率密度可视化）、
+      case04_clt（中心极限定理）、capstone（综合案例）
+    """
     def test_peak_at_mean(self) -> None:
         self.assertAlmostEqual(normal_pdf(0.0), 1.0 / math.sqrt(2.0 * math.pi), places=12)
 
@@ -66,6 +81,13 @@ class NormalPdfTests(unittest.TestCase):
 
 
 class NormalCdfTests(unittest.TestCase):
+    """normal_cdf 测试。
+
+    覆盖课程：
+    - 01-概率论与数理统计: case03_distributions（累积分布）、
+      case06_hypothesis（假设检验 p 值计算）、capstone
+    - 07-库存与供应链管理: case04_newsvendor（报童模型临界比率）
+    """
     def test_value_at_mean_is_half(self) -> None:
         self.assertAlmostEqual(normal_cdf(0.0), 0.5, places=7)
         self.assertAlmostEqual(normal_cdf(4.0, mu=4.0, sigma=2.5), 0.5, places=7)
@@ -111,6 +133,13 @@ class NormalCdfTests(unittest.TestCase):
 
 
 class NormalPpfTests(unittest.TestCase):
+    """normal_ppf 测试。
+
+    覆盖课程：
+    - 01-概率论与数理统计: case03_distributions（分位点）、case04_clt、
+      case06_hypothesis、case07_monte_carlo、capstone
+    - 07-库存与供应链管理: case04_newsvendor（最优订货量分位数计算）
+    """
     def test_median_is_mean(self) -> None:
         self.assertAlmostEqual(normal_ppf(0.5), 0.0, places=6)
         self.assertAlmostEqual(normal_ppf(0.5, mu=3.0, sigma=2.0), 3.0, places=6)
@@ -145,6 +174,12 @@ class NormalPpfTests(unittest.TestCase):
 
 
 class GenerateNormalTests(unittest.TestCase):
+    """generate_normal 测试。
+
+    覆盖课程：
+    - 01-概率论与数理统计: case03_distributions（正态样本生成）、
+      case07_monte_carlo（蒙特卡洛抽样）、capstone
+    """
     def test_length_even_odd_and_zero(self) -> None:
         self.assertEqual(len(generate_normal(10)), 10)
         self.assertEqual(len(generate_normal(7)), 7)
