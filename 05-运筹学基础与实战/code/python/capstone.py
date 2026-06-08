@@ -67,23 +67,21 @@ N_WH = len(WH_NAMES)
 
 # --- 客户城市 ---
 # 50 个城市，每个有年均需求量（吨）和标准差
-np.random.seed(42)
+_demand_rng = np.random.default_rng(42)
 CUSTOMER_NAMES = [f"客户{c+1:02d}" for c in range(50)]
 N_CUSTOMERS = len(CUSTOMER_NAMES)
 
 # 基准需求：均匀分布在 1000~8000 吨
-BASE_DEMAND = np.random.uniform(1000, 8000, N_CUSTOMERS).astype(int)
+BASE_DEMAND = _demand_rng.uniform(1000, 8000, N_CUSTOMERS).astype(int)
 # 标准差 = 15% 基准需求
 DEMAND_STD = (BASE_DEMAND * 0.15).astype(int)
 
 # --- 运输成本 ---
 # 工厂→仓库 每吨成本（元/吨）——粗略按距离模拟
-np.random.seed(123)
-COST_FW = np.random.uniform(80, 300, (N_FACTORIES, N_WH))
+COST_FW = np.random.default_rng(123).uniform(80, 300, (N_FACTORIES, N_WH))
 
 # 仓库→客户 每吨成本（元/吨）
-np.random.seed(456)
-COST_WC = np.random.uniform(50, 250, (N_WH, N_CUSTOMERS))
+COST_WC = np.random.default_rng(456).uniform(50, 250, (N_WH, N_CUSTOMERS))
 
 
 # ============================================================

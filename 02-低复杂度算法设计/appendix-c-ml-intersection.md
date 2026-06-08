@@ -1,4 +1,3 @@
-<!-- 文件: low-complexity-algo-course/appendix-c-ml-intersection.md -->
 
 # 附录C：算法优化与 ML 的交叉点
 

@@ -17,64 +17,20 @@
 import math
 import random
 import statistics
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[3]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from common.stats_utils import generate_normal, normal_cdf, normal_pdf, normal_ppf
 
 
 # ============================================================
 # 工具函数
 # ============================================================
-
-def normal_pdf(x, mu=0, sigma=1):
-    """正态分布概率密度函数"""
-    return (1.0 / (sigma * math.sqrt(2 * math.pi))) * \
-           math.exp(-0.5 * ((x - mu) / sigma) ** 2)
-
-
-def normal_cdf(x, mu=0, sigma=1):
-    """正态分布累积分布函数"""
-    z = (x - mu) / sigma
-    a1 = 0.254829592
-    a2 = -0.284496736
-    a3 = 1.421413741
-    a4 = -1.453152027
-    a5 = 1.061405429
-    p = 0.3275911
-    sign = 1 if z >= 0 else -1
-    z_abs = abs(z) / math.sqrt(2)
-    t = 1.0 / (1.0 + p * z_abs)
-    y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * math.exp(-z_abs * z_abs)
-    return 0.5 * (1.0 + sign * y)
-
-
-def normal_ppf(p, mu=0, sigma=1, tol=1e-10, max_iter=100):
-    """正态分布分位数函数"""
-    if p <= 0:
-        return -float('inf')
-    if p >= 1:
-        return float('inf')
-    lo, hi = -10, 10
-    for _ in range(max_iter):
-        mid = (lo + hi) / 2
-        cdf_mid = normal_cdf(mid, mu, sigma)
-        if abs(cdf_mid - p) < tol:
-            return mid
-        if cdf_mid < p:
-            lo = mid
-        else:
-            hi = mid
-    return (lo + hi) / 2
-
-
-def generate_normal(n, mu=0, sigma=1):
-    """Box-Muller 变换生成正态分布样本"""
-    samples = []
-    for _ in range(n // 2 + 1):
-        u1 = random.random()
-        u2 = random.random()
-        z1 = math.sqrt(-2 * math.log(u1)) * math.cos(2 * math.pi * u2)
-        z2 = math.sqrt(-2 * math.log(u1)) * math.sin(2 * math.pi * u2)
-        samples.append(mu + sigma * z1)
-        samples.append(mu + sigma * z2)
-    return samples[:n]
 
 
 def sample_quantile(data, q):
@@ -109,7 +65,9 @@ def generate_demand_data(n_days=500, true_mu=200, true_sigma=40):
 
 def generate_leadtime_data(n_samples=30, supplier='A'):
     """生成供应商补货时间数据"""
-    random.seed(42 + hash(supplier) % 1000)
+    # 用固定映射而非 hash()：内置 hash 受 PYTHONHASHSEED 盐化，跨进程不一致，会破坏可复现性
+    supplier_offset = {'A': 0, 'B': 1}.get(supplier, 2)
+    random.seed(42 + supplier_offset)
     if supplier == 'A':
         # 供应商 A：均值 5 天，标准差 1 天
         return [max(1, random.gauss(5, 1)) for _ in range(n_samples)]

@@ -3,7 +3,7 @@
 The goal is fast confidence, not exhaustive numerical validation:
 1. compile every Python script under course code/python directories;
 2. compile every C++17 example;
-3. run the full checks for the newest convex optimization course.
+3. run each course's local smoke checks.
 
 This script intentionally avoids writing Python bytecode caches into the
 repository so it can run in read-only CI or sandboxed environments.
@@ -23,7 +23,9 @@ ROOT = Path(__file__).resolve().parent
 
 
 def iter_python_files() -> list[Path]:
-    return sorted(path for path in ROOT.glob("*/code/python/*.py") if path.is_file())
+    course_files = [path for path in ROOT.glob("*/code/python/*.py") if path.is_file()]
+    common_files = [path for path in (ROOT / "common").glob("*.py") if path.is_file()]
+    return sorted(course_files + common_files)
 
 
 def iter_cpp_files() -> list[Path]:
@@ -45,31 +47,44 @@ def compile_cpp() -> None:
     print(f"C++17 compile checks: {len(files)} files")
     for path in files:
         output = Path(tempfile.gettempdir()) / f"{path.stem}_check"
-        result = subprocess.run(
-            ["g++", "-std=c++17", "-O2", str(path), "-o", str(output)],
-            cwd=ROOT,
-            text=True,
-            capture_output=True,
-            check=False,
-        )
+        try:
+            result = subprocess.run(
+                ["g++", "-std=c++17", "-O2", str(path), "-o", str(output)],
+                cwd=ROOT,
+                text=True,
+                capture_output=True,
+                check=False,
+            )
+            if result.returncode != 0:
+                print(result.stdout)
+                print(result.stderr)
+                raise RuntimeError(f"C++ compile failed: {path}")
+        finally:
+            output.unlink(missing_ok=True)
+
+
+def iter_course_check_scripts() -> list[Path]:
+    return sorted(path for path in ROOT.glob("*/code/python/run_checks.py") if path.is_file())
+
+
+def run_course_checks() -> None:
+    scripts = iter_course_check_scripts()
+    print(f"Course smoke checks: {len(scripts)} scripts")
+    env = os.environ.copy()
+    env.setdefault("MPLBACKEND", "Agg")
+    env.setdefault("MPLCONFIGDIR", str(Path(tempfile.gettempdir()) / "mplconfig-or-course"))
+    env.setdefault("PYTHONPYCACHEPREFIX", str(Path(tempfile.gettempdir()) / "pycache-or-course"))
+    for script in scripts:
+        print(f"Running {script.relative_to(ROOT)}")
+        result = subprocess.run([sys.executable, str(script)], cwd=script.parent, env=env, check=False)
         if result.returncode != 0:
-            print(result.stdout)
-            print(result.stderr)
-            raise RuntimeError(f"C++ compile failed: {path}")
-
-
-def run_convex_course_checks() -> None:
-    script = ROOT / "10-凸优化与非线性优化" / "code" / "python" / "run_checks.py"
-    print(f"Running {script.relative_to(ROOT)}")
-    result = subprocess.run([sys.executable, str(script)], cwd=script.parent, check=False)
-    if result.returncode != 0:
-        raise RuntimeError("Convex optimization course checks failed")
+            raise RuntimeError(f"Course checks failed: {script.relative_to(ROOT)}")
 
 
 def main() -> None:
     compile_python()
     compile_cpp()
-    run_convex_course_checks()
+    run_course_checks()
     print("All smoke checks passed.")
 
 

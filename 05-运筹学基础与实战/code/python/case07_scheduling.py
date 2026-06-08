@@ -48,8 +48,7 @@ DEMAND = np.array([
 ], dtype=int)  # shape = (7, 3)
 
 # 护士偏好：每个护士偏好的班次（0=早, 1=中, 2=晚, -1=无所谓）
-np.random.seed(42)
-PREFERENCES = np.random.randint(-1, 3, size=(N_NURSES, N_DAYS))
+PREFERENCES = np.random.default_rng(42).integers(-1, 3, size=(N_NURSES, N_DAYS))
 
 # 软约束权重
 W_BALANCE = 0.3    # 班次均衡权重
