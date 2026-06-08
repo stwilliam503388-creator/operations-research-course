@@ -1,4 +1,4 @@
-"""案例 04：用小型约束二次规划演示均值-方差投资组合。"""
+"""Case 04: mean-variance portfolio as a small constrained QP."""
 
 
 # 教学注释：把梯度、凸性、约束和步长选择对应到优化迭代过程。

@@ -1,3 +1,4 @@
+<!-- 文件: low-complexity-algo-course/appendix-b-common-pitfalls.md -->
 
 # 附录B：TOP 5 必踩坑
 

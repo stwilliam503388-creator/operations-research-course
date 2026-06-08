@@ -3,12 +3,11 @@
 #   make          → 列出所有代码
 #   make python   → 运行官方 smoke checks
 #   make check    → 运行官方 smoke checks
-#   make test     → 运行官方 smoke checks
 #   make cpp      → 运行包含 C++ 编译的官方 smoke checks
 #   make list     → 列出所有可运行代码
 #   make clean    → 清理编译产物
 
-.PHONY: all python cpp check test list clean
+.PHONY: all python cpp check list clean
 
 PYTHON := python3
 
@@ -31,7 +30,6 @@ list:
 	@echo "用法:"
 	@echo "  make python  — 运行官方 smoke checks"
 	@echo "  make check   — 运行官方 smoke checks"
-	@echo "  make test    — 运行官方 smoke checks"
 	@echo "  make cpp     — 运行包含 C++ 编译的官方 smoke checks"
 	@echo "  make clean   — 清理缓存文件"
 
@@ -42,8 +40,6 @@ python:
 	$(PYTHON) run_checks.py
 
 check: python
-
-test: python
 
 cpp: python
 

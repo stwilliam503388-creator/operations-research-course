@@ -1,3 +1,4 @@
+<!-- 文件: low-complexity-algo-course/appendix-d-reading-list.md -->
 
 # 附录D：推荐阅读
 
