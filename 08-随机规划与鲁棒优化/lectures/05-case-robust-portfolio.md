@@ -2,6 +2,10 @@
 
 > 难度 ★★★☆☆ · 鲁棒优化 · 核心概念：不确定性集合、预算不确定性、最坏情况保护 · 代码：`code/python/case03_robust_portfolio.py`
 
+> 📌 **跨课线索 — 投资组合主题**：本案例在确定性版本（`05-运筹学基础与实战/lectures/05-case-finance.md`）基础上加入了收益率不确定性。后续还有：
+> - `09-多目标优化/lectures/03-case-portfolio-multi.md`：多目标版本（收益 vs 风险 Pareto 前沿）
+> - `10-凸优化与非线性优化/lectures/04-case-portfolio-qp.md`：QP 求解与 KKT 解析
+
 ---
 
 ## 寓言：怕风的船队

@@ -2,6 +2,10 @@
 
 > 难度 ★★☆☆☆ · 方法：随机规划/单阶段 · 核心概念：期望值模型、解析解 vs 仿真 · 代码：[code/python/case01_newsvendor.py](code/python/case01_newsvendor.py)
 
+> 📌 **跨课线索 — 报童与库存主题**：本案例是报童模型的随机规划版本。它与其他课程的联系：
+> - `01-概率论与数理统计/lectures/03-case-distributions.md`：需求分布的识别和拟合（前置基础）
+> - `07-库存与供应链管理/lectures/04-case-newsvendor.md`：经典报童模型的分位数求解
+
 ---
 
 ## 寓言：云影下的伞摊

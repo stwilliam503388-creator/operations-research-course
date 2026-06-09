@@ -2,6 +2,11 @@
 
 > 难度：★★★★☆ · 模型类型：设施选址 · 求解方法：教学版穷举 + 贪心分配 + 灵敏度分析 · 代码路径：`code/python/case07_network.py`
 
+> 📌 **跨课线索 — 供应链网络主题**：本案例在基础运输模型上加入了设施选址。它与其他课程的联系：
+> - `05-运筹学基础与实战/lectures/03-case-logistics.md`：基础运输问题和网络流（前置）
+> - `08-随机规划与鲁棒优化/lectures/06-case-supply-chain-stochastic.md`：加入需求不确定性
+> - `09-多目标优化/lectures/06-case-supply-chain-multi.md`：成本、服务、碳排放三目标
+
 ---
 
 ## 寓言：三座仓的影子
