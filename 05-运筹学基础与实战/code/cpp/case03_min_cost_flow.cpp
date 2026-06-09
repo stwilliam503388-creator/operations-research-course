@@ -26,9 +26,9 @@ public:
         graph_[to].push_back(backward);
     }
 
-    std::pair<int, int> solve(int source, int sink, int need) {
+    std::pair<int, long long> solve(int source, int sink, int need) {
         int flow = 0;
-        int cost = 0;
+        long long cost = 0;  // 用 long long 累加：若放大容量/单价，int 的 add*dist 易溢出（未定义行为）
         const int n = static_cast<int>(graph_.size());
         const int inf = std::numeric_limits<int>::max() / 4;
 
@@ -71,7 +71,7 @@ public:
                 graph_[v][e.rev].capacity += add;
             }
             flow += add;
-            cost += add * dist[sink];
+            cost += static_cast<long long>(add) * dist[sink];
         }
         return {flow, cost};
     }

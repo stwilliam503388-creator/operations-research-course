@@ -15,12 +15,15 @@
 import math
 import random
 import statistics
+import sys
+from pathlib import Path
 
 
-def normal_pdf(x, mu=0, sigma=1):
-    """正态分布概率密度函数"""
-    return (1.0 / (sigma * math.sqrt(2 * math.pi))) * \
-           math.exp(-0.5 * ((x - mu) / sigma) ** 2)
+ROOT = Path(__file__).resolve().parents[3]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from common.stats_utils import normal_pdf, normal_ppf
 
 
 def generate_uniform(n, lo=0, hi=1):
@@ -107,37 +110,6 @@ def clt_demo(dist_name, dist_generator, dist_params, pop_mean, pop_var,
         m3 = sum((x - mean_of_means) ** 3 for x in sample_means) / num_repeats
         skewness = m3 / (std_of_means ** 3) if std_of_means > 0 else 0
         print(f"    偏度: {skewness:.4f}  (正态≈0)")
-
-
-def normal_ppf(p, mu=0, sigma=1, tol=1e-10, max_iter=100):
-    """正态分布分位数函数（二分法）"""
-    if p <= 0:
-        return -float('inf')
-    if p >= 1:
-        return float('inf')
-    lo, hi = -10, 10
-    for _ in range(max_iter):
-        mid = (lo + hi) / 2
-        # normal_cdf 近似
-        z = (mid - mu) / sigma
-        a1 = 0.254829592
-        a2 = -0.284496736
-        a3 = 1.421413741
-        a4 = -1.453152027
-        a5 = 1.061405429
-        p_const = 0.3275911
-        sign = 1 if z >= 0 else -1
-        z_abs = abs(z) / math.sqrt(2)
-        t = 1.0 / (1.0 + p_const * z_abs)
-        y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * math.exp(-z_abs * z_abs)
-        cdf_mid = 0.5 * (1.0 + sign * y)
-        if abs(cdf_mid - p) < tol:
-            return mid
-        if cdf_mid < p:
-            lo = mid
-        else:
-            hi = mid
-    return (lo + hi) / 2
 
 
 def compute_qq_corr(sorted_data, mu, sigma, n):

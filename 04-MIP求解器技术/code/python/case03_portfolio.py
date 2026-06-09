@@ -609,9 +609,9 @@ if __name__ == "__main__":
         if result_main['is_lp_relaxation']:
             print(f"\n  ⚠️  以上 MIQP 优化结果为 LP 松弛，仅用于演示。")
             print(f"     实际 MIQP 结果需要 Gurobi 许可。")
-            print(f"     参见 05-case-portfolio.md 第10节获取许可指南。")
+            print(f"     参见 lectures/05-case-portfolio.md 第10节获取许可指南。")
 
     print(f"\n{'═'*60}")
     print(f"  完成。")
-    print(f"  更多解释见: 05-case-portfolio.md")
+    print(f"  更多解释见: lectures/05-case-portfolio.md")
     print(f"{'═'*60}\n")

@@ -18,77 +18,19 @@ case04_newsvendor.py — 报童模型与服务水平的决策
 
 import math
 import random
+import sys
+from pathlib import Path
 
 
 # ============================================================
 # 1. 正态分布工具函数（纯标准库实现）
 # ============================================================
 
-def normal_cdf(x: float, mu: float = 0.0, sigma: float = 1.0) -> float:
-    """
-    正态分布累积分布函数 (CDF)
-    使用 Abramowitz & Stegun 近似公式 26.2.17
+ROOT = Path(__file__).resolve().parents[3]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
-    返回 P(X <= x)
-    """
-    if sigma <= 0:
-        return 0.5 if x >= mu else 0.0 if x < mu else 0.5
-    x_std = (x - mu) / sigma
-    # 处理极值
-    if x_std < -8.0:
-        return 0.0
-    if x_std > 8.0:
-        return 1.0
-    # 近似计算
-    a1 = 0.254829592
-    a2 = -0.284496736
-    a3 = 1.421413741
-    a4 = -1.453152027
-    a5 = 1.061405429
-    p = 0.3275911
-
-    sign = 1.0 if x_std >= 0 else -1.0
-    x_abs = abs(x_std)
-    t = 1.0 / (1.0 + p * x_abs)
-    y = 1.0 - (((((a5 * t + a4) * t) + a3) * t + a2) * t + a1) * t * math.exp(-x_abs * x_abs / 2.0)
-    return 0.5 * (1.0 + sign * y)
-
-
-def normal_ppf(p: float, mu: float = 0.0, sigma: float = 1.0) -> float:
-    """
-    正态分布分位函数（逆 CDF）—— 使用牛顿法求解
-
-    返回 x 使得 P(X <= x) = p
-    """
-    if sigma <= 0:
-        return mu
-    if p <= 0.0:
-        return mu - 8 * sigma
-    if p >= 1.0:
-        return mu + 8 * sigma
-
-    # 初始近似
-    x = mu + sigma * (p - 0.5) * 2.5066
-
-    # 牛顿迭代
-    for _ in range(50):
-        cdf_val = normal_cdf(x, mu, sigma)
-        diff = cdf_val - p
-        if abs(diff) < 1e-12:
-            break
-        # 概率密度函数
-        pdf_val = math.exp(-0.5 * ((x - mu) / sigma) ** 2) / (sigma * math.sqrt(2 * math.pi))
-        if pdf_val < 1e-300:
-            break
-        x = x - diff / pdf_val
-    return x
-
-
-def normal_pdf(x: float, mu: float = 0.0, sigma: float = 1.0) -> float:
-    """正态分布概率密度函数"""
-    if sigma <= 0:
-        return 0.0
-    return math.exp(-0.5 * ((x - mu) / sigma) ** 2) / (sigma * math.sqrt(2 * math.pi))
+from common.stats_utils import normal_cdf, normal_pdf, normal_ppf
 
 
 # ============================================================

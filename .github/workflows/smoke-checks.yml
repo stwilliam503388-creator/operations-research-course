@@ -27,4 +27,4 @@ jobs:
         run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
 
       - name: Run smoke checks
-        run: python run_checks.py
+        run: make test

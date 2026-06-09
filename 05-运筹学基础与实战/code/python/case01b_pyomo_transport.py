@@ -19,14 +19,14 @@ import numpy as np
 # ============================================================
 # 1. 数据：与 case03_logistics.py 保持一致，方便对比
 # ============================================================
-np.random.seed(42)
 n_factories = 3
 n_warehouses = 10
 n_customers = 200
+_rng = np.random.default_rng(42)
 
 factory_supply = np.array([300, 400, 300])  # 总供给 = 1000
 warehouse_capacity = np.full(n_warehouses, 100)  # 每个仓库 100
-customer_demand = np.random.randint(3, 8, n_customers)
+customer_demand = _rng.integers(3, 8, n_customers)
 
 # 调整总需求 = 总供给的 92%
 total_supply = factory_supply.sum()
@@ -35,9 +35,8 @@ customer_demand = (customer_demand * demand_scale).astype(int)
 customer_demand[-1] += total_supply - customer_demand.sum()  # 对齐
 
 # 运费：工厂→仓库 → 仓库→客户
-np.random.seed(42)
-f2w_cost = np.random.uniform(20, 100, (n_factories, n_warehouses))
-w2c_cost = np.random.uniform(5, 30, (n_warehouses, n_customers))
+f2w_cost = _rng.uniform(20, 100, (n_factories, n_warehouses))
+w2c_cost = _rng.uniform(5, 30, (n_warehouses, n_customers))
 
 
 # ============================================================
