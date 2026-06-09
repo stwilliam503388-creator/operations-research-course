@@ -2,6 +2,11 @@
 
 > 难度 ★★★★☆ · 随机规划 / 两阶段（混合整数） · 核心概念：设施选址、场景下的网络流、随机解 vs 确定性解 · 代码：`code/python/case06_supply_chain_stochastic.py`
 
+> 📌 **跨课线索 — 供应链网络主题**：本案例在确定性网络模型上加入了需求不确定性。它与其他课程的联系：
+> - `05-运筹学基础与实战/lectures/03-case-logistics.md`：基础运输问题和网络流（前置）
+> - `07-库存与供应链管理/lectures/07-case-network.md`：确定性设施选址（前置）
+> - `09-多目标优化/lectures/06-case-supply-chain-multi.md`：成本、服务、碳排放三目标权衡
+
 ---
 
 ## 寓言：三条雨季粮路
